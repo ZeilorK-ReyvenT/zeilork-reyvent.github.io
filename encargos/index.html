@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Encargos de video e imagen con IA · ZeilorK ReyvenT</title>
+<meta name="description" content="Videos e imágenes con IA para promocionar productos en Costa Rica. Precios fijos en colones por duración y calidad, propuesta antes de generar y formulario de encargo en línea.">
+<meta name="theme-color" content="#0E1628">
+<link rel="canonical" href="https://zeilork-reyvent.github.io/encargos/">
+<meta property="og:site_name" content="ZeilorK ReyvenT">
+<meta property="og:title" content="Encargos de video e imagen con IA">
+<meta property="og:description" content="Precios fijos en colones y formulario de encargo para promocionar sus productos.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zeilork-reyvent.github.io/encargos/">
+<meta property="og:locale" content="es_LA">
+<meta property="og:image" content="https://zeilork-reyvent.github.io/encargos/vista-previa.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logo de ZeilorK ReyvenT con el texto: Encargos de video e imagen con IA, Costa Rica">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0E1628;--surface:#182238;--field:#0F1830;--line:rgba(255,255,255,.08);--line-2:rgba(255,255,255,.18);
+  --red:#E12D2F;--blue:#2F6BFF;--gold:#F2B84B;--text:#F3F5FA;--muted:#A3ABC2;
+  --font:'Zen Kaku Gothic New',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--cut:12px;--maxw:1180px;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);font-size:16px;line-height:1.65;overflow-x:hidden}
+h1,h2,h3{font-weight:700;line-height:1.15;margin:0}
+p{margin:0}
+a{color:inherit}
+[hidden]{display:none!important}
+.sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:16px;top:-60px;z-index:200;background:var(--gold);color:#1A1200;padding:10px 14px;font-weight:700;text-decoration:none;border-radius:6px}
+.skip:focus{top:12px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+/* barra superior */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:60;padding-top:env(safe-area-inset-top,0px);background:rgba(14,22,40,.88);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.topbar-in{max-width:var(--maxw);margin:0 auto;padding:0 20px;height:72px;display:flex;align-items:center;gap:22px}
+.brand-link{display:flex;align-items:center;min-height:44px;text-decoration:none}
+.brand-link:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.brand-c{height:28px;width:102px;display:block}
+.topbar-right{margin-left:auto;display:flex;align-items:center;gap:24px}
+.back{color:var(--muted);text-decoration:none;font-weight:700;font-size:15px;padding:10px 0;border-bottom:2px solid transparent}
+.back:hover,.back:focus-visible{color:var(--text);border-color:var(--red);outline:none}
+/* botones con el corte diagonal de las letras del logo */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 28px;font:inherit;font-weight:700;font-size:16px;line-height:1;text-decoration:none;color:#fff;background:var(--red);border:0;cursor:pointer;
+  clip-path:polygon(var(--cut) 0,100% 0,100% calc(100% - var(--cut)),calc(100% - var(--cut)) 100%,0 100%,0 var(--cut));transition:transform .25s,background .25s}
+.btn>span{position:relative;z-index:1}
+.btn:hover{background:#C9242C;transform:translateY(-2px)}
+.btn:focus-visible{outline:none;box-shadow:inset 0 0 0 3px var(--gold)}
+.btn[disabled]{opacity:.6;cursor:progress;transform:none}
+.btn-ghost{background:var(--blue);color:var(--text)}
+.btn-ghost::before{content:"";position:absolute;inset:2px;background:var(--bg);--cut:11px;clip-path:polygon(var(--cut) 0,100% 0,100% calc(100% - var(--cut)),calc(100% - var(--cut)) 100%,0 100%,0 var(--cut))}
+.btn-ghost:hover{background:#5A8AFF}
+.btn-ghost:hover::before{background:#131E3A}
+.btn-ghost:focus-visible{background:var(--gold);box-shadow:none}
+.btn-sm{padding:11px 18px;font-size:14px;--cut:9px}
+.btn-sm.btn-ghost::before{--cut:8px}
+/* secciones */
+main{display:block;padding-top:72px}
+main:focus{outline:none}
+.section{padding:70px 0}
+.divider{width:min(var(--maxw),calc(100% - 40px));margin:0 auto;height:2px;background:linear-gradient(90deg,var(--red),var(--blue) 55%,rgba(47,107,255,0));opacity:.55;transform:skewY(-.8deg)}
+.sec-head{max-width:760px;margin-bottom:34px}
+h2.sec{display:flex;align-items:center;gap:14px;font-size:clamp(28px,4vw,40px);font-weight:900;letter-spacing:-.01em;margin-bottom:12px}
+h2.sec::before{content:"";flex:none;width:12px;height:.78em;background:var(--red);clip-path:polygon(40% 0,100% 0,60% 100%,0 100%)}
+.eyebrow{color:var(--gold);font-size:12px;line-height:1.5;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
+.lead{color:var(--muted);font-size:17px;max-width:64ch}
+.intro{padding:64px 0 44px}
+.intro h1{font-size:clamp(30px,4.6vw,50px);font-weight:900;letter-spacing:-.01em;max-width:20ch;line-height:1.12}
+.intro .lead{margin-top:18px}
+.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(20px,3vw,30px)}
+.card h3{font-size:20px;margin-bottom:14px}
+.tbl-wrap{overflow-x:auto;border-radius:14px;border:1px solid var(--line)}
+table.precios{width:100%;border-collapse:collapse;font-size:16px}
+table.precios .hd{display:block;font-size:12px;font-weight:500;color:var(--muted)}
+table.precios thead th{background:#0A1020;text-align:left;padding:14px 18px;font-weight:700;border-bottom:2px solid var(--gold)}
+table.precios tbody th{text-align:left;font-weight:500;color:var(--muted);padding:12px 18px}
+table.precios td{padding:12px 18px;color:var(--gold);font-weight:900;font-size:18px}
+table.precios tbody tr:nth-child(even){background:rgba(255,255,255,.03)}
+table.precios tbody tr+tr{border-top:1px solid var(--line)}
+.note{color:var(--muted);font-size:14px;margin-top:12px;max-width:80ch}
+.two{display:grid;gap:22px;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:22px}
+ul.plist{list-style:none;margin:0;padding:0}
+ul.plist li{display:flex;justify-content:space-between;gap:18px;padding:12px 0;border-top:1px solid var(--line)}
+ul.plist li:first-child{border-top:0}
+ul.plist li span{color:var(--muted);font-size:15px}
+ul.plist li strong{color:var(--gold);white-space:nowrap;font-weight:900}
+.pdf-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+/* cómo trabajamos */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+.step{position:relative;padding-top:66px}
+.step:not(:last-child)::before{content:"";position:absolute;left:24px;top:23px;width:calc(100% + 28px);height:2px;background:var(--blue);opacity:.8}
+.step .n{position:absolute;top:0;left:0;width:48px;height:48px;display:grid;place-items:center;background:var(--red);color:#fff;font-weight:900;font-size:18px;--cut:9px;
+  clip-path:polygon(var(--cut) 0,100% 0,100% calc(100% - var(--cut)),calc(100% - var(--cut)) 100%,0 100%,0 var(--cut));z-index:1}
+.step h3{font-size:19px;line-height:1.3;margin-bottom:8px}
+.step p{color:var(--muted);font-size:15px}
+.pay{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px 28px;color:var(--muted)}
+.pay strong{color:var(--text)}
+/* formulario */
+form.encargo{display:grid;gap:22px}
+fieldset{border:1px solid var(--line);border-radius:16px;padding:20px clamp(16px,3vw,26px) 24px;margin:0;background:var(--surface);min-width:0}
+legend{font-weight:700;font-size:18px;padding:0 10px}
+legend::before{content:"";display:inline-block;width:4px;height:16px;background:var(--red);margin-right:10px;vertical-align:-2px}
+.field{display:grid;gap:6px;margin-top:16px}
+.field label,.qlabel{font-weight:700;font-size:15px}
+.hint{color:var(--muted);font-size:14px;line-height:1.5}
+input[type=text],input[type=tel],input[type=email],input[type=url],input[type=date],textarea{width:100%;font:inherit;font-size:16px;color:var(--text);background:var(--field);border:1px solid var(--line-2);border-radius:10px;padding:12px 14px;min-height:46px}
+textarea{resize:vertical}
+input:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:1px;border-color:transparent}
+.grid2{display:grid;gap:0 18px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid3{display:grid;gap:0 18px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.checks{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:10px}
+.chk{display:flex;align-items:center;gap:10px;min-height:44px;cursor:pointer;font-size:15px}
+.chk input{width:20px;height:20px;accent-color:var(--red);flex:none}
+.req{color:var(--red)}
+.q{margin-top:22px}
+.q:first-of-type{margin-top:6px}
+.submit-row{display:flex;flex-wrap:wrap;align-items:center;gap:16px}
+.status{font-weight:700}
+.status.ok{color:#7BE0A1}
+.status.err{color:#FF8A8A}
+.gotcha{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+.back-bottom{padding:0 0 56px}
+footer{border-top:1px solid var(--line);padding:26px 20px calc(26px + env(safe-area-inset-bottom,0px));text-align:center;color:var(--muted);font-size:14px;background:#0A1020}
+.short{display:none}
+@media (max-width:900px){.two{grid-template-columns:1fr}}
+@media (max-width:840px){.steps{grid-template-columns:1fr;gap:30px}.step{padding-top:0;padding-left:72px;min-height:48px}
+  .step:not(:last-child)::before{left:23px;top:24px;width:2px;height:calc(100% + 30px)}}
+@media (max-width:640px){.grid2,.grid3{grid-template-columns:1fr}ul.plist li{flex-direction:column;gap:4px}
+  .topbar .btn{display:none}.long{display:none}.short{display:inline}
+  table.precios thead th,table.precios tbody th,table.precios td{padding:10px 12px}table.precios td{font-size:16px}table.precios tbody th{font-size:14px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#contenido">Ir al contenido</a>
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand-link" href="../" aria-label="Volver al portafolio de ZeilorK ReyvenT"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 910 250" version="1.1" role="img" aria-labelledby="brand-t" class="brand-c">
+  <title id="brand-t">ZeilorK ReyvenT</title>
+  <defs><path id="glyph-Z" d="       M 20,0 L 130,0 L 109,21 L -1,21 Z       M 95,20 L 127,20 L 34,119 L 2,119 Z       M 29,118 L 127,118 L 107,139 L 9,139 Z"/>
+
+    <path id="glyph-K" d="       M 22,-1 L 22,126 L 0,143 L 0,13 Z       M 107,0 L 141,0 L 57,84 L 52,91 L 44,91 L 37,84 L 25,83 Z       M 72,82 L 139,139 L 100,139 L 44,91 L 60,91 Z"/>
+
+    <path id="glyph-R" d="       M 22,3 L 22,126 L 0,143 L 0,20 Z       M 19,3 L 78,3       C 102,3 119,20 119,46       C 119,69 110,87 80,88       L 47,88 L 31,71 L 74,71       C 88,71 98,61 98,46       C 98,32 89,22 74,22       L 22,22 L 22,3 Z       M 46,88 L 78,88 L 128,138 L 97,138 Z"/>
+
+    <path id="glyph-T" d="       M 19,1 L 119,1 L 100,21 L 0,21 Z       M 57,22 L 79,22 L 79,127 L 57,142 Z"/>
+  <g id="symbol-Enmeria-V2-U-geometry" fill="#E12D2F">
+    <path d="M 52,786 L 194,635              C 139,480 180,311 329,192              C 472,78 675,82 820,190              L 734,340              C 633,279 504,290 414,361              C 325,432 310,539 361,624              L 265,748 L 137,800 Z"/>
+    <path d="M 802,331 L 835,365              C 916,446 925,568 857,672              C 773,801 609,837 458,787              L 528,616              C 616,649 705,610 740,538              C 765,487 751,438 712,405              L 768,318 Z"/>
+    <path d="M 685,415              C 631,374 554,383 507,431              C 465,474 461,535 492,583              L 557,517              C 544,496 547,468 567,450              C 591,429 626,432 652,453              L 670,469 Z"/>
+    <path d="M 918,88 L 1082,47 L 1038,174              L 958,196 L 900,230 L 864,178 Z"/>
+  </g>
+</defs>
+  <g id="compact-integrated-canonical" transform="translate(41 69)">
+    <use id="component-symbol-U" transform="translate(298.5 -48) scale(0.24)" href="#symbol-Enmeria-V2-U-geometry" xlink:href="#symbol-Enmeria-V2-U-geometry"/>
+    <g id="component-letters-ZKRT" fill="#F7F8FA">
+      <use x="0" y="0" href="#glyph-Z" xlink:href="#glyph-Z"/>
+      <use x="158" y="0" href="#glyph-K" xlink:href="#glyph-K"/>
+      <use x="570" y="0" href="#glyph-R" xlink:href="#glyph-R"/>
+      <use x="708" y="0" href="#glyph-T" xlink:href="#glyph-T"/>
+    </g>
+  </g>
+</svg></a>
+    <div class="topbar-right">
+      <a class="back" href="../">← <span class="long">Volver al portafolio</span><span class="short">Portafolio</span></a>
+      <a class="btn btn-sm" href="#formulario"><span>Hacer un encargo</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="contenido" tabindex="-1">
+  <section class="intro">
+    <div class="wrap">
+      <p class="eyebrow">Encargos en Costa Rica · precios en colones</p>
+      <h1>Videos e imágenes con IA para promocionar su producto</h1>
+      <p class="lead">Precios fijos por duración y calidad. Antes de generar, usted aprueba una propuesta con imagen de referencia y lista de tomas. Entrega en 2 a 4 días desde la aprobación.</p>
+      <div class="actions">
+        <a class="btn" href="#formulario"><span>Llenar el formulario</span></a>
+        <a class="btn btn-ghost" href="#tarifas"><span>Ver tarifas</span></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"></div>
+
+  <section class="section" id="tarifas">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="sec">Tarifas</h2>
+        <p class="lead">Cada precio incluye la preparación —revisión del producto, fotos de referencia, plan de tomas y revisión del resultado— y un margen para corregir errores de la generación.</p>
+      </div>
+      <div class="card">
+        <h3>Videos de producto</h3>
+        <div class="tbl-wrap">
+          <table class="precios">
+            <caption class="sr">Precio de un video de producto según su duración y su calidad</caption>
+            <thead><tr><th scope="col">Duración</th><th scope="col">720p</th><th scope="col">1080p <span class="hd">alta definición</span></th></tr></thead>
+            <tbody>
+<tr><th scope="row">4 segundos</th><td>₡12.000</td><td>₡14.000</td></tr>
+<tr><th scope="row">6 segundos</th><td>₡13.000</td><td>₡16.000</td></tr>
+<tr><th scope="row">8 segundos</th><td>₡14.000</td><td>₡18.000</td></tr>
+<tr><th scope="row">10 segundos</th><td>₡15.000</td><td>₡20.000</td></tr>
+<tr><th scope="row">12 segundos</th><td>₡16.000</td><td>₡22.000</td></tr>
+<tr><th scope="row">15 segundos</th><td>₡17.500</td><td>₡25.000</td></tr>
+<tr><th scope="row">20 segundos</th><td>₡20.000</td><td>₡30.000</td></tr>
+<tr><th scope="row">25 segundos</th><td>₡22.500</td><td>₡35.000</td></tr>
+<tr><th scope="row">30 segundos</th><td>₡25.000</td><td>₡40.000</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">Cómo se calcula: ₡10.000 de preparación más ₡500 por segundo en 720p o ₡1.000 por segundo en 1080p. Videos de 4 a 30 segundos, en formato vertical, horizontal o cuadrado. El precio es el mismo cualquiera sea la herramienta con que se genere.</p>
+      </div>
+      <div class="two">
+        <div class="card">
+          <h3>Ajustes al precio del video</h3>
+          <ul class="plist">
+<li><span>Video simple: 1 a 3 tomas, fondo liso o el de la foto oficial, sin cambio de pose</span><strong>−₡4.000</strong></li>
+<li><span>Video complejo: varias figuras, personaje con acción o voz, o continuidad entre varios videos</span><strong>+₡5.000</strong></li>
+<li><span>Texto, precio o logo agregado en edición</span><strong>+₡2.000</strong></li>
+<li><span>Música con licencia comercial incluida por mí</span><strong>+₡2.000</strong></li>
+<li><span>Voz en off (hasta 30 s de locución)</span><strong>+₡3.000</strong></li>
+<li><span>Repetir una toma de hasta 4 s por un cambio pedido después de aprobar</span><strong>₡6.000</strong></li>
+            <li><span>Cambiar la idea del video después de aprobar la propuesta</span><strong>Precio de video nuevo</strong></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Personajes e imágenes</h3>
+          <ul class="plist">
+<li><span>Personaje para la marca, paquete base: 2 propuestas de diseño, personaje final con hoja de diseño (frente, tres cuartos, perfil y espalda), 4 expresiones, paleta de colores y 2 rondas de cambios</span><strong>₡45.000</strong></li>
+<li><span>Propuesta de diseño adicional</span><strong>₡8.000</strong></li>
+<li><span>Ronda de cambios adicional</span><strong>₡5.000</strong></li>
+<li><span>Arte promocional con el personaje ya creado (1 imagen, 1 ronda de cambios)</span><strong>₡6.000</strong></li>
+<li><span>Arte promocional sin personaje: producto o composición (1 imagen, 1 ronda de cambios)</span><strong>₡8.000</strong></li>
+<li><span>Paquete de 5 artes promocionales con el mismo estilo</span><strong>₡30.000</strong></li>
+          </ul>
+          <p class="note">Un personaje se crea primero como imagen; los videos con ese personaje se cotizan aparte, como video complejo.</p>
+        </div>
+      </div>
+      <div class="pdf-links">
+        <a class="btn btn-ghost btn-sm" href="Tarifas_videos_e_imagenes_IA.pdf" download><span>Descargar las tarifas en PDF</span></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"></div>
+
+  <section class="section" id="proceso">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="sec">Cómo trabajamos</h2></div>
+      <ol class="steps">
+        <li class="step"><span class="n">1</span><h3>Usted llena el formulario</h3><p>En esta página o en el PDF.</p></li>
+        <li class="step"><span class="n">2</span><h3>Le envío una propuesta</h3><p>Imagen de referencia, lista de tomas y precio.</p></li>
+        <li class="step"><span class="n">3</span><h3>Con su aprobación, genero</h3><p>El video o la imagen, según lo aprobado.</p></li>
+        <li class="step"><span class="n">4</span><h3>Entrega en 2 a 4 días</h3><p>Desde que aprueba la propuesta.</p></li>
+      </ol>
+      <div class="pay">
+        <p><strong>Pago:</strong> por SINPE Móvil, 50 % al aprobar la propuesta y 50 % al recibir el trabajo.</p>
+        <p>Precios vigentes del 2 de noviembre al 31 de diciembre de 2026.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"></div>
+
+  <section class="section" id="formulario">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="sec">Formulario de encargo</h2>
+        <p class="lead">Las preguntas que no apliquen a su encargo pueden quedar en blanco. Las fotos se envían aparte: por WhatsApp o con un enlace (pregunta 2).</p>
+        <div class="pdf-links">
+          <a class="btn btn-ghost btn-sm" href="Formulario_de_encargo.pdf" download><span>¿Prefiere un documento? Descargue el formulario en PDF</span></a>
+        </div>
+      </div>
+
+      <form class="encargo" id="form-encargo" action="TU_URL_DE_APPS_SCRIPT" method="POST" accept-charset="UTF-8">
+        <div class="gotcha" aria-hidden="true"><label>No llenar este campo<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+
+        <fieldset>
+          <legend>Datos de contacto</legend>
+          <div class="grid2">
+            <div class="field"><label for="f01">Nombre <span class="req" aria-hidden="true">*</span></label><input id="f01" name="Nombre" type="text" maxlength="500" required autocomplete="name"></div>
+            <div class="field"><label for="f02">Negocio o marca</label><input id="f02" name="Negocio o marca" type="text" maxlength="500" autocomplete="organization"></div>
+          </div>
+          <div class="grid3">
+            <div class="field"><label for="f03">Teléfono o WhatsApp <span class="req" aria-hidden="true">*</span></label><input id="f03" name="Teléfono o WhatsApp" type="tel" maxlength="500" required autocomplete="tel"></div>
+            <div class="field"><label for="f04">Correo electrónico</label><input id="f04" name="Correo electrónico" type="email" maxlength="500" autocomplete="email"></div>
+            <div class="field"><label for="f05">Fecha</label><input id="f05" name="Fecha" type="date" maxlength="500"></div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Tipo de encargo</legend>
+          <div class="checks" role="group" aria-label="Tipo de encargo">
+            <label class="chk"><input type="checkbox" name="Tipo de encargo" value="Video de producto"><span>Video de producto</span></label>
+            <label class="chk"><input type="checkbox" name="Tipo de encargo" value="Personaje para la marca"><span>Personaje para la marca</span></label>
+            <label class="chk"><input type="checkbox" name="Tipo de encargo" value="Imagen o arte promocional"><span>Imagen o arte promocional</span></label>
+          </div>
+          <div class="field"><label for="f06">Otro (describa)</label><input id="f06" name="Otro tipo de encargo" type="text" maxlength="500"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>El encargo</legend>
+          <div class="q"><div class="field"><label for="f07">1. ¿Qué figura o producto quiere promocionar?</label><span class="hint" id="f07h">Nombre completo, marca y tamaño, si lo sabe.</span><textarea id="f07" name="1. Producto" rows="3" maxlength="3000" aria-describedby="f07h"></textarea></div></div>
+          <div class="q">
+            <p class="qlabel">2. Fotos</p>
+            <p class="hint">Marque lo que me va a enviar por WhatsApp o en un enlace. Si tiene el producto en mano, tres fotos suyas con buena luz: de frente, de lado y de atrás.</p>
+            <div class="checks">
+              <label class="chk"><input type="checkbox" name="2. Fotos" value="Fotos oficiales"><span>Fotos oficiales del fabricante o de la tienda</span></label>
+              <label class="chk"><input type="checkbox" name="2. Fotos" value="Fotos propias (frente, lado y atrás)"><span>Fotos mías: frente, lado y atrás</span></label>
+              <label class="chk"><input type="checkbox" name="2. Fotos" value="Fotos de detalles"><span>Fotos de detalles: cara, accesorios, piezas</span></label>
+            </div>
+            <div class="field"><label for="f08">Enlace a las fotos (Google Drive, Dropbox u otro), si las comparte así</label><input id="f08" name="2. Enlace a las fotos" type="url" maxlength="500"></div>
+          </div>
+          <div class="q"><div class="field"><label for="f09">3. ¿Qué es lo que más quiere que se vea?</label><span class="hint" id="f09h">Por ejemplo: la cara, los accesorios, una pose, que se arma, el empaque.</span><textarea id="f09" name="3. Qué destacar" rows="3" maxlength="3000" aria-describedby="f09h"></textarea></div></div>
+          <div class="q">
+            <p class="qlabel">4. ¿Dónde lo va a publicar?</p>
+            <div class="checks">
+              <label class="chk"><input type="checkbox" name="4. Publicación" value="WhatsApp"><span>WhatsApp</span></label><label class="chk"><input type="checkbox" name="4. Publicación" value="Instagram"><span>Instagram</span></label><label class="chk"><input type="checkbox" name="4. Publicación" value="TikTok"><span>TikTok</span></label><label class="chk"><input type="checkbox" name="4. Publicación" value="Facebook"><span>Facebook</span></label>
+            </div>
+            <div class="field"><label for="f10">Otro lugar</label><input id="f10" name="4. Otro lugar" type="text" maxlength="500"></div>
+            <p class="qlabel" style="margin-top:14px">Formato</p>
+            <div class="checks">
+              <label class="chk"><input type="checkbox" name="4. Formato" value="Vertical (celular)"><span>Vertical (celular)</span></label><label class="chk"><input type="checkbox" name="4. Formato" value="Horizontal"><span>Horizontal</span></label><label class="chk"><input type="checkbox" name="4. Formato" value="Cuadrado"><span>Cuadrado</span></label>
+            </div>
+          </div>
+          <div class="q">
+            <p class="qlabel">5. Duración y calidad</p>
+            <p class="hint">Vea los precios en las tarifas.</p>
+            <div class="checks">
+              <label class="chk"><input type="checkbox" name="5. Duración" value="Corto: 4 a 8 s"><span>Corto: 4 a 8 segundos</span></label><label class="chk"><input type="checkbox" name="5. Duración" value="Medio: 10 a 15 s"><span>Medio: 10 a 15 segundos</span></label><label class="chk"><input type="checkbox" name="5. Duración" value="Largo: 20 a 30 s"><span>Largo: 20 a 30 segundos</span></label><label class="chk"><input type="checkbox" name="5. Duración" value="Que me recomiende"><span>Que usted me recomiende la duración</span></label>
+            </div>
+            <div class="checks">
+              <label class="chk"><input type="checkbox" name="5. Calidad" value="720p"><span>Calidad 720p</span></label><label class="chk"><input type="checkbox" name="5. Calidad" value="1080p"><span>Calidad 1080p (alta definición)</span></label><label class="chk"><input type="checkbox" name="5. Calidad" value="Que me recomiende"><span>Que usted me recomiende la calidad</span></label>
+            </div>
+          </div>
+          <div class="q"><div class="field"><label for="f11">6. ¿Dónde quiere que aparezca la figura?</label><span class="hint" id="f11h">Por ejemplo: fondo liso, mesa con plantas, estante de colección, exterior. Si tiene una foto del estilo que le gusta, envíemela.</span><textarea id="f11" name="6. Fondo y ambiente" rows="3" maxlength="3000" aria-describedby="f11h"></textarea></div></div>
+          <div class="q"><div class="field"><label for="f12">7. ¿La figura quieta y la cámara moviéndose, o quiere que haga algo?</label><span class="hint" id="f12h">Si quiere varias poses, dígame cuáles.</span><textarea id="f12" name="7. Pose y acción" rows="3" maxlength="3000" aria-describedby="f12h"></textarea></div></div>
+          <div class="q">
+            <p class="qlabel">8. ¿Lleva texto o logo?</p>
+            <p class="hint">Normalmente se agrega en edición, no lo genera la IA. Si lleva logo, envíemelo en buena calidad.</p>
+            <div class="checks">
+              <label class="chk"><input type="checkbox" name="8. Texto y logo" value="Precio"><span>Precio</span></label><label class="chk"><input type="checkbox" name="8. Texto y logo" value="Nombre del producto"><span>Nombre del producto</span></label><label class="chk"><input type="checkbox" name="8. Texto y logo" value="Logo de la tienda"><span>Logo de la tienda</span></label><label class="chk"><input type="checkbox" name="8. Texto y logo" value="Sin texto ni logo"><span>Sin texto ni logo</span></label>
+            </div>
+            <div class="field"><label for="f13">Texto exacto que debe aparecer</label><input id="f13" name="8. Texto exacto" type="text" maxlength="500"></div>
+          </div>
+          <div class="q">
+            <p class="qlabel">9. Música y voz</p>
+            <div class="checks">
+              <label class="chk"><input type="checkbox" name="9. Música" value="La pone el cliente"><span>La música la pongo yo</span></label><label class="chk"><input type="checkbox" name="9. Música" value="Incluida por usted"><span>Incluya usted la música</span></label><label class="chk"><input type="checkbox" name="9. Música" value="Sin música"><span>Sin música</span></label>
+            </div>
+            <div class="checks">
+              <label class="chk"><input type="checkbox" name="9. Voz en off" value="Sí"><span>Quiero voz en off</span></label><label class="chk"><input type="checkbox" name="9. Voz en off" value="No"><span>Sin voz en off</span></label>
+            </div>
+            <div class="field"><label for="f14">Si lleva voz en off: qué debe decir</label><input id="f14" name="9. Texto de la voz en off" type="text" maxlength="500"></div>
+          </div>
+          <div class="q"><div class="field"><label for="f15">10. ¿Qué NO quiere que aparezca?</label><span class="hint" id="f15h">Por ejemplo: humo, chispas, efectos, otros objetos, personas, texto.</span><textarea id="f15" name="10. Qué NO quiere" rows="3" maxlength="3000" aria-describedby="f15h"></textarea></div></div>
+          <div class="q"><div class="field"><label for="f16">11. ¿Para cuándo lo necesita? Un video tarda de 2 a 4 días desde que aprueba la propuesta.</label><input id="f16" name="11. Fecha de entrega deseada" type="text" maxlength="500"></div></div>
+          <div class="q">
+            <p class="qlabel">12. ¿Dónde se va a usar?</p>
+            <div class="checks">
+              <label class="chk"><input type="checkbox" name="12. Uso" value="Solo en mis redes"><span>Solo en mis redes</span></label><label class="chk"><input type="checkbox" name="12. Uso" value="También en anuncios pagados"><span>También en anuncios pagados</span></label><label class="chk"><input type="checkbox" name="12. Uso" value="Otro uso"><span>Otro uso (descríbalo abajo)</span></label>
+            </div>
+            <div class="field"><label for="f17">Otro uso</label><input id="f17" name="12. Otro uso" type="text" maxlength="500"></div>
+          </div>
+        </fieldset>
+
+        <fieldset class="cond" data-tipo="Personaje para la marca">
+          <legend>Solo si pidió un personaje para la marca</legend>
+          <div class="q"><div class="field"><label for="f18">13. ¿Qué representa el negocio y a quién le vende? ¿Qué personalidad debe tener el personaje?</label><span class="hint" id="f18h">Por ejemplo: serio, juguetón, elegante, nostálgico.</span><textarea id="f18" name="13. Negocio y personalidad" rows="3" maxlength="3000" aria-describedby="f18h"></textarea></div></div>
+          <div class="q"><div class="field"><label for="f19">14. ¿Humano, animal, criatura, robot u objeto? ¿Qué estilo: anime, caricatura, realista, chibi?</label><span class="hint" id="f19h">Los ejemplos de estilo sirven solo como referencia, no para copiar.</span><textarea id="f19" name="14. Tipo y estilo" rows="3" maxlength="3000" aria-describedby="f19h"></textarea></div></div>
+          <div class="q"><div class="field"><label for="f20">15. ¿Cuáles son los colores del negocio? Envíeme el logo y, si la tiene, su paleta.</label><input id="f20" name="15. Colores del negocio" type="text" maxlength="500"></div></div>
+          <div class="q"><div class="field"><label for="f21">16. ¿Dónde se va a usar el personaje? Por ejemplo: perfil, historias, videos, stickers, empaques.</label><input id="f21" name="16. Usos del personaje" type="text" maxlength="500"></div></div>
+          <div class="q">
+            <p class="qlabel">17. El paquete base incluye 2 propuestas de diseño y 2 rondas de cambios. ¿Quiere propuestas adicionales?</p>
+            <div class="checks">
+              <label class="chk"><input type="checkbox" name="17. Propuestas" value="Con el paquete base es suficiente"><span>Con el paquete base es suficiente</span></label><label class="chk"><input type="checkbox" name="17. Propuestas" value="Quiero propuestas adicionales"><span>Quiero propuestas adicionales</span></label>
+            </div>
+            <div class="field"><label for="f22">¿Cuántas adicionales?</label><input id="f22" name="17. Cuántas adicionales" type="text" maxlength="500"></div>
+          </div>
+          <div class="q"><div class="field"><label for="f23">18. ¿El personaje habla? Si habla, ¿cómo suena: edad aproximada, tono, acento?</label><input id="f23" name="18. Voz del personaje" type="text" maxlength="500"></div></div>
+        </fieldset>
+
+        <fieldset class="cond" data-tipo="Imagen o arte promocional">
+          <legend>Solo si pidió una imagen o arte promocional</legend>
+          <div class="q">
+            <p class="qlabel">19. Formato</p>
+            <div class="checks">
+              <label class="chk"><input type="checkbox" name="19. Formato de la imagen" value="Historia 9:16"><span>Historia 9:16</span></label><label class="chk"><input type="checkbox" name="19. Formato de la imagen" value="Publicación 1:1"><span>Publicación 1:1</span></label><label class="chk"><input type="checkbox" name="19. Formato de la imagen" value="Publicación 4:5"><span>Publicación 4:5</span></label><label class="chk"><input type="checkbox" name="19. Formato de la imagen" value="Portada 16:9"><span>Portada 16:9</span></label>
+            </div>
+            <div class="field"><label for="f24">Otro formato o uso impreso</label><input id="f24" name="19. Otro formato" type="text" maxlength="500"></div>
+          </div>
+          <div class="q"><div class="field"><label for="f25">20. ¿Cuántas imágenes y de qué?</label><span class="hint" id="f25h">Por ejemplo: una por producto, una composición con varios, variaciones de una misma.</span><textarea id="f25" name="20. Cantidad y contenido" rows="3" maxlength="3000" aria-describedby="f25h"></textarea></div></div>
+          <div class="q"><div class="field"><label for="f26">21. ¿Lleva texto? Escriba el texto exacto y dónde va.</label><textarea id="f26" name="21. Texto de la imagen" rows="3" maxlength="3000"></textarea></div></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Comentarios adicionales</legend>
+          <div class="field"><label for="f27">¿Algo más que deba saber?</label><textarea id="f27" name="Comentarios" rows="4" maxlength="3000"></textarea></div>
+        </fieldset>
+
+        <div class="submit-row">
+          <button class="btn" type="submit"><span>Enviar el encargo</span></button>
+          <p class="status" id="form-status" role="status" aria-live="polite"></p>
+        </div>
+        <p class="note">Con esta información le preparo una propuesta (imagen de referencia, lista de tomas y precio) para que la apruebe antes de generar. Nada se cobra hasta que apruebe la propuesta. Sus respuestas llegan a mi cuenta de Google y las uso solo para atender su encargo.</p>
+      </form>
+    </div>
+  </section>
+
+  <div class="wrap back-bottom"><a class="back" href="../">← Volver al portafolio</a></div>
+</main>
+
+<footer>© 2026 ZeilorK ReyvenT. Todo el contenido de este portafolio es original.</footer>
+
+<script>
+(function(){
+  var form = document.getElementById('form-encargo');
+  var status = document.getElementById('form-status');
+  var boton = form.querySelector('button[type="submit"]');
+  var tipos = form.querySelectorAll('input[name="Tipo de encargo"]');
+  var conds = form.querySelectorAll('fieldset.cond');
+  function sync(){
+    var marcados = Array.prototype.filter.call(tipos, function(t){ return t.checked; }).map(function(t){ return t.value; });
+    Array.prototype.forEach.call(conds, function(fs){ fs.hidden = marcados.indexOf(fs.getAttribute('data-tipo')) === -1; });
+  }
+  Array.prototype.forEach.call(tipos, function(t){ t.addEventListener('change', sync); });
+  sync();
+
+  function aviso(clase, texto){ status.className = 'status' + (clase ? ' ' + clase : ''); status.textContent = texto; }
+
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var destino = form.getAttribute('action');
+    if (destino.indexOf('TU_URL_DE_APPS_SCRIPT') !== -1) {
+      aviso('err', 'El envío en línea todavía no está activo. Descargue el formulario en PDF y envíemelo por WhatsApp.');
+      return;
+    }
+    var marcados = Array.prototype.some.call(tipos, function(t){ return t.checked; });
+    if (!marcados && !form.querySelector('[name="Otro tipo de encargo"]').value.trim()) {
+      aviso('err', 'Marque al menos un tipo de encargo.');
+      tipos[0].focus();
+      return;
+    }
+    // Une en una sola respuesta las casillas que comparten pregunta y omite lo que quedó en blanco.
+    var unido = {}, orden = [];
+    new FormData(form).forEach(function(valor, clave){
+      valor = String(valor).trim();
+      if (!valor) return;
+      if (Object.prototype.hasOwnProperty.call(unido, clave)) { unido[clave] += ', ' + valor; }
+      else { unido[clave] = valor; orden.push(clave); }
+    });
+    var cuerpo = new URLSearchParams();
+    orden.forEach(function(clave){ cuerpo.append(clave, unido[clave]); });
+    boton.disabled = true;
+    aviso('', 'Enviando…');
+    // Google responde desde otro dominio; con "no-cors" el envío llega igual, aunque la página no pueda leer la respuesta.
+    fetch(destino, { method: 'POST', mode: 'no-cors', body: cuerpo })
+      .then(function(){
+        form.reset(); sync();
+        aviso('ok', 'Recibido. Le escribo pronto con la propuesta.');
+      })
+      .catch(function(){
+        aviso('err', 'No se pudo enviar. Revise su conexión e intente de nuevo, o descargue el formulario en PDF.');
+      })
+      .then(function(){ boton.disabled = false; });
+  });
+})();
+</script>
+</body>
+</html>
