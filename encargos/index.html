@@ -3,20 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Encargos de video e imagen con IA · ZeilorK ReyvenT</title>
-<meta name="description" content="Videos e imágenes con IA para promocionar productos en Costa Rica. Precios fijos en colones por duración y calidad, propuesta antes de generar y formulario de encargo en línea.">
+<title>Videos e imágenes con IA · ZeilorK ReyvenT</title>
+<meta name="description" content="Videos e imágenes con IA para promocionar productos, diseñar y animar personajes, y visualizar sus ideas. Precios fijos, confirmación del encargo antes de generar y formulario en línea.">
 <meta name="theme-color" content="#0E1628">
 <link rel="canonical" href="https://zeilork-reyvent.github.io/encargos/">
 <meta property="og:site_name" content="ZeilorK ReyvenT">
-<meta property="og:title" content="Encargos de video e imagen con IA">
-<meta property="og:description" content="Precios fijos en colones y formulario de encargo para promocionar sus productos.">
+<meta property="og:title" content="Videos e imágenes con IA">
+<meta property="og:description" content="Para promocionar productos, diseñar y animar personajes, y visualizar sus ideas. Tarifas y formulario de encargo.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://zeilork-reyvent.github.io/encargos/">
 <meta property="og:locale" content="es_LA">
 <meta property="og:image" content="https://zeilork-reyvent.github.io/encargos/vista-previa.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Logo de ZeilorK ReyvenT con el texto: Encargos de video e imagen con IA, Costa Rica">
+<meta property="og:image:alt" content="Logo de ZeilorK ReyvenT con el texto: Videos e imágenes con IA">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,7 +49,8 @@ a{color:inherit}
 /* botones con el corte diagonal de las letras del logo */
 .btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 28px;font:inherit;font-weight:700;font-size:16px;line-height:1;text-decoration:none;color:#fff;background:var(--red);border:0;cursor:pointer;
   clip-path:polygon(var(--cut) 0,100% 0,100% calc(100% - var(--cut)),calc(100% - var(--cut)) 100%,0 100%,0 var(--cut));transition:transform .25s,background .25s}
-.btn>span{position:relative;z-index:1}
+.btn>span{position:relative;z-index:1;display:inline-flex;align-items:center;gap:10px}
+.btn .ico{width:20px;height:20px;flex:none}
 .btn:hover{background:#C9242C;transform:translateY(-2px)}
 .btn:focus-visible{outline:none;box-shadow:inset 0 0 0 3px var(--gold)}
 .btn[disabled]{opacity:.6;cursor:progress;transform:none}
@@ -60,6 +61,7 @@ a{color:inherit}
 .btn-ghost:focus-visible{background:var(--gold);box-shadow:none}
 .btn-sm{padding:11px 18px;font-size:14px;--cut:9px}
 .btn-sm.btn-ghost::before{--cut:8px}
+.btn-sm .ico{width:18px;height:18px}
 /* secciones */
 main{display:block;padding-top:72px}
 main:focus{outline:none}
@@ -71,26 +73,32 @@ h2.sec::before{content:"";flex:none;width:12px;height:.78em;background:var(--red
 .eyebrow{color:var(--gold);font-size:12px;line-height:1.5;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
 .lead{color:var(--muted);font-size:17px;max-width:64ch}
 .intro{padding:64px 0 44px}
-.intro h1{font-size:clamp(30px,4.6vw,50px);font-weight:900;letter-spacing:-.01em;max-width:20ch;line-height:1.12}
-.intro .lead{margin-top:18px}
+.intro h1{font-size:clamp(34px,5vw,56px);font-weight:900;letter-spacing:-.01em;max-width:26ch;line-height:1.1}
+.intro .sub-h{margin-top:16px;font-size:clamp(18px,2.2vw,22px);font-weight:500;max-width:40ch;line-height:1.45}
+.intro .lead{margin-top:14px}
 .actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(20px,3vw,30px)}
 .card h3{font-size:20px;margin-bottom:14px}
+.card .card-sub{color:var(--muted);font-size:14px;margin:-8px 0 8px}
 .tbl-wrap{overflow-x:auto;border-radius:14px;border:1px solid var(--line)}
 table.precios{width:100%;border-collapse:collapse;font-size:16px}
 table.precios .hd{display:block;font-size:12px;font-weight:500;color:var(--muted)}
 table.precios thead th{background:#0A1020;text-align:left;padding:14px 18px;font-weight:700;border-bottom:2px solid var(--gold)}
 table.precios tbody th{text-align:left;font-weight:500;color:var(--muted);padding:12px 18px}
 table.precios td{padding:12px 18px;color:var(--gold);font-weight:900;font-size:18px}
+table.precios td .usd{display:block;font-size:13px;font-weight:500;color:var(--muted)}
 table.precios tbody tr:nth-child(even){background:rgba(255,255,255,.03)}
 table.precios tbody tr+tr{border-top:1px solid var(--line)}
 .note{color:var(--muted);font-size:14px;margin-top:12px;max-width:80ch}
 .two{display:grid;gap:22px;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:22px}
+.mt{margin-top:22px}
 ul.plist{list-style:none;margin:0;padding:0}
 ul.plist li{display:flex;justify-content:space-between;gap:18px;padding:12px 0;border-top:1px solid var(--line)}
 ul.plist li:first-child{border-top:0}
 ul.plist li span{color:var(--muted);font-size:15px}
-ul.plist li strong{color:var(--gold);white-space:nowrap;font-weight:900}
+ul.plist li strong{color:var(--gold);white-space:nowrap;font-weight:900;text-align:right}
+ul.plist li strong.w{white-space:normal;max-width:46%;font-size:15px}
+ul.plist .usd{display:block;font-size:12px;font-weight:500;color:var(--muted)}
 .pdf-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
 /* cómo trabajamos */
 .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
@@ -100,8 +108,11 @@ ul.plist li strong{color:var(--gold);white-space:nowrap;font-weight:900}
   clip-path:polygon(var(--cut) 0,100% 0,100% calc(100% - var(--cut)),calc(100% - var(--cut)) 100%,0 100%,0 var(--cut));z-index:1}
 .step h3{font-size:19px;line-height:1.3;margin-bottom:8px}
 .step p{color:var(--muted);font-size:15px}
-.pay{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px 28px;color:var(--muted)}
+.garantia{margin-top:34px}
+.garantia p{color:var(--muted);max-width:80ch}
+.pay{margin-top:26px;display:grid;gap:8px;color:var(--muted)}
 .pay strong{color:var(--text)}
+.pay .vig{font-size:14px;margin-top:6px}
 /* formulario */
 form.encargo{display:grid;gap:22px}
 fieldset{border:1px solid var(--line);border-radius:16px;padding:20px clamp(16px,3vw,26px) 24px;margin:0;background:var(--surface);min-width:0}
@@ -110,7 +121,8 @@ legend::before{content:"";display:inline-block;width:4px;height:16px;background:
 .field{display:grid;gap:6px;margin-top:16px}
 .field label,.qlabel{font-weight:700;font-size:15px}
 .hint{color:var(--muted);font-size:14px;line-height:1.5}
-input[type=text],input[type=tel],input[type=email],input[type=url],input[type=date],textarea{width:100%;font:inherit;font-size:16px;color:var(--text);background:var(--field);border:1px solid var(--line-2);border-radius:10px;padding:12px 14px;min-height:46px}
+input[type=text],input[type=tel],input[type=email],input[type=url],input[type=date],input[type=number],textarea{width:100%;font:inherit;font-size:16px;color:var(--text);background:var(--field);border:1px solid var(--line-2);border-radius:10px;padding:12px 14px;min-height:46px}
+input[type=number]{max-width:220px}
 textarea{resize:vertical}
 input:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:1px;border-color:transparent}
 .grid2{display:grid;gap:0 18px;grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -121,11 +133,16 @@ input:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline
 .req{color:var(--red)}
 .q{margin-top:22px}
 .q:first-of-type{margin-top:6px}
+.sino{margin-top:12px;padding-left:14px;border-left:2px solid var(--line-2)}
+.sino .sub{font-weight:700;font-size:15px;margin-top:6px}
+.sino .checks{margin-top:2px}
+.sino .field{margin-top:4px}
 .submit-row{display:flex;flex-wrap:wrap;align-items:center;gap:16px}
 .status{font-weight:700}
 .status.ok{color:#7BE0A1}
 .status.err{color:#FF8A8A}
 .gotcha{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+.note a{color:var(--text)}
 .back-bottom{padding:0 0 56px}
 footer{border-top:1px solid var(--line);padding:26px 20px calc(26px + env(safe-area-inset-bottom,0px));text-align:center;color:var(--muted);font-size:14px;background:#0A1020}
 .short{display:none}
@@ -133,6 +150,7 @@ footer{border-top:1px solid var(--line);padding:26px 20px calc(26px + env(safe-a
 @media (max-width:840px){.steps{grid-template-columns:1fr;gap:30px}.step{padding-top:0;padding-left:72px;min-height:48px}
   .step:not(:last-child)::before{left:23px;top:24px;width:2px;height:calc(100% + 30px)}}
 @media (max-width:640px){.grid2,.grid3{grid-template-columns:1fr}ul.plist li{flex-direction:column;gap:4px}
+  ul.plist li strong{text-align:left}ul.plist li strong.w{max-width:none}
   .topbar .btn{display:none}.long{display:none}.short{display:inline}
   table.precios thead th,table.precios tbody th,table.precios td{padding:10px 12px}table.precios td{font-size:16px}table.precios tbody th{font-size:14px}}
 </style>
@@ -177,12 +195,14 @@ footer{border-top:1px solid var(--line);padding:26px 20px calc(26px + env(safe-a
 <main id="contenido" tabindex="-1">
   <section class="intro">
     <div class="wrap">
-      <p class="eyebrow">Encargos en Costa Rica · precios en colones</p>
-      <h1>Videos e imágenes con IA para promocionar su producto</h1>
-      <p class="lead">Precios fijos por duración y calidad. Antes de generar, usted aprueba una propuesta con imagen de referencia y lista de tomas. Entrega en 2 a 4 días desde la aprobación.</p>
+      <p class="eyebrow">Tarifas y formulario de encargo</p>
+      <h1>Videos e imágenes con&nbsp;IA</h1>
+      <p class="sub-h">Para promocionar productos, diseñar y animar personajes, y visualizar sus ideas.</p>
+      <p class="lead">Precios fijos según la duración y la calidad. Antes de generar le envío la confirmación del encargo, y no se cobra nada antes de eso.</p>
       <div class="actions">
         <a class="btn" href="#formulario"><span>Llenar el formulario</span></a>
         <a class="btn btn-ghost" href="#tarifas"><span>Ver tarifas</span></a>
+        <a class="btn btn-ghost" href="https://wa.me/50687464715" target="_blank" rel="noopener" aria-label="Escribirme por WhatsApp al +506 8746-4715 (se abre en otra pestaña)"><span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4.2 3.6c-.6.5-1.3.1-1.3-.6V16A2.5 2.5 0 0 1 4 13.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="8.5" cy="9.5" r="1.2" fill="currentColor"/><circle cx="12" cy="9.5" r="1.2" fill="currentColor"/><circle cx="15.5" cy="9.5" r="1.2" fill="currentColor"/></svg>WhatsApp +506 8746-4715</span></a>
       </div>
     </div>
   </section>
@@ -193,54 +213,64 @@ footer{border-top:1px solid var(--line);padding:26px 20px calc(26px + env(safe-a
     <div class="wrap">
       <div class="sec-head">
         <h2 class="sec">Tarifas</h2>
-        <p class="lead">Cada precio incluye la preparación —revisión del producto, fotos de referencia, plan de tomas y revisión del resultado— y un margen para corregir errores de la generación.</p>
+        <p class="lead">Precios fijos según la duración y la calidad. Cada precio incluye la preparación: revisión de la idea o del producto, de las imágenes de referencia y del resultado.</p>
       </div>
       <div class="card">
-        <h3>Videos de producto</h3>
+        <h3>Videos</h3>
         <div class="tbl-wrap">
           <table class="precios">
-            <caption class="sr">Precio de un video de producto según su duración y su calidad</caption>
+            <caption class="sr">Precio de un video según su duración y su calidad, en colones y en dólares</caption>
             <thead><tr><th scope="col">Duración</th><th scope="col">720p</th><th scope="col">1080p <span class="hd">alta definición</span></th></tr></thead>
             <tbody>
-<tr><th scope="row">4 segundos</th><td>₡12.000</td><td>₡14.000</td></tr>
-<tr><th scope="row">6 segundos</th><td>₡13.000</td><td>₡16.000</td></tr>
-<tr><th scope="row">8 segundos</th><td>₡14.000</td><td>₡18.000</td></tr>
-<tr><th scope="row">10 segundos</th><td>₡15.000</td><td>₡20.000</td></tr>
-<tr><th scope="row">12 segundos</th><td>₡16.000</td><td>₡22.000</td></tr>
-<tr><th scope="row">15 segundos</th><td>₡17.500</td><td>₡25.000</td></tr>
-<tr><th scope="row">20 segundos</th><td>₡20.000</td><td>₡30.000</td></tr>
-<tr><th scope="row">25 segundos</th><td>₡22.500</td><td>₡35.000</td></tr>
-<tr><th scope="row">30 segundos</th><td>₡25.000</td><td>₡40.000</td></tr>
+<tr><th scope="row">4 segundos</th><td>₡12.000<span class="usd">US$35</span></td><td>₡14.000<span class="usd">US$40</span></td></tr>
+<tr><th scope="row">6 segundos</th><td>₡13.000<span class="usd">US$35</span></td><td>₡16.000<span class="usd">US$45</span></td></tr>
+<tr><th scope="row">8 segundos</th><td>₡14.000<span class="usd">US$40</span></td><td>₡18.000<span class="usd">US$50</span></td></tr>
+<tr><th scope="row">10 segundos</th><td>₡15.000<span class="usd">US$40</span></td><td>₡20.000<span class="usd">US$55</span></td></tr>
+<tr><th scope="row">12 segundos</th><td>₡16.000<span class="usd">US$45</span></td><td>₡22.000<span class="usd">US$60</span></td></tr>
+<tr><th scope="row">15 segundos</th><td>₡17.500<span class="usd">US$50</span></td><td>₡25.000<span class="usd">US$70</span></td></tr>
+<tr><th scope="row">20 segundos</th><td>₡20.000<span class="usd">US$55</span></td><td>₡30.000<span class="usd">US$80</span></td></tr>
+<tr><th scope="row">25 segundos</th><td>₡22.500<span class="usd">US$60</span></td><td>₡35.000<span class="usd">US$95</span></td></tr>
+<tr><th scope="row">30 segundos</th><td>₡25.000<span class="usd">US$70</span></td><td>₡40.000<span class="usd">US$105</span></td></tr>
             </tbody>
           </table>
         </div>
-        <p class="note">Cómo se calcula: ₡10.000 de preparación más ₡500 por segundo en 720p o ₡1.000 por segundo en 1080p. Videos de 4 a 30 segundos, en formato vertical, horizontal o cuadrado. El precio es el mismo cualquiera sea la herramienta con que se genere.</p>
+        <p class="note">Cómo se calcula: ₡10.000 de preparación más ₡500 por segundo en 720p o ₡1.000 por segundo en 1080p. Videos de 4 a 30 segundos, en relación de aspecto 16:9, 9:16, 1:1, 4:3, 3:4 o 21:9. El precio es el mismo, independientemente de cuál sea la herramienta con la que se genere.</p>
+        <p class="note">Los precios en dólares son para clientes fuera de Costa Rica. Para duraciones que no están en la tabla y para los cambios, el precio en dólares va en la confirmación del encargo.</p>
       </div>
       <div class="two">
         <div class="card">
-          <h3>Ajustes al precio del video</h3>
+          <h3>Ajustes y cambios</h3>
           <ul class="plist">
-<li><span>Video simple: 1 a 3 tomas, fondo liso o el de la foto oficial, sin cambio de pose</span><strong>−₡4.000</strong></li>
-<li><span>Video complejo: varias figuras, personaje con acción o voz, o continuidad entre varios videos</span><strong>+₡5.000</strong></li>
-<li><span>Texto, precio o logo agregado en edición</span><strong>+₡2.000</strong></li>
-<li><span>Música con licencia comercial incluida por mí</span><strong>+₡2.000</strong></li>
-<li><span>Voz en off (hasta 30 s de locución)</span><strong>+₡3.000</strong></li>
-<li><span>Repetir una toma de hasta 4 s por un cambio pedido después de aprobar</span><strong>₡6.000</strong></li>
-            <li><span>Cambiar la idea del video después de aprobar la propuesta</span><strong>Precio de video nuevo</strong></li>
+<li><span>Cada producto, figura o personaje adicional que deba verse fiel a sus referencias (el primero ya está incluido)</span><strong>+₡5.000<small class="usd">+US$15</small></strong></li>
+<li><span>Texto o logo agregado en edición</span><strong>+₡2.000<small class="usd">+US$10</small></strong></li>
+<li><span>Continuación de un video ya entregado</span><strong class="w">Precio de video nuevo, según su duración y calidad</strong></li>
+<li><span>Cambio después de la entrega: genero de nuevo el video completo, con el anterior como referencia y el cambio que usted indique</span><strong class="w">Precio por segundo + ₡5.000</strong></li>
+<li><span>Cambiar la idea después de confirmar el encargo</span><strong class="w">Precio de video nuevo</strong></li>
           </ul>
+          <p class="note">Si prefiere que edite el video o la imagen ya entregados en vez de generarlos de nuevo, también es posible, al mismo precio. Cada edición puede bajar un poco la calidad visual: es un límite actual de las herramientas.</p>
         </div>
         <div class="card">
-          <h3>Personajes e imágenes</h3>
+          <h3>Audio</h3>
+          <p class="card-sub">Se genera aparte del video.</p>
           <ul class="plist">
-<li><span>Personaje para la marca, paquete base: 2 propuestas de diseño, personaje final con hoja de diseño (frente, tres cuartos, perfil y espalda), 4 expresiones, paleta de colores y 2 rondas de cambios</span><strong>₡45.000</strong></li>
-<li><span>Propuesta de diseño adicional</span><strong>₡8.000</strong></li>
-<li><span>Ronda de cambios adicional</span><strong>₡5.000</strong></li>
-<li><span>Arte promocional con el personaje ya creado (1 imagen, 1 ronda de cambios)</span><strong>₡6.000</strong></li>
-<li><span>Arte promocional sin personaje: producto o composición (1 imagen, 1 ronda de cambios)</span><strong>₡8.000</strong></li>
-<li><span>Paquete de 5 artes promocionales con el mismo estilo</span><strong>₡30.000</strong></li>
+<li><span>Música para el video, según su descripción (instrumental o con letra)</span><strong>₡6.000<small class="usd">US$20</small></strong></li>
+<li><span>Voz: narración o diálogo, por cada 300 caracteres de texto (unos 20 segundos)</span><strong>₡3.000<small class="usd">US$10</small></strong></li>
+<li><span>Crear la voz de un personaje (una sola vez)</span><strong>₡5.000<small class="usd">US$15</small></strong></li>
+<li><span>Efectos de sonido y ambiente, por video (hasta 5 efectos y 1 ambiente)</span><strong>₡4.000<small class="usd">US$15</small></strong></li>
           </ul>
-          <p class="note">Un personaje se crea primero como imagen; los videos con ese personaje se cotizan aparte, como video complejo.</p>
         </div>
+      </div>
+      <div class="card mt">
+        <h3>Personajes e imágenes</h3>
+        <ul class="plist">
+<li><span>Personaje, paquete base: 2 propuestas de diseño; ficha técnica con vistas de frente, lateral izquierdo, lateral derecho y posterior, primer plano del rostro y detalles; 4 expresiones; paleta de colores; 2 rondas de cambios; y corrección manual de los detalles que la IA no coloque bien</span><strong>₡45.000<small class="usd">US$120</small></strong></li>
+<li><span>Propuesta de diseño adicional</span><strong>₡8.000<small class="usd">US$25</small></strong></li>
+<li><span>Ronda de cambios adicional</span><strong>₡5.000<small class="usd">US$15</small></strong></li>
+<li><span>Imagen con un personaje ya creado (1 ronda de cambios)</span><strong>₡6.000<small class="usd">US$20</small></strong></li>
+<li><span>Imagen sin personaje: producto, composición o idea (1 ronda de cambios)</span><strong>₡8.000<small class="usd">US$25</small></strong></li>
+<li><span>Paquete de 5 imágenes con el mismo estilo</span><strong>₡30.000<small class="usd">US$80</small></strong></li>
+        </ul>
+        <p class="note">A un personaje se le confecciona primero su ficha técnica; los videos con ese personaje se cotizan con la tabla de videos.</p>
       </div>
       <div class="pdf-links">
         <a class="btn btn-ghost btn-sm" href="Tarifas_videos_e_imagenes_IA.pdf" download><span>Descargar las tarifas en PDF</span></a>
@@ -255,13 +285,19 @@ footer{border-top:1px solid var(--line);padding:26px 20px calc(26px + env(safe-a
       <div class="sec-head"><h2 class="sec">Cómo trabajamos</h2></div>
       <ol class="steps">
         <li class="step"><span class="n">1</span><h3>Usted llena el formulario</h3><p>En esta página o en el PDF.</p></li>
-        <li class="step"><span class="n">2</span><h3>Le envío una propuesta</h3><p>Imagen de referencia, lista de tomas y precio.</p></li>
-        <li class="step"><span class="n">3</span><h3>Con su aprobación, genero</h3><p>El video o la imagen, según lo aprobado.</p></li>
-        <li class="step"><span class="n">4</span><h3>Entrega en 2 a 4 días</h3><p>Desde que aprueba la propuesta.</p></li>
+        <li class="step"><span class="n">2</span><h3>Le envío la confirmación del encargo</h3><p>Lo que se va a hacer, lo que no es posible o puede no salir exacto, el precio y la fecha de entrega.</p></li>
+        <li class="step"><span class="n">3</span><h3>Con su confirmación y el primer pago, genero</h3><p>El video o la imagen, según lo confirmado.</p></li>
+        <li class="step"><span class="n">4</span><h3>Entrega</h3><p>Normalmente de 2 a 4 días desde la confirmación; el plazo exacto lo acordamos al confirmar, según la complejidad del encargo.</p></li>
       </ol>
+      <div class="card garantia">
+        <h3>Garantía</h3>
+        <p>Trabajo con herramientas de inteligencia artificial. Antes de confirmar el encargo reviso qué se puede lograr con ellas: si algún detalle no es posible o puede no salir exacto, se lo indico en la confirmación, antes de cobrar nada. Reviso cada resultado antes de entregarlo; si no corresponde a lo confirmado, por ejemplo porque entendí mal algo, hago un nuevo intento sin costo. Los cambios a lo confirmado se cotizan aparte.</p>
+      </div>
       <div class="pay">
-        <p><strong>Pago:</strong> por SINPE Móvil, 50 % al aprobar la propuesta y 50 % al recibir el trabajo.</p>
-        <p>Precios vigentes del 2 de noviembre al 31 de diciembre de 2026.</p>
+        <p><strong>Pago:</strong> 50 % al confirmar el encargo y 50 % al recibir el trabajo. El primer pago cubre la preparación y la generación.</p>
+        <p><strong>En Costa Rica:</strong> SINPE Móvil al 8746-4715.</p>
+        <p><strong>Desde otros países:</strong> en dólares, por PayPal.</p>
+        <p class="vig">Edición: noviembre de 2026. Los precios pueden revisarse si cambian las herramientas, sus costos o el tipo de cambio. El precio confirmado para un encargo no cambia.</p>
       </div>
     </div>
   </section>
@@ -272,9 +308,10 @@ footer{border-top:1px solid var(--line);padding:26px 20px calc(26px + env(safe-a
     <div class="wrap">
       <div class="sec-head">
         <h2 class="sec">Formulario de encargo</h2>
-        <p class="lead">Las preguntas que no apliquen a su encargo pueden quedar en blanco. Las fotos se envían aparte: por WhatsApp o con un enlace (pregunta 2).</p>
+        <p class="lead">Las preguntas que no apliquen a su encargo pueden quedar en blanco. Las imágenes de referencia se envían aparte, por WhatsApp al +506 8746-4715.</p>
         <div class="pdf-links">
           <a class="btn btn-ghost btn-sm" href="Formulario_de_encargo.pdf" download><span>¿Prefiere un documento? Descargue el formulario en PDF</span></a>
+          <a class="btn btn-ghost btn-sm" href="https://wa.me/50687464715" target="_blank" rel="noopener" aria-label="Escribirme por WhatsApp al +506 8746-4715 (se abre en otra pestaña)"><span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4.2 3.6c-.6.5-1.3.1-1.3-.6V16A2.5 2.5 0 0 1 4 13.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="8.5" cy="9.5" r="1.2" fill="currentColor"/><circle cx="12" cy="9.5" r="1.2" fill="currentColor"/><circle cx="15.5" cy="9.5" r="1.2" fill="currentColor"/></svg>WhatsApp +506 8746-4715</span></a>
         </div>
       </div>
 
@@ -285,7 +322,7 @@ footer{border-top:1px solid var(--line);padding:26px 20px calc(26px + env(safe-a
           <legend>Datos de contacto</legend>
           <div class="grid2">
             <div class="field"><label for="f01">Nombre <span class="req" aria-hidden="true">*</span></label><input id="f01" name="Nombre" type="text" maxlength="500" required autocomplete="name"></div>
-            <div class="field"><label for="f02">Negocio o marca</label><input id="f02" name="Negocio o marca" type="text" maxlength="500" autocomplete="organization"></div>
+            <div class="field"><label for="f02">Negocio o marca (si aplica)</label><input id="f02" name="Negocio o marca" type="text" maxlength="500" autocomplete="organization"></div>
           </div>
           <div class="grid3">
             <div class="field"><label for="f03">Teléfono o WhatsApp <span class="req" aria-hidden="true">*</span></label><input id="f03" name="Teléfono o WhatsApp" type="tel" maxlength="500" required autocomplete="tel"></div>
@@ -297,106 +334,80 @@ footer{border-top:1px solid var(--line);padding:26px 20px calc(26px + env(safe-a
         <fieldset>
           <legend>Tipo de encargo</legend>
           <div class="checks" role="group" aria-label="Tipo de encargo">
-            <label class="chk"><input type="checkbox" name="Tipo de encargo" value="Video de producto"><span>Video de producto</span></label>
-            <label class="chk"><input type="checkbox" name="Tipo de encargo" value="Personaje para la marca"><span>Personaje para la marca</span></label>
-            <label class="chk"><input type="checkbox" name="Tipo de encargo" value="Imagen o arte promocional"><span>Imagen o arte promocional</span></label>
+            <label class="chk"><input type="checkbox" name="Tipo de encargo" value="Video"><span>Video</span></label>
+            <label class="chk"><input type="checkbox" name="Tipo de encargo" value="Personaje (diseño y ficha técnica)"><span>Personaje (diseño y ficha técnica)</span></label>
+            <label class="chk"><input type="checkbox" name="Tipo de encargo" value="Imagen o arte"><span>Imagen o arte</span></label>
           </div>
-          <div class="field"><label for="f06">Otro (describa)</label><input id="f06" name="Otro tipo de encargo" type="text" maxlength="500"></div>
+          <div class="field"><label for="f06">Otra idea (descríbala)</label><input id="f06" name="Otra idea" type="text" maxlength="500"></div>
         </fieldset>
 
         <fieldset>
           <legend>El encargo</legend>
-          <div class="q"><div class="field"><label for="f07">1. ¿Qué figura o producto quiere promocionar?</label><span class="hint" id="f07h">Nombre completo, marca y tamaño, si lo sabe.</span><textarea id="f07" name="1. Producto" rows="3" maxlength="3000" aria-describedby="f07h"></textarea></div></div>
+          <div class="q"><div class="field"><label for="f07">1. ¿Qué producto o idea quiere mostrar?</label><span class="hint" id="f07h">Si es un producto: nombre completo, marca y tamaño, si los sabe. Si es una idea, descríbala.</span><textarea id="f07" name="1. Producto o idea" rows="3" maxlength="3000" aria-describedby="f07h"></textarea></div></div>
           <div class="q">
-            <p class="qlabel">2. Fotos</p>
-            <p class="hint">Marque lo que me va a enviar por WhatsApp o en un enlace. Si tiene el producto en mano, tres fotos suyas con buena luz: de frente, de lado y de atrás.</p>
+            <p class="qlabel">2. Imágenes de referencia</p>
+            <p class="hint">Marque lo que me enviará por WhatsApp. Si tiene el producto en mano, puede fotografiarlo con buena luz de frente, de lado y de atrás.</p>
             <div class="checks">
-              <label class="chk"><input type="checkbox" name="2. Fotos" value="Fotos oficiales"><span>Fotos oficiales del fabricante o de la tienda</span></label>
-              <label class="chk"><input type="checkbox" name="2. Fotos" value="Fotos propias (frente, lado y atrás)"><span>Fotos mías: frente, lado y atrás</span></label>
-              <label class="chk"><input type="checkbox" name="2. Fotos" value="Fotos de detalles"><span>Fotos de detalles: cara, accesorios, piezas</span></label>
+              <label class="chk"><input type="checkbox" name="2. Imágenes de referencia" value="Imágenes oficiales del fabricante o de la tienda"><span>Imágenes oficiales del fabricante o de la tienda</span></label>
+              <label class="chk"><input type="checkbox" name="2. Imágenes de referencia" value="Imágenes propias: de frente, de lado y de atrás"><span>Imágenes propias: de frente, de lado y de atrás</span></label>
+              <label class="chk"><input type="checkbox" name="2. Imágenes de referencia" value="Imágenes de detalles: rostro, accesorios, piezas"><span>Imágenes de detalles: rostro, accesorios, piezas</span></label>
+              <label class="chk"><input type="checkbox" name="2. Imágenes de referencia" value="No tengo imágenes: parto de una idea"><span>No tengo imágenes: parto de una idea</span></label>
             </div>
-            <div class="field"><label for="f08">Enlace a las fotos (Google Drive, Dropbox u otro), si las comparte así</label><input id="f08" name="2. Enlace a las fotos" type="url" maxlength="500"></div>
           </div>
-          <div class="q"><div class="field"><label for="f09">3. ¿Qué es lo que más quiere que se vea?</label><span class="hint" id="f09h">Por ejemplo: la cara, los accesorios, una pose, que se arma, el empaque.</span><textarea id="f09" name="3. Qué destacar" rows="3" maxlength="3000" aria-describedby="f09h"></textarea></div></div>
+          <div class="q"><div class="field"><label for="f08">3. ¿Qué detalles desea que se aprecien más?</label><span class="hint" id="f08h">Por ejemplo: el rostro, los accesorios, los colores, la caja del producto.</span><textarea id="f08" name="3. Detalles que destacar" rows="3" maxlength="3000" aria-describedby="f08h"></textarea></div></div>
           <div class="q">
-            <p class="qlabel">4. ¿Dónde lo va a publicar?</p>
+            <p class="qlabel">4. Formato (relación de aspecto)</p>
             <div class="checks">
-              <label class="chk"><input type="checkbox" name="4. Publicación" value="WhatsApp"><span>WhatsApp</span></label><label class="chk"><input type="checkbox" name="4. Publicación" value="Instagram"><span>Instagram</span></label><label class="chk"><input type="checkbox" name="4. Publicación" value="TikTok"><span>TikTok</span></label><label class="chk"><input type="checkbox" name="4. Publicación" value="Facebook"><span>Facebook</span></label>
-            </div>
-            <div class="field"><label for="f10">Otro lugar</label><input id="f10" name="4. Otro lugar" type="text" maxlength="500"></div>
-            <p class="qlabel" style="margin-top:14px">Formato</p>
-            <div class="checks">
-              <label class="chk"><input type="checkbox" name="4. Formato" value="Vertical (celular)"><span>Vertical (celular)</span></label><label class="chk"><input type="checkbox" name="4. Formato" value="Horizontal"><span>Horizontal</span></label><label class="chk"><input type="checkbox" name="4. Formato" value="Cuadrado"><span>Cuadrado</span></label>
+              <label class="chk"><input type="checkbox" name="4. Formato" value="Horizontal 16:9"><span>Horizontal 16:9</span></label><label class="chk"><input type="checkbox" name="4. Formato" value="Vertical 9:16"><span>Vertical 9:16</span></label><label class="chk"><input type="checkbox" name="4. Formato" value="Cuadrado 1:1"><span>Cuadrado 1:1</span></label><label class="chk"><input type="checkbox" name="4. Formato" value="Horizontal 4:3"><span>Horizontal 4:3</span></label><label class="chk"><input type="checkbox" name="4. Formato" value="Vertical 3:4"><span>Vertical 3:4</span></label><label class="chk"><input type="checkbox" name="4. Formato" value="Panorámico 21:9"><span>Panorámico 21:9</span></label>
             </div>
           </div>
           <div class="q">
             <p class="qlabel">5. Duración y calidad</p>
             <p class="hint">Vea los precios en las tarifas.</p>
+            <div class="field"><label for="f09">Duración en segundos (de 4 a 30)</label><input id="f09" name="5. Duración en segundos" type="number" maxlength="500" min="4" max="30" step="1" inputmode="numeric"></div>
             <div class="checks">
-              <label class="chk"><input type="checkbox" name="5. Duración" value="Corto: 4 a 8 s"><span>Corto: 4 a 8 segundos</span></label><label class="chk"><input type="checkbox" name="5. Duración" value="Medio: 10 a 15 s"><span>Medio: 10 a 15 segundos</span></label><label class="chk"><input type="checkbox" name="5. Duración" value="Largo: 20 a 30 s"><span>Largo: 20 a 30 segundos</span></label><label class="chk"><input type="checkbox" name="5. Duración" value="Que me recomiende"><span>Que usted me recomiende la duración</span></label>
-            </div>
-            <div class="checks">
-              <label class="chk"><input type="checkbox" name="5. Calidad" value="720p"><span>Calidad 720p</span></label><label class="chk"><input type="checkbox" name="5. Calidad" value="1080p"><span>Calidad 1080p (alta definición)</span></label><label class="chk"><input type="checkbox" name="5. Calidad" value="Que me recomiende"><span>Que usted me recomiende la calidad</span></label>
+              <label class="chk"><input type="checkbox" name="5. Calidad" value="720p"><span>Calidad 720p</span></label><label class="chk"><input type="checkbox" name="5. Calidad" value="1080p"><span>Calidad 1080p (alta definición)</span></label>
             </div>
           </div>
-          <div class="q"><div class="field"><label for="f11">6. ¿Dónde quiere que aparezca la figura?</label><span class="hint" id="f11h">Por ejemplo: fondo liso, mesa con plantas, estante de colección, exterior. Si tiene una foto del estilo que le gusta, envíemela.</span><textarea id="f11" name="6. Fondo y ambiente" rows="3" maxlength="3000" aria-describedby="f11h"></textarea></div></div>
-          <div class="q"><div class="field"><label for="f12">7. ¿La figura quieta y la cámara moviéndose, o quiere que haga algo?</label><span class="hint" id="f12h">Si quiere varias poses, dígame cuáles.</span><textarea id="f12" name="7. Pose y acción" rows="3" maxlength="3000" aria-describedby="f12h"></textarea></div></div>
+          <div class="q"><div class="field"><label for="f10">6. ¿Cuál es el escenario que desea para el video?</label><span class="hint" id="f10h">Por ejemplo: un fondo liso, una mesa, un estante o un exterior. Si tiene una imagen de referencia del escenario, envíemela por WhatsApp.</span><textarea id="f10" name="6. Escenario" rows="3" maxlength="3000" aria-describedby="f10h"></textarea></div></div>
+          <div class="q"><div class="field"><label for="f11">7. Si en el video aparece una figura, un objeto o un personaje, ¿debe quedarse quieto todo el tiempo o solo en una parte?</label><span class="hint" id="f11h">Si debe moverse, de principio a fin o en algunos momentos, indíqueme las posiciones y los movimientos que desea ver. Indique también si la cámara debe quedarse fija o moverse.</span><textarea id="f11" name="7. Movimiento y cámara" rows="4" maxlength="3000" aria-describedby="f11h"></textarea></div></div>
           <div class="q">
-            <p class="qlabel">8. ¿Lleva texto o logo?</p>
-            <p class="hint">Normalmente se agrega en edición, no lo genera la IA. Si lleva logo, envíemelo en buena calidad.</p>
-            <div class="checks">
-              <label class="chk"><input type="checkbox" name="8. Texto y logo" value="Precio"><span>Precio</span></label><label class="chk"><input type="checkbox" name="8. Texto y logo" value="Nombre del producto"><span>Nombre del producto</span></label><label class="chk"><input type="checkbox" name="8. Texto y logo" value="Logo de la tienda"><span>Logo de la tienda</span></label><label class="chk"><input type="checkbox" name="8. Texto y logo" value="Sin texto ni logo"><span>Sin texto ni logo</span></label>
-            </div>
-            <div class="field"><label for="f13">Texto exacto que debe aparecer</label><input id="f13" name="8. Texto exacto" type="text" maxlength="500"></div>
+            <p class="qlabel">8. ¿Debe llevar texto o un logo?</p>
+            <p class="hint">Si tiene una referencia, envíemela por WhatsApp. Si no la tiene pero tiene una idea, descríbamela: también puedo elaborar el logo o el texto como un adicional del encargo, con costo aparte.</p>
+            <div class="sino"><div class="checks" role="group" aria-label="8. Texto o logo"><label class="chk"><input type="checkbox" name="8. Texto o logo" value="Sí"><span>Sí</span></label><label class="chk"><input type="checkbox" name="8. Texto o logo" value="No"><span>No</span></label></div><div class="field"><label for="f12">Texto exacto o descripción</label><input id="f12" name="8. Texto exacto o descripción" type="text" maxlength="500"></div></div>
           </div>
           <div class="q">
-            <p class="qlabel">9. Música y voz</p>
-            <div class="checks">
-              <label class="chk"><input type="checkbox" name="9. Música" value="La pone el cliente"><span>La música la pongo yo</span></label><label class="chk"><input type="checkbox" name="9. Música" value="Incluida por usted"><span>Incluya usted la música</span></label><label class="chk"><input type="checkbox" name="9. Música" value="Sin música"><span>Sin música</span></label>
-            </div>
-            <div class="checks">
-              <label class="chk"><input type="checkbox" name="9. Voz en off" value="Sí"><span>Quiero voz en off</span></label><label class="chk"><input type="checkbox" name="9. Voz en off" value="No"><span>Sin voz en off</span></label>
-            </div>
-            <div class="field"><label for="f14">Si lleva voz en off: qué debe decir</label><input id="f14" name="9. Texto de la voz en off" type="text" maxlength="500"></div>
+            <p class="qlabel">9. Música, voces y efectos de sonido</p>
+            <p class="hint">Se generan aparte del video, con costo adicional (vea las tarifas).</p>
+            <div class="sino"><p class="sub">Música</p><div class="checks" role="group" aria-label="Música"><label class="chk"><input type="checkbox" name="9. Música" value="Sí"><span>Sí</span></label><label class="chk"><input type="checkbox" name="9. Música" value="No"><span>No</span></label></div><div class="field"><label for="f13">Descríbala: estilo, ritmo, instrumentos o letra</label><input id="f13" name="9. Descripción de la música" type="text" maxlength="500"></div></div>
+            <div class="sino"><p class="sub">Voces</p><div class="checks" role="group" aria-label="Voces"><label class="chk"><input type="checkbox" name="9. Voces" value="Sí"><span>Sí</span></label><label class="chk"><input type="checkbox" name="9. Voces" value="No"><span>No</span></label></div><div class="field"><label for="f14">Qué deben decir y cómo deben sonar</label><input id="f14" name="9. Qué dicen las voces y cómo suenan" type="text" maxlength="500"></div></div>
+            <div class="sino"><p class="sub">Efectos de sonido</p><div class="checks" role="group" aria-label="Efectos de sonido"><label class="chk"><input type="checkbox" name="9. Efectos de sonido" value="Sí"><span>Sí</span></label><label class="chk"><input type="checkbox" name="9. Efectos de sonido" value="No"><span>No</span></label></div><div class="field"><label for="f15">Cuáles</label><input id="f15" name="9. Cuáles efectos" type="text" maxlength="500"></div></div>
           </div>
-          <div class="q"><div class="field"><label for="f15">10. ¿Qué NO quiere que aparezca?</label><span class="hint" id="f15h">Por ejemplo: humo, chispas, efectos, otros objetos, personas, texto.</span><textarea id="f15" name="10. Qué NO quiere" rows="3" maxlength="3000" aria-describedby="f15h"></textarea></div></div>
-          <div class="q"><div class="field"><label for="f16">11. ¿Para cuándo lo necesita? Un video tarda de 2 a 4 días desde que aprueba la propuesta.</label><input id="f16" name="11. Fecha de entrega deseada" type="text" maxlength="500"></div></div>
-          <div class="q">
-            <p class="qlabel">12. ¿Dónde se va a usar?</p>
-            <div class="checks">
-              <label class="chk"><input type="checkbox" name="12. Uso" value="Solo en mis redes"><span>Solo en mis redes</span></label><label class="chk"><input type="checkbox" name="12. Uso" value="También en anuncios pagados"><span>También en anuncios pagados</span></label><label class="chk"><input type="checkbox" name="12. Uso" value="Otro uso"><span>Otro uso (descríbalo abajo)</span></label>
-            </div>
-            <div class="field"><label for="f17">Otro uso</label><input id="f17" name="12. Otro uso" type="text" maxlength="500"></div>
-          </div>
+          <div class="q"><div class="field"><label for="f16">10. ¿Qué NO quiere que aparezca?</label><span class="hint" id="f16h">Por ejemplo: humo, chispas, efectos, otros objetos, personas, texto, entre otros.</span><textarea id="f16" name="10. Qué NO quiere" rows="3" maxlength="3000" aria-describedby="f16h"></textarea></div></div>
+          <div class="q"><div class="field"><label for="f17">11. ¿Para cuándo lo necesita?</label><span class="hint" id="f17h">El plazo habitual es de 2 a 4 días desde la confirmación; depende de la complejidad del encargo y de la planificación necesaria para que el resultado salga lo más cuidado posible. Lo acordamos al confirmar.</span><input id="f17" name="11. Fecha de entrega deseada" type="text" maxlength="500" aria-describedby="f17h"></div></div>
+          <div class="q"><div class="field"><label for="f18">12. Para adaptar mejor el resultado, cuénteme brevemente su objetivo, el público al que va dirigido o el propósito del video (opcional).</label><textarea id="f18" name="12. Objetivo, público o propósito" rows="3" maxlength="3000"></textarea></div></div>
         </fieldset>
 
-        <fieldset class="cond" data-tipo="Personaje para la marca">
-          <legend>Solo si pidió un personaje para la marca</legend>
-          <div class="q"><div class="field"><label for="f18">13. ¿Qué representa el negocio y a quién le vende? ¿Qué personalidad debe tener el personaje?</label><span class="hint" id="f18h">Por ejemplo: serio, juguetón, elegante, nostálgico.</span><textarea id="f18" name="13. Negocio y personalidad" rows="3" maxlength="3000" aria-describedby="f18h"></textarea></div></div>
-          <div class="q"><div class="field"><label for="f19">14. ¿Humano, animal, criatura, robot u objeto? ¿Qué estilo: anime, caricatura, realista, chibi?</label><span class="hint" id="f19h">Los ejemplos de estilo sirven solo como referencia, no para copiar.</span><textarea id="f19" name="14. Tipo y estilo" rows="3" maxlength="3000" aria-describedby="f19h"></textarea></div></div>
-          <div class="q"><div class="field"><label for="f20">15. ¿Cuáles son los colores del negocio? Envíeme el logo y, si la tiene, su paleta.</label><input id="f20" name="15. Colores del negocio" type="text" maxlength="500"></div></div>
-          <div class="q"><div class="field"><label for="f21">16. ¿Dónde se va a usar el personaje? Por ejemplo: perfil, historias, videos, stickers, empaques.</label><input id="f21" name="16. Usos del personaje" type="text" maxlength="500"></div></div>
-          <div class="q">
-            <p class="qlabel">17. El paquete base incluye 2 propuestas de diseño y 2 rondas de cambios. ¿Quiere propuestas adicionales?</p>
-            <div class="checks">
-              <label class="chk"><input type="checkbox" name="17. Propuestas" value="Con el paquete base es suficiente"><span>Con el paquete base es suficiente</span></label><label class="chk"><input type="checkbox" name="17. Propuestas" value="Quiero propuestas adicionales"><span>Quiero propuestas adicionales</span></label>
-            </div>
-            <div class="field"><label for="f22">¿Cuántas adicionales?</label><input id="f22" name="17. Cuántas adicionales" type="text" maxlength="500"></div>
-          </div>
-          <div class="q"><div class="field"><label for="f23">18. ¿El personaje habla? Si habla, ¿cómo suena: edad aproximada, tono, acento?</label><input id="f23" name="18. Voz del personaje" type="text" maxlength="500"></div></div>
+        <fieldset class="cond" data-tipo="Personaje (diseño y ficha técnica)">
+          <legend>Solo si pidió un personaje</legend>
+          <div class="q"><div class="field"><label for="f19">13. ¿Para qué proyecto o negocio es el personaje, a quién va dirigido y qué personalidad debe tener?</label><textarea id="f19" name="13. Proyecto, público y personalidad" rows="3" maxlength="3000"></textarea></div></div>
+          <div class="q"><div class="field"><label for="f20">14. ¿Humano, animal, criatura, robot u objeto? ¿Qué estilo: anime, caricatura, realista, chibi?</label><textarea id="f20" name="14. Tipo y estilo" rows="3" maxlength="3000"></textarea></div></div>
+          <div class="q"><div class="field"><label for="f21">15. Si tiene una paleta de colores definida o una idea de combinación de colores, compártamela.</label><input id="f21" name="15. Paleta de colores" type="text" maxlength="500"></div></div>
+          <div class="q"><div class="field"><label for="f22">16. ¿En qué tipo de contenido aparecerá el personaje?</label><span class="hint" id="f22h">Por ejemplo: videos, imágenes, stickers, foto de perfil. Me sirve para planificar las vistas y los detalles de la ficha técnica.</span><textarea id="f22" name="16. Contenido donde aparecerá" rows="2" maxlength="3000" aria-describedby="f22h"></textarea></div></div>
+          <div class="q"><div class="field"><label for="f23">17. ¿El personaje habla? Si habla, ¿cómo suena: edad aproximada, tono, acento?</label><input id="f23" name="17. Voz del personaje" type="text" maxlength="500"></div></div>
         </fieldset>
 
-        <fieldset class="cond" data-tipo="Imagen o arte promocional">
-          <legend>Solo si pidió una imagen o arte promocional</legend>
+        <fieldset class="cond" data-tipo="Imagen o arte">
+          <legend>Solo si pidió una imagen o arte</legend>
           <div class="q">
-            <p class="qlabel">19. Formato</p>
+            <p class="qlabel">18. Formato (relación de aspecto)</p>
             <div class="checks">
-              <label class="chk"><input type="checkbox" name="19. Formato de la imagen" value="Historia 9:16"><span>Historia 9:16</span></label><label class="chk"><input type="checkbox" name="19. Formato de la imagen" value="Publicación 1:1"><span>Publicación 1:1</span></label><label class="chk"><input type="checkbox" name="19. Formato de la imagen" value="Publicación 4:5"><span>Publicación 4:5</span></label><label class="chk"><input type="checkbox" name="19. Formato de la imagen" value="Portada 16:9"><span>Portada 16:9</span></label>
+              <label class="chk"><input type="checkbox" name="18. Formato de la imagen" value="Cuadrada 1:1"><span>Cuadrada 1:1</span></label><label class="chk"><input type="checkbox" name="18. Formato de la imagen" value="Vertical 4:5"><span>Vertical 4:5</span></label><label class="chk"><input type="checkbox" name="18. Formato de la imagen" value="Vertical 9:16"><span>Vertical 9:16</span></label><label class="chk"><input type="checkbox" name="18. Formato de la imagen" value="Horizontal 16:9"><span>Horizontal 16:9</span></label>
             </div>
-            <div class="field"><label for="f24">Otro formato o uso impreso</label><input id="f24" name="19. Otro formato" type="text" maxlength="500"></div>
+            <div class="field"><label for="f24">Otra proporción</label><span class="hint" id="f24h">Si la herramienta no genera esa proporción, se lo indicaré antes de confirmar el encargo.</span><input id="f24" name="18. Otra proporción" type="text" maxlength="500" aria-describedby="f24h"></div>
           </div>
-          <div class="q"><div class="field"><label for="f25">20. ¿Cuántas imágenes y de qué?</label><span class="hint" id="f25h">Por ejemplo: una por producto, una composición con varios, variaciones de una misma.</span><textarea id="f25" name="20. Cantidad y contenido" rows="3" maxlength="3000" aria-describedby="f25h"></textarea></div></div>
-          <div class="q"><div class="field"><label for="f26">21. ¿Lleva texto? Escriba el texto exacto y dónde va.</label><textarea id="f26" name="21. Texto de la imagen" rows="3" maxlength="3000"></textarea></div></div>
+          <div class="q"><div class="field"><label for="f25">19. ¿Cuántas imágenes desea y sobre qué debe ser cada una?</label><span class="hint" id="f25h">Por ejemplo: una imagen de cada producto; una sola imagen con varios productos juntos; tres variaciones de la misma escena con distinto fondo.</span><textarea id="f25" name="19. Cantidad y contenido" rows="3" maxlength="3000" aria-describedby="f25h"></textarea></div></div>
+          <div class="q"><div class="field"><label for="f26">20. ¿La imagen o las imágenes llevan texto?</label><span class="hint" id="f26h">Si es así, describa lo que desea ver escrito y su posición dentro de la imagen.</span><textarea id="f26" name="20. Texto de la imagen" rows="3" maxlength="3000" aria-describedby="f26h"></textarea></div></div>
         </fieldset>
 
         <fieldset>
@@ -408,7 +419,8 @@ footer{border-top:1px solid var(--line);padding:26px 20px calc(26px + env(safe-a
           <button class="btn" type="submit"><span>Enviar el encargo</span></button>
           <p class="status" id="form-status" role="status" aria-live="polite"></p>
         </div>
-        <p class="note">Con esta información le preparo una propuesta (imagen de referencia, lista de tomas y precio) para que la apruebe antes de generar. Nada se cobra hasta que apruebe la propuesta. Sus respuestas llegan a mi cuenta de Google y las uso solo para atender su encargo.</p>
+        <p class="note">Sus respuestas llegan a mi cuenta de Google y las uso solo para atender su encargo. Nada se cobra antes de la confirmación del encargo.</p>
+        <p class="note">Medios oficiales de contacto: WhatsApp (preferiblemente) al <a href="https://wa.me/50687464715" target="_blank" rel="noopener">+506 8746-4715</a>, o correo electrónico: si prefiere que le escriba por correo, anótelo en los datos de contacto.</p>
       </form>
     </div>
   </section>
@@ -438,12 +450,12 @@ footer{border-top:1px solid var(--line);padding:26px 20px calc(26px + env(safe-a
     ev.preventDefault();
     var destino = form.getAttribute('action');
     if (destino.indexOf('TU_URL_DE_APPS_SCRIPT') !== -1) {
-      aviso('err', 'El envío en línea todavía no está activo. Descargue el formulario en PDF y envíemelo por WhatsApp.');
+      aviso('err', 'El envío en línea todavía no está activo. Descargue el formulario en PDF y envíemelo por WhatsApp al +506 8746-4715.');
       return;
     }
     var marcados = Array.prototype.some.call(tipos, function(t){ return t.checked; });
-    if (!marcados && !form.querySelector('[name="Otro tipo de encargo"]').value.trim()) {
-      aviso('err', 'Marque al menos un tipo de encargo.');
+    if (!marcados && !form.querySelector('[name="Otra idea"]').value.trim()) {
+      aviso('err', 'Marque al menos un tipo de encargo o describa su idea.');
       tipos[0].focus();
       return;
     }
@@ -463,7 +475,7 @@ footer{border-top:1px solid var(--line);padding:26px 20px calc(26px + env(safe-a
     fetch(destino, { method: 'POST', mode: 'no-cors', body: cuerpo })
       .then(function(){
         form.reset(); sync();
-        aviso('ok', 'Recibido. Le escribo pronto con la propuesta.');
+        aviso('ok', 'Recibido. Le escribo pronto con la confirmación del encargo.');
       })
       .catch(function(){
         aviso('err', 'No se pudo enviar. Revise su conexión e intente de nuevo, o descargue el formulario en PDF.');
