@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Videos e imágenes con IA · ZeilorK ReyvenT</title>
-<meta name="description" content="Videos e imágenes con IA para promocionar productos, diseñar y animar personajes, y visualizar sus ideas. Trabajos para clientes, precios fijos y formulario de encargo.">
+<meta name="description" content="Videos e imágenes con IA para promocionar productos, diseñar y animar personajes, y visualizar sus ideas. Precios fijos y formulario de encargo.">
 <meta name="theme-color" content="#0E1628">
 <link rel="canonical" href="https://zeilork-reyvent.github.io/encargos/">
 <meta property="og:site_name" content="ZeilorK ReyvenT">
@@ -25,7 +25,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#0E1628;--surface:#182238;--surface-2:#1F2B48;--field:#0F1830;--line:rgba(255,255,255,.08);--line-2:rgba(255,255,255,.18);
-  --red:#E12D2F;--blue:#2F6BFF;--gold:#F2B84B;--text:#F3F5FA;--muted:#A3ABC2;
+  --red:#E12D2F;--blue:#2F6BFF;--gold:#F2B84B;--text:#F3F5FA;--muted:#A3ABC2;--error:#FF8A8A;
   --font:'Zen Kaku Gothic New',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--cut:12px;--maxw:1180px;--ease:cubic-bezier(.2,.7,.2,1);color-scheme:dark}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-padding-top:84px;-webkit-text-size-adjust:100%}
@@ -88,7 +88,7 @@ h2.sec::before{content:"";flex:none;width:12px;height:.78em;background:var(--red
 table.precios{width:100%;border-collapse:collapse;font-size:16px}
 table.precios .hd{display:block;font-size:12px;font-weight:500;color:var(--muted)}
 table.precios thead th{background:#0A1020;text-align:left;padding:14px 18px;font-weight:700;border-bottom:2px solid var(--gold)}
-table.precios tbody th{text-align:left;font-weight:500;color:var(--muted);padding:12px 18px}
+table.precios tbody th{text-align:left;font-weight:500;color:var(--muted);padding:12px 18px;white-space:nowrap}
 table.precios td{padding:12px 18px;color:var(--gold);font-weight:900;font-size:18px}
 table.precios td .usd{display:block;font-size:13px;font-weight:500;color:var(--muted)}
 table.precios tbody tr:nth-child(even){background:rgba(255,255,255,.03)}
@@ -103,8 +103,11 @@ ul.plist li span{color:var(--muted);font-size:15px}
 ul.plist li strong{color:var(--gold);white-space:nowrap;font-weight:900;text-align:right}
 ul.plist li strong.w{white-space:normal;max-width:46%;font-size:15px}
 ul.plist .usd{display:block;font-size:12px;font-weight:500;color:var(--muted)}
-.pdf-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
-/* cómo trabajamos */
+.pdf-links{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:18px}
+/* cómo trabajamos, dentro de tarifas */
+.sub-sec{margin-top:56px}
+h3.sub{display:flex;align-items:center;gap:12px;font-size:clamp(22px,3vw,28px);font-weight:900;margin-bottom:28px}
+h3.sub::before{content:"";flex:none;width:9px;height:.78em;background:var(--blue);clip-path:polygon(40% 0,100% 0,60% 100%,0 100%)}
 .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
 .step{position:relative;padding-top:66px}
 .step:not(:last-child)::before{content:"";position:absolute;left:24px;top:23px;width:calc(100% + 28px);height:2px;background:var(--blue);opacity:.8}
@@ -126,101 +129,52 @@ legend+*{clear:both}
 .field{display:grid;gap:6px;margin-top:16px}
 .field label,.qlabel{font-weight:700;font-size:15px}
 .hint{color:var(--muted);font-size:14px;line-height:1.5}
-input[type=text],input[type=tel],input[type=email],input[type=url],input[type=date],input[type=number],textarea{width:100%;font:inherit;font-size:16px;color:var(--text);background:var(--field);border:1px solid var(--line-2);border-radius:10px;padding:12px 14px;min-height:46px}
-input[type=number]{max-width:220px}
+input[type=text],input[type=tel],input[type=email],textarea,select{width:100%;font:inherit;font-size:16px;color:var(--text);background:var(--field);border:1px solid var(--line-2);border-radius:10px;padding:12px 14px;min-height:46px}
+select{max-width:280px;cursor:pointer}
 textarea{resize:vertical}
-input:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:1px;border-color:transparent}
-.grid2{display:grid;gap:0 18px;grid-template-columns:repeat(2,minmax(0,1fr))}
-.grid3{display:grid;gap:0 18px;grid-template-columns:repeat(3,minmax(0,1fr));align-items:end}
+input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--gold);outline-offset:1px;border-color:transparent}
+input[aria-invalid=true],textarea[aria-invalid=true],select[aria-invalid=true]{border-color:var(--error)}
+.field.off{opacity:.45}
+input:disabled,textarea:disabled{cursor:not-allowed}
+.grid2{display:grid;gap:0 18px;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
 .checks{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:10px}
 .chk{display:flex;align-items:center;gap:10px;min-height:44px;cursor:pointer;font-size:15px}
-.chk input{width:20px;height:20px;accent-color:var(--red);flex:none}
+.chk input{width:20px;height:20px;accent-color:var(--red);flex:none;margin:0}
+.chk:has(input:disabled){cursor:not-allowed;opacity:.45}
 .req{color:var(--red)}
 .q{margin-top:22px}
-legend+.q,legend+.field{margin-top:6px}
-.sino{margin-top:12px;padding-left:14px;border-left:2px solid var(--line-2)}
-.sino .sub{font-weight:700;font-size:15px;margin-top:6px}
-.sino .checks{margin-top:2px}
-.sino .field{margin-top:4px}
+legend+.q,legend+.field,legend+.grid2>.field:first-child{margin-top:6px}
+.det{margin-top:4px;padding-left:14px;border-left:2px solid var(--line-2)}
+.det .field{margin-top:8px}
+.cnt{justify-self:end;color:var(--muted);font-size:13px}
+.cnt.tope{color:var(--gold)}
+.err{color:var(--error);font-size:14px;font-weight:700;line-height:1.45;margin-top:6px}
+.field .err{margin-top:0}
+.resumen{border:1px solid rgba(255,138,138,.45);background:rgba(255,138,138,.08);border-radius:14px;padding:16px 20px}
+.resumen p{font-weight:700;color:var(--error)}
+.resumen ul{margin:8px 0 0;padding-left:20px;display:grid;gap:4px}
+.resumen a{color:var(--text)}
 .submit-row{display:flex;flex-wrap:wrap;align-items:center;gap:16px}
 .status{font-weight:700;max-width:70ch}
 .status.ok{color:#7BE0A1}
-.status.err{color:#FF8A8A}
+.status.err{color:var(--error)}
 .envio{margin-top:18px;padding:22px clamp(18px,3vw,26px);border:1px solid rgba(123,224,161,.35);border-radius:16px;background:rgba(123,224,161,.06);display:grid;gap:14px;justify-items:start}
 .envio p{color:var(--text);font-size:15px}
-.envio .note{margin-top:0}
-.gotcha{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
 .note a{color:var(--text)}
-.back-bottom{padding:0 0 56px}
+.back-bottom{padding-bottom:56px}
 footer{border-top:1px solid var(--line);padding:26px 20px calc(26px + env(safe-area-inset-bottom,0px));text-align:center;color:var(--muted);font-size:14px;background:#0A1020;position:relative;z-index:1}
 .short{display:none}
 @media (max-width:900px){.two{grid-template-columns:1fr}}
 @media (max-width:840px){.steps{grid-template-columns:1fr;gap:30px}.step{padding-top:0;padding-left:72px;min-height:48px}
   .step:not(:last-child)::before{left:23px;top:24px;width:2px;height:calc(100% + 30px)}}
-@media (max-width:640px){.grid2,.grid3{grid-template-columns:1fr}ul.plist li{flex-direction:column;gap:4px}
+@media (max-width:640px){.grid2{grid-template-columns:1fr}ul.plist li{flex-direction:column;gap:4px}
   ul.plist li strong{text-align:left}ul.plist li strong.w{max-width:none}
   .topbar .btn{display:none}.long{display:none}.short{display:inline}
   table.precios thead th,table.precios tbody th,table.precios td{padding:10px 12px}table.precios td{font-size:16px}table.precios tbody th{font-size:14px}}
-/* Trabajos para clientes */
-.casos{display:grid;gap:22px}
-.caso{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(18px,3vw,36px);align-items:center;padding:clamp(18px,2.6vw,26px);background:var(--surface);border:1px solid var(--line);border-radius:18px}
-.caso-text h3{font-size:22px;line-height:1.25;margin:0 0 10px}
-.caso-text p{color:var(--muted);font-size:15px}
-.caso-text .eyebrow{margin-bottom:8px}
-.caso-meta{font-size:13px;margin-top:12px;opacity:.85}
-.caso .vwrap-v{aspect-ratio:9/16;max-width:300px;margin:0 auto}
-.caso .thumb img{aspect-ratio:auto;object-fit:cover}
-.mosaico{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
-.mosaico .m-1{grid-column:1/-1}
-.mosaico .m-1 .thumb img{aspect-ratio:16/9}
-.mosaico .fig:not(.m-1) .thumb img{aspect-ratio:1}
-.par{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.par .thumb img{aspect-ratio:1}
-.par .cap{flex-direction:column;align-items:flex-start;gap:0;margin-top:8px}
-@media (max-width:820px){.caso{grid-template-columns:1fr}.caso .vwrap-v{max-width:340px}}
-@media (max-width:420px){.par{grid-template-columns:1fr}}
-body.lb-open{overflow:hidden}
-.fig{margin:0}
-.thumb{display:block;width:100%;padding:0;border:1px solid var(--line);background:#fff;border-radius:14px;overflow:hidden;cursor:zoom-in;transition:transform .4s var(--ease),border-color .3s,box-shadow .4s var(--ease)}
-.thumb img{width:100%;height:auto;aspect-ratio:1672/941;object-fit:cover;transition:transform .6s var(--ease)}
-.thumb:hover{transform:translateY(-4px);border-color:var(--line-2);box-shadow:0 22px 44px -20px rgba(0,0,0,.75),0 0 0 1px rgba(47,107,255,.35)}
-.thumb:hover img{transform:scale(1.025)}
-.thumb:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
-.cap{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-top:12px;font-size:15px}
-.cap b{font-weight:700;font-size:16px}
-.cap span{color:var(--muted);font-size:14px;flex:none}
-.vwrap{position:relative;border-radius:14px;overflow:hidden;background:#000;aspect-ratio:16/9;border:1px solid var(--line)}
-.vwrap video{width:100%;height:100%;display:block;object-fit:cover;background:#000}
-.vplay{display:none;position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;cursor:pointer;place-items:center;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.35) 100%);transition:background .3s}
-.vplay:hover{background:linear-gradient(180deg,rgba(0,0,0,.05) 40%,rgba(0,0,0,.45) 100%)}
-.vplay span{width:78px;height:78px;border-radius:50%;background:var(--red);display:grid;place-items:center;box-shadow:0 12px 34px rgba(225,45,47,.45);transition:transform .25s var(--ease)}
-.vplay:hover span{transform:scale(1.08)}
-.vplay svg{width:30px;height:30px;fill:#fff;margin-left:5px}
-.vplay:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
-.vwrap.playing .vplay{display:none}
-.lb{position:fixed;inset:0;z-index:100;background:rgba(5,8,16,.9);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:calc(72px + env(safe-area-inset-top,0px)) 16px calc(76px + env(safe-area-inset-bottom,0px));opacity:0;transition:opacity .3s ease}
-.lb.open{opacity:1}
-.lb[hidden]{display:none}
-.lb figure{margin:0;width:100%;max-width:1400px;display:flex;flex-direction:column;align-items:center;gap:14px}
-.lb img{max-width:100%;max-height:calc(100vh - 200px);max-height:calc(100svh - 200px);width:auto;height:auto;border-radius:10px;background:#fff;box-shadow:0 30px 90px -20px rgba(0,0,0,.85);transform-origin:top left;transition:opacity .25s ease}
-.lb figcaption{display:flex;gap:16px;align-items:baseline;color:var(--text);font-size:15px;font-weight:500;text-align:center;flex-wrap:wrap;justify-content:center}
-.lb figcaption span:last-child{color:var(--muted);font-weight:400}
-.lb-btn{position:absolute;width:48px;height:48px;border:1px solid var(--line-2);background:rgba(24,34,56,.9);color:#fff;border-radius:50%;display:grid;place-items:center;cursor:pointer;padding:0;transition:background .2s,transform .2s var(--ease)}
-.lb-btn[hidden]{display:none}
-.lb-btn svg{width:22px;height:22px}
-.lb-btn:hover{background:var(--surface-2);transform:scale(1.06)}
-.lb-btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
-.lb-close{top:calc(16px + env(safe-area-inset-top,0px));right:16px}
-.lb-prev,.lb-next{top:50%;margin-top:-24px}
-.lb-prev{left:16px}.lb-next{right:16px}
-.cap{flex-wrap:wrap;row-gap:3px}
-.media-status{color:#ffd28a;font-size:14px;line-height:1.55;margin:10px 0}
-.lb-original{position:absolute;top:calc(18px + env(safe-area-inset-top,0px));left:16px;min-height:44px;display:flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--line-2);background:#182238;border-radius:8px;color:#f3f5fa;text-decoration:none;font-size:14px;font-weight:700;max-width:calc(100vw - 94px)}
-.lb figure{padding:0 54px}
-.lb .media-status{text-align:center}
-.js .vplay{display:grid}
-.js .vwrap.playing .vplay{display:none}
-@media (max-width:760px){.lb{padding:calc(64px + env(safe-area-inset-top,0px)) 10px calc(84px + env(safe-area-inset-bottom,0px))}.lb-prev,.lb-next{top:auto;margin-top:0;bottom:calc(16px + env(safe-area-inset-bottom,0px))}.lb img{max-height:calc(100vh - 190px);max-height:calc(100svh - 190px)}}
+@media (max-width:420px){table.precios thead th,table.precios tbody th,table.precios td{padding:9px 8px}table.precios td{font-size:15px}table.precios tbody th{font-size:13px}
+  .actions .btn{flex:1 1 100%}}
+@media (max-width:360px){.wrap{padding:0 16px}.card{padding:16px}table.precios tbody th{white-space:normal}
+  table.precios thead th,table.precios tbody th,table.precios td{padding:8px 6px}}
 </style>
 </head>
 <body>
@@ -267,65 +221,11 @@ body.lb-open{overflow:hidden}
       <p class="eyebrow">Tarifas y formulario de encargo</p>
       <h1>Videos e imágenes con&nbsp;IA</h1>
       <p class="sub-h">Para promocionar productos, diseñar y animar personajes, y visualizar sus ideas.</p>
-      <p class="lead">Precios fijos según la duración y la calidad. Antes de generar le envío la confirmación del encargo, y no se cobra nada antes de eso.</p>
+      <p class="lead">Precios fijos según la duración y la calidad. Antes de realizar el primer cobro, le envío la confirmación del encargo.</p>
       <div class="actions">
-        <a class="btn" href="#formulario"><span>Llenar el formulario</span></a>
         <a class="btn btn-ghost" href="#tarifas"><span>Ver tarifas</span></a>
+        <a class="btn" href="#formulario"><span>Llenar el formulario</span></a>
         <a class="btn btn-ghost" href="https://wa.me/50687464715" target="_blank" rel="noopener" aria-label="Escribirme por WhatsApp al +506 8746-4715 (se abre en otra pestaña)"><span><img class="ico" src="whatsapp.svg" alt="" width="20" height="20" loading="lazy">WhatsApp +506 8746-4715</span></a>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider" aria-hidden="true"></div>
-
-  <section class="section" id="clientes">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2 class="sec">Trabajos para clientes</h2>
-        <p class="lead">Algunos encargos que he realizado, publicados con permiso de cada cliente.</p>
-      </div>
-      <div class="casos">
-        <article class="caso card" style="--i:0">
-          <div class="caso-media">
-            <div class="vwrap vwrap-v"><video controls preload="none" poster="../img/cover_blade.webp" playsinline aria-label="Figura coleccionable de un león robot azul que se mueve sobre una tabla de madera al aire libre"><source src="../media/blade-liger.mp4" type="video/mp4"></video><button class="vplay" type="button" aria-label="Reproducir: video de la figura para Kitsune Shoppu"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></button></div>
-          </div>
-          <div class="caso-text">
-            <p class="eyebrow">Video con IA</p>
-            <h3>Kitsune Shoppu</h3>
-            <p>Tienda de figuras de colección: video con IA a partir de las fotos del producto.</p>
-            <p class="caso-meta">15 segundos · vertical · 1080p</p>
-          </div>
-        </article>
-        <article class="caso card" style="--i:1">
-          <div class="caso-media">
-            <div class="mosaico">
-<figure class="fig m-1"><a class="thumb" data-gallery="ropa" href="../img/clientes_camiseta_full.webp" aria-label="Ver ampliada: Camiseta: frente y espalda"><img src="../img/clientes_camiseta_thumb.webp" width="900" height="506" alt="Camiseta deportiva negra con franjas verde neón, vista de frente y de espalda; en la espalda, un carro blanco y el texto Racing Team" loading="lazy" decoding="async"></a><figcaption class="cap sr"><b>Camiseta: frente y espalda</b></figcaption></figure>
-<figure class="fig"><a class="thumb" data-gallery="ropa" href="../img/clientes_gorra_full.webp" aria-label="Ver ampliada: Gorra"><img src="../img/clientes_gorra_thumb.webp" width="700" height="700" alt="Gorra negra con vivos verde neón, en cuatro vistas: de frente, de ambos lados y de atrás" loading="lazy" decoding="async"></a><figcaption class="cap sr"><b>Gorra</b></figcaption></figure>
-<figure class="fig"><a class="thumb" data-gallery="ropa" href="../img/clientes_foto-carro_full.webp" aria-label="Ver ampliada: Foto del carro, con la calidad mejorada"><img src="../img/clientes_foto-carro_thumb.webp" width="700" height="700" alt="Carro compacto blanco estacionado frente a un taller, fotografía con la calidad mejorada" loading="lazy" decoding="async"></a><figcaption class="cap sr"><b>Foto del carro, con la calidad mejorada</b></figcaption></figure>
-<figure class="fig"><a class="thumb" data-gallery="ropa" href="../img/clientes_diseno-frente_full.webp" aria-label="Ver ampliada: Diseño del frente"><img src="../img/clientes_diseno-frente_thumb.webp" width="700" height="700" alt="Diseño plano del frente de la camiseta: fondo negro con franjas y puntos verde neón" loading="lazy" decoding="async"></a><figcaption class="cap sr"><b>Diseño del frente</b></figcaption></figure>
-<figure class="fig"><a class="thumb" data-gallery="ropa" href="../img/clientes_diseno-espalda_full.webp" aria-label="Ver ampliada: Diseño de la espalda"><img src="../img/clientes_diseno-espalda_thumb.webp" width="700" height="700" alt="Diseño plano de la espalda de la camiseta: el carro blanco al centro y el texto Racing Team" loading="lazy" decoding="async"></a><figcaption class="cap sr"><b>Diseño de la espalda</b></figcaption></figure>
-            </div>
-          </div>
-          <div class="caso-text">
-            <p class="eyebrow">Diseño de ropa</p>
-            <h3>Equipo de carreras</h3>
-            <p>Camiseta (frente y espalda) y gorra, y cómo se ven en las prendas. Incluye la foto del carro que aportó la clienta, con la calidad mejorada.</p>
-            <p class="caso-meta">Los logos, la placa y los símbolos se difuminaron para esta muestra.</p>
-          </div>
-        </article>
-        <article class="caso card" style="--i:2">
-          <div class="caso-media">
-            <div class="par">
-<figure class="fig"><a class="thumb" data-gallery="logo" href="../img/clientes_logo_antes_full.webp" aria-label="Ver ampliada: Antes: foto del diseño estampado"><img src="../img/clientes_logo_antes_thumb.webp" width="423" height="445" alt="Foto de un logo circular estampado en tela: un cerebro mitad blanco y mitad azul con el texto No compitas contra la IA, aprende a trabajar con ella" loading="lazy" decoding="async"></a><figcaption class="cap"><b>Antes</b><span>Foto del estampado</span></figcaption></figure>
-<figure class="fig"><a class="thumb" data-gallery="logo" href="../img/clientes_logo_despues_full.webp" aria-label="Ver ampliada: Después: logo reconstruido"><img src="../img/clientes_logo_despues_thumb.webp" width="600" height="631" alt="El mismo logo reconstruido con líneas nítidas sobre fondo negro, listo para estampar" loading="lazy" decoding="async"></a><figcaption class="cap"><b>Después</b><span>Logo reconstruido</span></figcaption></figure>
-            </div>
-          </div>
-          <div class="caso-text">
-            <p class="eyebrow">Logo</p>
-            <h3>Reconstrucción para estampar</h3>
-            <p>Reconstrucción con IA de un logo a partir de una foto, nítido para estamparlo en cualquier tamaño.</p>
-          </div>
-        </article>
       </div>
     </div>
   </section>
@@ -364,30 +264,30 @@ body.lb-open{overflow:hidden}
         <div class="card">
           <h3>Ajustes y cambios</h3>
           <ul class="plist">
-<li><span>Cada producto, figura o personaje adicional que deba verse fiel a sus referencias (el primero ya está incluido; varias imágenes de un mismo producto no suman)</span><strong>+₡5.000<small class="usd">+US$15</small></strong></li>
-<li><span>Texto o logo agregado en edición</span><strong>+₡2.000<small class="usd">+US$10</small></strong></li>
+<li><span>Cada producto, figura, personaje o logo adicional que deba verse fiel a sus referencias, según su complejidad</span><strong>+₡5.000<small class="usd">+US$15</small></strong></li>
 <li><span>Continuación de un video ya entregado</span><strong class="w">Precio de video nuevo, según su duración y calidad, con los mismos ajustes</strong></li>
 <li><span>Cambio después de la entrega: genero de nuevo el video completo, con el anterior como referencia y el cambio que usted indique</span><strong class="w">₡5.000 menos que un video nuevo de la misma duración y calidad (en dólares, US$10 menos)</strong></li>
 <li><span>Cambiar la idea después de confirmar el encargo</span><strong class="w">Precio de video nuevo</strong></li>
           </ul>
+          <p class="note">Solo en videos. El primero ya está incluido, y varias imágenes de un mismo producto no suman. Si un elemento es sencillo, no se cobra; se lo indico en la confirmación del encargo. En las imágenes no se cobra aparte.</p>
           <p class="note">Ejemplo: 10 s en 1080p cuesta ₡15.000 (US$45) en vez de ₡20.000 (US$55).</p>
-          <p class="note">Si prefiere que edite el video o la imagen ya entregados en vez de generarlos de nuevo, también es posible, al mismo precio. Tenga en cuenta que toda edición se hace sobre el archivo terminado y no sobre el original, por lo que puede perder un poco de nitidez; por eso recomiendo generar de nuevo.</p>
         </div>
         <div class="card">
           <h3>Audio</h3>
-          <p class="card-sub">Se genera aparte del video.</p>
+          <p class="card-sub">Se genera aparte y se entrega en archivos separados, para que usted lo agregue a su video. Se puede pedir junto con un video o por sí solo.</p>
           <ul class="plist">
-<li><span>Música para el video, según su descripción (instrumental o con letra)</span><strong>₡6.000<small class="usd">US$20</small></strong></li>
-<li><span>Voz: narración o diálogo, por cada 300 caracteres de texto (unos 20 segundos)</span><strong>₡3.000<small class="usd">US$10</small></strong></li>
-<li><span>Crear la voz de un personaje (una sola vez)</span><strong>₡5.000<small class="usd">US$15</small></strong></li>
-<li><span>Efectos de sonido y ambiente, por video (hasta 5 efectos y 1 ambiente)</span><strong>₡4.000<small class="usd">US$15</small></strong></li>
+<li><span>Música, según su descripción (instrumental o con letra)</span><strong>₡6.000<small class="usd">US$20</small></strong></li>
+<li><span>Narración (voz en off): por cada 300 caracteres de texto o fracción (unos 20 segundos)</span><strong>₡3.000<small class="usd">US$10</small></strong></li>
+<li><span>Efectos de sonido y ambiente (hasta 5 efectos y 1 ambiente)</span><strong>₡4.000<small class="usd">US$15</small></strong></li>
           </ul>
+          <p class="note">Los diálogos de los personajes dentro del video no se cobran aparte: forman parte del video.</p>
+          <p class="note">El sonido que se genera junto con el video no tiene costo adicional. Si el video le gusta pero el sonido no, se lo entrego sin sonido y puede pedir aparte la música, los efectos o la narración, cada uno con su precio. Si prefiere generar el video de nuevo para obtener otro sonido, se hace una nueva generación con el mismo planteamiento y las mismas referencias; como es una generación nueva, el resultado puede tener variaciones respecto del primero. Se cobra como un video nuevo, con ₡5.000 menos (US$10 menos), porque la planificación ya está hecha.</p>
         </div>
       </div>
       <div class="card mt">
         <h3>Personajes e imágenes</h3>
         <ul class="plist">
-<li><span>Personaje, paquete base: 2 propuestas de diseño; ficha técnica con vistas de frente, lateral izquierdo, lateral derecho y posterior, primer plano del rostro y detalles; 4 expresiones; paleta de colores; 2 rondas de cambios; y corrección manual de los detalles que la IA no coloque bien</span><strong>₡45.000<small class="usd">US$120</small></strong></li>
+<li><span>Personaje, paquete base: 2 propuestas de diseño; ficha técnica con vistas de frente, lateral izquierdo, lateral derecho y posterior, primer plano del rostro y detalles; 4 expresiones; paleta de colores; 2 rondas de cambios; y corrección manual de los detalles que lo necesiten</span><strong>₡45.000<small class="usd">US$120</small></strong></li>
 <li><span>Propuesta de diseño adicional</span><strong>₡8.000<small class="usd">US$25</small></strong></li>
 <li><span>Ronda de cambios adicional</span><strong>₡5.000<small class="usd">US$15</small></strong></li>
 <li><span>Imagen con un personaje ya creado (1 ronda de cambios)</span><strong>₡6.000<small class="usd">US$20</small></strong></li>
@@ -396,32 +296,28 @@ body.lb-open{overflow:hidden}
         </ul>
         <p class="note">A un personaje se le confecciona primero su ficha técnica; los videos con ese personaje se cotizan con la tabla de videos.</p>
       </div>
+
+      <div class="sub-sec" id="como-trabajamos">
+        <h3 class="sub">Cómo trabajamos</h3>
+        <ol class="steps">
+        <li class="step"><span class="n">1</span><h3>Usted me envía la solicitud</h3><p>La llena en esta página y me la envía por WhatsApp, junto con las imágenes de referencia, si las tiene.</p></li>
+        <li class="step"><span class="n">2</span><h3>Le envío la confirmación del encargo</h3><p>Lo que se hará, lo que no es posible o puede no salir exacto, el precio y el plazo de entrega.</p></li>
+        <li class="step"><span class="n">3</span><h3>Con el primer pago, empiezo</h3><p>Con su visto bueno y el pago del 50 %, empiezo el trabajo y le cuento cómo avanza.</p></li>
+        <li class="step"><span class="n">4</span><h3>Vista previa y entrega</h3><p>Le muestro el resultado en una vista previa con marca de agua. Con su aprobación y el pago del otro 50 %, le envío los archivos finales. Suele estar listo de 2 a 4 días después del primer pago, según la complejidad.</p></li>
+        </ol>
+        <div class="card garantia">
+          <h3>Garantía</h3>
+          <p>Trabajo con herramientas de inteligencia artificial. Antes de confirmar el encargo reviso qué se puede lograr con ellas: si algún detalle no es posible o puede no salir exacto, se lo indico en la confirmación, antes de realizar el primer cobro. Reviso cada resultado antes de entregarlo; si no corresponde a lo confirmado, por ejemplo porque entendí mal algo, hago un nuevo intento sin costo. Los cambios a lo confirmado se cotizan aparte.</p>
+        </div>
+        <div class="pay">
+          <p><strong>Pago:</strong> 50 % al confirmar el encargo, para empezar el trabajo, y 50 % cuando esté terminado, antes de enviarle los archivos finales. Los cambios después de la entrega se pagan completos al confirmarlos.</p>
+          <p><strong>En Costa Rica:</strong> SINPE Móvil al 8746-4715.</p>
+          <p><strong>Desde otros países:</strong> en dólares, por PayPal. Los datos para el pago se envían por WhatsApp al confirmar el encargo.</p>
+          <p class="vig">Edición: noviembre de 2026. Los precios pueden revisarse si cambian las herramientas, sus costos o el tipo de cambio. El precio confirmado para un encargo no cambia.</p>
+        </div>
+      </div>
       <div class="pdf-links">
         <a class="btn btn-ghost btn-sm" href="Tarifas%20de%20Videos%20e%20Im%C3%A1genes%20con%20IA.pdf" download="Tarifas de Videos e Imágenes con IA.pdf"><span>Descargar las tarifas en PDF</span></a>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider" aria-hidden="true"></div>
-
-  <section class="section" id="proceso">
-    <div class="wrap">
-      <div class="sec-head"><h2 class="sec">Cómo trabajamos</h2></div>
-      <ol class="steps">
-        <li class="step"><span class="n">1</span><h3>Usted me envía el formulario por WhatsApp</h3><p>Lo llena en esta página o en el PDF y me lo envía junto con las imágenes de referencia.</p></li>
-        <li class="step"><span class="n">2</span><h3>Le envío la confirmación del encargo</h3><p>Lo que se va a hacer, lo que no es posible o puede no salir exacto, el precio y la fecha de entrega.</p></li>
-        <li class="step"><span class="n">3</span><h3>Con su confirmación y el primer pago, genero</h3><p>El video o la imagen, según lo confirmado.</p></li>
-        <li class="step"><span class="n">4</span><h3>Entrega</h3><p>Normalmente de 2 a 4 días desde la confirmación; el plazo exacto lo acordamos al confirmar, según la complejidad del encargo.</p></li>
-      </ol>
-      <div class="card garantia">
-        <h3>Garantía</h3>
-        <p>Trabajo con herramientas de inteligencia artificial. Antes de confirmar el encargo reviso qué se puede lograr con ellas: si algún detalle no es posible o puede no salir exacto, se lo indico en la confirmación, antes de realizar el primer cobro. Reviso cada resultado antes de entregarlo; si no corresponde a lo confirmado, por ejemplo porque entendí mal algo, hago un nuevo intento sin costo. Los cambios a lo confirmado se cotizan aparte.</p>
-      </div>
-      <div class="pay">
-        <p><strong>Pago:</strong> 50 % al confirmar el encargo y 50 % al recibir el trabajo. El primer pago cubre la preparación y la generación. Los cambios después de la entrega se pagan completos al confirmarlos.</p>
-        <p><strong>En Costa Rica:</strong> SINPE Móvil al 8746-4715.</p>
-        <p><strong>Desde otros países:</strong> en dólares, por PayPal. Los datos para el pago se envían por WhatsApp al confirmar el encargo.</p>
-        <p class="vig">Edición: noviembre de 2026. Los precios pueden revisarse si cambian las herramientas, sus costos o el tipo de cambio. El precio confirmado para un encargo no cambia.</p>
       </div>
     </div>
   </section>
@@ -432,67 +328,77 @@ body.lb-open{overflow:hidden}
     <div class="wrap">
       <div class="sec-head">
         <h2 class="sec">Formulario de encargo</h2>
-        <p class="lead">Las preguntas que no apliquen a su encargo pueden quedar en blanco. Las imágenes de referencia se envían aparte, por WhatsApp.</p>
+        <p class="lead">Los campos con <span class="req">*</span> son obligatorios. Las preguntas de cada tipo de encargo aparecen al marcarlo. Las imágenes de referencia se envían aparte, por WhatsApp.</p>
         <div class="pdf-links">
+          <p class="note" style="margin-top:0">¿No puede usar esta página?</p>
           <a class="btn btn-ghost btn-sm" href="Formulario%20de%20Encargo.pdf" download="Formulario de Encargo.pdf"><span>Formulario en blanco (PDF)</span></a>
         </div>
       </div>
 
       <form class="encargo" id="form-encargo" novalidate="" autocomplete="on">
-<fieldset>
+<fieldset id="sec-contacto">
 <legend>Sus datos de contacto</legend>
-<div class="grid2"><div class="field"><label for="f01">Nombre <span class="req" aria-hidden="true">*</span></label><input id="f01" name="contacto_nombre" data-pdf="contacto_nombre" type="text" maxlength="500" required autocomplete="name"></div><div class="field"><label for="f02">Negocio o marca (si aplica)</label><input id="f02" name="contacto_negocio" data-pdf="contacto_negocio" type="text" maxlength="500" autocomplete="organization"></div></div><div class="grid3"><div class="field"><label for="f03">Número de WhatsApp <span class="req" aria-hidden="true">*</span></label><span class="hint" id="f03h">Si no es de Costa Rica, anote su número con el código de su país.</span><input id="f03" name="contacto_whatsapp" data-pdf="contacto_whatsapp" type="tel" maxlength="500" required autocomplete="tel" aria-describedby="f03h"></div><div class="field"><label for="f04">Correo electrónico</label><input id="f04" name="contacto_correo" data-pdf="contacto_correo" type="email" maxlength="500" autocomplete="email"></div><div class="field"><label for="f05">Fecha</label><input id="f05" name="contacto_fecha" data-pdf="contacto_fecha" type="date" maxlength="500"></div></div>
+<div class="grid2"><div class="field"><label for="f-contacto-nombre">Nombre <span class="req" aria-hidden="true">*</span></label><input id="f-contacto-nombre" name="contacto_nombre" data-pdf="contacto_nombre" maxlength="80" aria-describedby="f-contacto-nombre-err" autocomplete="name" type="text"><p class="err" id="f-contacto-nombre-err" data-err="contacto_nombre" hidden></p></div><div class="field"><label for="f-contacto-negocio">Negocio o marca (si aplica)</label><input id="f-contacto-negocio" name="contacto_negocio" data-pdf="contacto_negocio" maxlength="80" aria-describedby="f-contacto-negocio-err" autocomplete="organization" type="text"><p class="err" id="f-contacto-negocio-err" data-err="contacto_negocio" hidden></p></div></div><div class="grid2"><div class="field"><label for="f-contacto-whatsapp">Número de WhatsApp <span class="req" aria-hidden="true">*</span></label><span class="hint" id="f-contacto-whatsapp-h">Si no es de Costa Rica, escríbalo con + y el código de su país.</span><input id="f-contacto-whatsapp" name="contacto_whatsapp" data-pdf="contacto_whatsapp" maxlength="20" aria-describedby="f-contacto-whatsapp-h f-contacto-whatsapp-err" autocomplete="tel" type="tel" inputmode="tel"><p class="err" id="f-contacto-whatsapp-err" data-err="contacto_whatsapp" hidden></p></div><div class="field"><label for="f-contacto-correo">Correo electrónico (si aplica)</label><input id="f-contacto-correo" name="contacto_correo" data-pdf="contacto_correo" maxlength="100" aria-describedby="f-contacto-correo-err" autocomplete="email" type="email"><p class="err" id="f-contacto-correo-err" data-err="contacto_correo" hidden></p></div></div>
 </fieldset>
 
-<fieldset>
+<fieldset id="sec-tipo">
 <legend>Tipo de encargo</legend>
-<div class="q"><div class="checks" role="group" aria-label="Tipo de encargo"><label class="chk"><input type="checkbox" name="tipo_video" data-pdf="tipo_video"><span>Video</span></label><label class="chk"><input type="checkbox" name="tipo_personaje" data-pdf="tipo_personaje"><span>Personaje (diseño y ficha técnica)</span></label><label class="chk"><input type="checkbox" name="tipo_imagen" data-pdf="tipo_imagen"><span>Imagen o arte</span></label></div></div><div class="q"><div class="field"><label for="f06">Otra idea (descríbala)</label><input id="f06" name="tipo_otra_idea" data-pdf="tipo_otra_idea" type="text" maxlength="500"></div></div>
+<div class="q" data-item="tipo"><p class="hint">Marque uno o varios.</p><div class="checks" role="group" aria-label="Tipo de encargo" aria-describedby="f-tipo-err"><label class="chk"><input type="checkbox" id="f-tipo-video" name="tipo_video" data-pdf="tipo_video"><span>Video</span></label><label class="chk"><input type="checkbox" id="f-tipo-personaje" name="tipo_personaje" data-pdf="tipo_personaje"><span>Personaje (diseño y ficha técnica)</span></label><label class="chk"><input type="checkbox" id="f-tipo-imagen" name="tipo_imagen" data-pdf="tipo_imagen"><span>Imagen o arte</span></label><label class="chk"><input type="checkbox" id="f-tipo-audio" name="tipo_audio" data-pdf="tipo_audio"><span>Música, narración o efectos de sonido</span></label><label class="chk"><input type="checkbox" id="f-tipo-otro" name="tipo_otro" data-pdf="tipo_otro"><span>Otro</span></label></div><p class="err" id="f-tipo-err" data-err="tipo" hidden></p><div class="det"><div class="field off"><label for="f-tipo-otro-detalle">Describa qué necesita</label><input id="f-tipo-otro-detalle" name="tipo_otro_detalle" data-pdf="tipo_otro_detalle" maxlength="300" aria-describedby="f-tipo-otro-detalle-err f-tipo-otro-detalle-cnt" data-dep="op:tipo_otro" disabled type="text"><span class="cnt" id="f-tipo-otro-detalle-cnt" data-cnt="tipo_otro_detalle">Quedan 300 caracteres</span><p class="err" id="f-tipo-otro-detalle-err" data-err="tipo_otro_detalle" hidden></p></div></div></div>
 </fieldset>
 
-<fieldset>
-<legend>El encargo</legend>
-<div class="q"><div class="field"><label for="f07">1. ¿Qué producto o idea quiere mostrar?</label><span class="hint" id="f07h">Si es un producto: nombre completo, marca y tamaño, si los sabe. Si es una idea, descríbala.</span><textarea id="f07" name="q01_producto_idea" data-pdf="q01_producto_idea" rows="3" maxlength="3000" aria-describedby="f07h"></textarea></div></div>
-<div class="q"><p class="qlabel">2. Imágenes de referencia</p><p class="hint">Marque lo que me enviará por WhatsApp. Si tiene el producto en mano, puede fotografiarlo con buena luz de frente, de lado y de atrás.</p><div class="checks" role="group" aria-label="2. Imágenes de referencia"><label class="chk"><input type="checkbox" name="q02_oficiales" data-pdf="q02_oficiales"><span>Imágenes oficiales del fabricante o de la tienda</span></label><label class="chk"><input type="checkbox" name="q02_propias" data-pdf="q02_propias"><span>Imágenes tomadas por usted: de frente, de lado y de atrás</span></label><label class="chk"><input type="checkbox" name="q02_detalles" data-pdf="q02_detalles"><span>Imágenes de detalles: rostro, accesorios, piezas</span></label><label class="chk"><input type="checkbox" name="q02_sin_imagenes" data-pdf="q02_sin_imagenes"><span>No tengo imágenes: parto de una idea</span></label></div></div>
-<div class="q"><div class="field"><label for="f08">3. ¿Qué detalles desea que se aprecien más?</label><span class="hint" id="f08h">Por ejemplo: el rostro, los accesorios, los colores, la caja del producto.</span><textarea id="f08" name="q03_detalles" data-pdf="q03_detalles" rows="3" maxlength="3000" aria-describedby="f08h"></textarea></div></div>
-<div class="q"><p class="qlabel">4. Formato (relación de aspecto)</p><div class="checks" role="group" aria-label="4. Formato (relación de aspecto)"><label class="chk"><input type="checkbox" name="q04_16_9" data-pdf="q04_16_9"><span>Horizontal 16:9</span></label><label class="chk"><input type="checkbox" name="q04_9_16" data-pdf="q04_9_16"><span>Vertical 9:16</span></label><label class="chk"><input type="checkbox" name="q04_1_1" data-pdf="q04_1_1"><span>Cuadrado 1:1</span></label><label class="chk"><input type="checkbox" name="q04_4_3" data-pdf="q04_4_3"><span>Horizontal 4:3</span></label><label class="chk"><input type="checkbox" name="q04_3_4" data-pdf="q04_3_4"><span>Vertical 3:4</span></label><label class="chk"><input type="checkbox" name="q04_21_9" data-pdf="q04_21_9"><span>Panorámico 21:9</span></label></div></div>
-<div class="q"><p class="qlabel">5. Duración y calidad</p><p class="hint">Vea los precios en las tarifas.</p><div class="field"><label for="f09">Duración en segundos (de 4 a 30)</label><input id="f09" name="q05_duracion" data-pdf="q05_duracion" type="number" maxlength="500" min="4" max="30" step="1" inputmode="numeric"></div><div class="checks" role="group" aria-label="Calidad"><label class="chk"><input type="checkbox" name="q05_720" data-pdf="q05_720"><span>Calidad 720p</span></label><label class="chk"><input type="checkbox" name="q05_1080" data-pdf="q05_1080"><span>Calidad 1080p (alta definición)</span></label></div></div>
-<div class="q"><div class="field"><label for="f10">6. ¿Cuál es el escenario que desea para el video?</label><span class="hint" id="f10h">Por ejemplo: un fondo liso, una mesa, un estante o un exterior. Si tiene una imagen de referencia del escenario, envíemela por WhatsApp.</span><textarea id="f10" name="q06_escenario" data-pdf="q06_escenario" rows="3" maxlength="3000" aria-describedby="f10h"></textarea></div></div>
-<div class="q"><div class="field"><label for="f11">7. Si en el video aparece una figura, un objeto o un personaje, ¿debe quedarse quieto todo el tiempo o solo en una parte?</label><span class="hint" id="f11h">Si debe moverse, de principio a fin o en algunos momentos, indíqueme las posiciones y los movimientos que desea ver. Indique también si la cámara debe quedarse fija o moverse.</span><textarea id="f11" name="q07_movimiento_camara" data-pdf="q07_movimiento_camara" rows="4" maxlength="3000" aria-describedby="f11h"></textarea></div></div>
-<div class="q"><p class="qlabel">8. ¿Debe llevar texto o un logo?</p><p class="hint">Si tiene una referencia, envíemela por WhatsApp. Si no la tiene pero tiene una idea, descríbamela: también puedo elaborar el logo o el texto como un adicional del encargo, con costo aparte.</p><div class="sino"><div class="checks" role="group" aria-label="Texto exacto o descripción"><label class="chk"><input type="checkbox" name="q08_texto_logo_si" data-pdf="q08_texto_logo_si"><span>Sí</span></label><label class="chk"><input type="checkbox" name="q08_texto_logo_no" data-pdf="q08_texto_logo_no"><span>No</span></label></div><div class="field"><label for="f12">Texto exacto o descripción</label><input id="f12" name="q08_texto_logo" data-pdf="q08_texto_logo" type="text" maxlength="500"></div></div></div>
-<div class="q"><p class="qlabel">9. Música, voces y efectos de sonido</p><p class="hint">Se generan aparte del video, con costo adicional (vea las tarifas).</p><div class="sino"><p class="sub">Música</p><div class="checks" role="group" aria-label="Música"><label class="chk"><input type="checkbox" name="q09_musica_si" data-pdf="q09_musica_si"><span>Sí</span></label><label class="chk"><input type="checkbox" name="q09_musica_no" data-pdf="q09_musica_no"><span>No</span></label></div><div class="field"><label for="f13">Descríbala: estilo, ritmo, instrumentos o letra</label><input id="f13" name="q09_musica" data-pdf="q09_musica" type="text" maxlength="500"></div></div><div class="sino"><p class="sub">Voces</p><div class="checks" role="group" aria-label="Voces"><label class="chk"><input type="checkbox" name="q09_voces_si" data-pdf="q09_voces_si"><span>Sí</span></label><label class="chk"><input type="checkbox" name="q09_voces_no" data-pdf="q09_voces_no"><span>No</span></label></div><div class="field"><label for="f14">Qué deben decir y cómo deben sonar</label><input id="f14" name="q09_voces" data-pdf="q09_voces" type="text" maxlength="500"></div></div><div class="sino"><p class="sub">Efectos de sonido</p><div class="checks" role="group" aria-label="Efectos de sonido"><label class="chk"><input type="checkbox" name="q09_efectos_si" data-pdf="q09_efectos_si"><span>Sí</span></label><label class="chk"><input type="checkbox" name="q09_efectos_no" data-pdf="q09_efectos_no"><span>No</span></label></div><div class="field"><label for="f15">Cuáles</label><input id="f15" name="q09_efectos" data-pdf="q09_efectos" type="text" maxlength="500"></div></div></div>
-<div class="q"><div class="field"><label for="f16">10. ¿Qué NO quiere que aparezca?</label><span class="hint" id="f16h">Por ejemplo: humo, chispas, efectos, otros objetos, personas, texto, entre otros.</span><textarea id="f16" name="q10_no_quiere" data-pdf="q10_no_quiere" rows="3" maxlength="3000" aria-describedby="f16h"></textarea></div></div>
-<div class="q"><div class="field"><label for="f17">11. ¿Para cuándo lo necesita?</label><span class="hint" id="f17h">El plazo habitual es de 2 a 4 días desde la confirmación; depende de la complejidad del encargo y de la planificación necesaria para que el resultado salga lo más cuidado posible. Lo acordamos al confirmar.</span><input id="f17" name="q11_fecha" data-pdf="q11_fecha" type="text" maxlength="500" aria-describedby="f17h"></div></div>
-<div class="q"><div class="field"><label for="f18">12. Para adaptar mejor el resultado, cuénteme brevemente su objetivo, el público al que va dirigido o el propósito del video (opcional).</label><textarea id="f18" name="q12_objetivo" data-pdf="q12_objetivo" rows="3" maxlength="3000"></textarea></div></div>
+<fieldset id="sec-idea">
+<legend>Su idea</legend>
+<div class="q"><div class="field"><label for="f-q01-producto-idea">1. ¿Qué producto o idea quiere mostrar? <span class="req" aria-hidden="true">*</span></label><span class="hint" id="f-q01-producto-idea-h">Si es un producto: nombre completo, marca y tamaño, si los sabe. Si es una idea, descríbala.</span><textarea id="f-q01-producto-idea" name="q01_producto_idea" data-pdf="q01_producto_idea" maxlength="1000" aria-describedby="f-q01-producto-idea-h f-q01-producto-idea-err f-q01-producto-idea-cnt" rows="3"></textarea><span class="cnt" id="f-q01-producto-idea-cnt" data-cnt="q01_producto_idea">Quedan 1.000 caracteres</span><p class="err" id="f-q01-producto-idea-err" data-err="q01_producto_idea" hidden></p></div></div>
+<div class="q" data-item="q02_imagenes"><p class="qlabel" id="f-q02-imagenes-l">2. Imágenes de referencia <span class="req" aria-hidden="true" data-req-si="tipo_video,tipo_personaje,tipo_imagen" hidden>*</span></p><p class="hint">Marque lo que me enviará por WhatsApp. Si tiene el producto en mano, puede fotografiarlo con buena luz de frente, de lado y de atrás.</p><div class="checks" role="group" aria-labelledby="f-q02-imagenes-l" aria-describedby="f-q02-imagenes-err" data-excl="q02_sin_imagenes"><label class="chk"><input type="checkbox" id="f-q02-oficiales" name="q02_oficiales" data-pdf="q02_oficiales"><span>Imágenes oficiales del fabricante o de la tienda</span></label><label class="chk"><input type="checkbox" id="f-q02-propias" name="q02_propias" data-pdf="q02_propias"><span>Imágenes tomadas por usted: de frente, de lado y de atrás</span></label><label class="chk"><input type="checkbox" id="f-q02-detalles" name="q02_detalles" data-pdf="q02_detalles"><span>Imágenes de detalles: rostro, accesorios, piezas</span></label><label class="chk"><input type="checkbox" id="f-q02-sin-imagenes" name="q02_sin_imagenes" data-pdf="q02_sin_imagenes"><span>No tengo imágenes: parto de una idea</span></label></div><p class="err" id="f-q02-imagenes-err" data-err="q02_imagenes" hidden></p></div>
+<div class="q"><div class="field"><label for="f-q03-detalles">3. ¿Qué detalles desea que se aprecien más? <span class="req" aria-hidden="true" data-req-si="tipo_video,tipo_personaje,tipo_imagen" hidden>*</span></label><span class="hint" id="f-q03-detalles-h">Por ejemplo: el rostro, los accesorios, los colores, la caja del producto.</span><textarea id="f-q03-detalles" name="q03_detalles" data-pdf="q03_detalles" maxlength="1000" aria-describedby="f-q03-detalles-h f-q03-detalles-err f-q03-detalles-cnt" rows="3"></textarea><span class="cnt" id="f-q03-detalles-cnt" data-cnt="q03_detalles">Quedan 1.000 caracteres</span><p class="err" id="f-q03-detalles-err" data-err="q03_detalles" hidden></p></div></div>
+<div class="q"><div class="field"><label for="f-q04-no-quiere">4. ¿Qué NO quiere que aparezca? <span class="req" aria-hidden="true" data-req-si="tipo_video,tipo_personaje,tipo_imagen" hidden>*</span></label><span class="hint" id="f-q04-no-quiere-h">Por ejemplo: humo, chispas, efectos, otros objetos, personas, texto, entre otros. Si no hay nada, escriba «Nada».</span><textarea id="f-q04-no-quiere" name="q04_no_quiere" data-pdf="q04_no_quiere" maxlength="1000" aria-describedby="f-q04-no-quiere-h f-q04-no-quiere-err f-q04-no-quiere-cnt" rows="3"></textarea><span class="cnt" id="f-q04-no-quiere-cnt" data-cnt="q04_no_quiere">Quedan 1.000 caracteres</span><p class="err" id="f-q04-no-quiere-err" data-err="q04_no_quiere" hidden></p></div></div>
+<div class="q"><div class="field"><label for="f-q05-objetivo">5. Para adaptar mejor el resultado, cuénteme brevemente su objetivo, el público al que va dirigido o el propósito del encargo (opcional).</label><textarea id="f-q05-objetivo" name="q05_objetivo" data-pdf="q05_objetivo" maxlength="1000" aria-describedby="f-q05-objetivo-err f-q05-objetivo-cnt" rows="3"></textarea><span class="cnt" id="f-q05-objetivo-cnt" data-cnt="q05_objetivo">Quedan 1.000 caracteres</span><p class="err" id="f-q05-objetivo-err" data-err="q05_objetivo" hidden></p></div></div>
 </fieldset>
 
-<fieldset class="cond" data-tipo="tipo_personaje">
+<fieldset id="sec-video" class="cond" data-tipo="tipo_video">
+<legend>Solo si pidió un video</legend>
+<div class="q" data-item="q06_formato"><p class="qlabel" id="f-q06-formato-l">6. Formato (relación de aspecto) <span class="req" aria-hidden="true">*</span></p><p class="hint">Cada video se genera en un solo formato. Si necesita otro, se cotiza como otro video.</p><div class="checks" role="radiogroup" aria-labelledby="f-q06-formato-l" aria-describedby="f-q06-formato-err" data-pdf="q06_formato"><label class="chk"><input type="radio" id="f-q06-formato-16_9" name="q06_formato" value="16_9"><span>Horizontal 16:9</span></label><label class="chk"><input type="radio" id="f-q06-formato-9_16" name="q06_formato" value="9_16"><span>Vertical 9:16</span></label><label class="chk"><input type="radio" id="f-q06-formato-1_1" name="q06_formato" value="1_1"><span>Cuadrado 1:1</span></label><label class="chk"><input type="radio" id="f-q06-formato-4_3" name="q06_formato" value="4_3"><span>Horizontal 4:3</span></label><label class="chk"><input type="radio" id="f-q06-formato-3_4" name="q06_formato" value="3_4"><span>Vertical 3:4</span></label><label class="chk"><input type="radio" id="f-q06-formato-21_9" name="q06_formato" value="21_9"><span>Panorámico 21:9</span></label></div><p class="err" id="f-q06-formato-err" data-err="q06_formato" hidden></p></div>
+<div class="q"><div class="field"><label for="f-q07-duracion">7. Duración <span class="req" aria-hidden="true">*</span></label><span class="hint" id="f-q07-duracion-h">Vea los precios en las tarifas.</span><select id="f-q07-duracion" name="q07_duracion" data-pdf="q07_duracion" aria-describedby="f-q07-duracion-h f-q07-duracion-err"><option value="">Elija la duración</option><option value="4">4 segundos</option><option value="5">5 segundos</option><option value="6">6 segundos</option><option value="7">7 segundos</option><option value="8">8 segundos</option><option value="9">9 segundos</option><option value="10">10 segundos</option><option value="11">11 segundos</option><option value="12">12 segundos</option><option value="13">13 segundos</option><option value="14">14 segundos</option><option value="15">15 segundos</option><option value="16">16 segundos</option><option value="17">17 segundos</option><option value="18">18 segundos</option><option value="19">19 segundos</option><option value="20">20 segundos</option><option value="21">21 segundos</option><option value="22">22 segundos</option><option value="23">23 segundos</option><option value="24">24 segundos</option><option value="25">25 segundos</option><option value="26">26 segundos</option><option value="27">27 segundos</option><option value="28">28 segundos</option><option value="29">29 segundos</option><option value="30">30 segundos</option></select><p class="err" id="f-q07-duracion-err" data-err="q07_duracion" hidden></p></div></div>
+<div class="q" data-item="q08_calidad"><p class="qlabel" id="f-q08-calidad-l">8. Calidad <span class="req" aria-hidden="true">*</span></p><div class="checks" role="radiogroup" aria-labelledby="f-q08-calidad-l" aria-describedby="f-q08-calidad-err" data-pdf="q08_calidad"><label class="chk"><input type="radio" id="f-q08-calidad-720p" name="q08_calidad" value="720p"><span>720p</span></label><label class="chk"><input type="radio" id="f-q08-calidad-1080p" name="q08_calidad" value="1080p"><span>1080p (alta definición)</span></label></div><p class="err" id="f-q08-calidad-err" data-err="q08_calidad" hidden></p></div>
+<div class="q"><div class="field"><label for="f-q09-escenario">9. ¿Cuál es el escenario que desea para el video? <span class="req" aria-hidden="true">*</span></label><span class="hint" id="f-q09-escenario-h">Por ejemplo: un fondo liso, una mesa, un estante o un exterior. Si tiene una imagen de referencia del escenario, envíemela por WhatsApp.</span><textarea id="f-q09-escenario" name="q09_escenario" data-pdf="q09_escenario" maxlength="1000" aria-describedby="f-q09-escenario-h f-q09-escenario-err f-q09-escenario-cnt" rows="3"></textarea><span class="cnt" id="f-q09-escenario-cnt" data-cnt="q09_escenario">Quedan 1.000 caracteres</span><p class="err" id="f-q09-escenario-err" data-err="q09_escenario" hidden></p></div></div>
+<div class="q"><div class="field"><label for="f-q10-movimiento-camara">10. Si en el video aparece una figura, un objeto o un personaje, ¿debe quedarse quieto todo el tiempo o solo en una parte? <span class="req" aria-hidden="true">*</span></label><span class="hint" id="f-q10-movimiento-camara-h">Si debe moverse, de principio a fin o en algunos momentos, indíqueme las posiciones y los movimientos que desea ver. Indique también si la cámara debe quedarse fija o moverse.</span><textarea id="f-q10-movimiento-camara" name="q10_movimiento_camara" data-pdf="q10_movimiento_camara" maxlength="1000" aria-describedby="f-q10-movimiento-camara-h f-q10-movimiento-camara-err f-q10-movimiento-camara-cnt" rows="4"></textarea><span class="cnt" id="f-q10-movimiento-camara-cnt" data-cnt="q10_movimiento_camara">Quedan 1.000 caracteres</span><p class="err" id="f-q10-movimiento-camara-err" data-err="q10_movimiento_camara" hidden></p></div></div>
+<div class="q" data-item="q11_logo"><p class="qlabel" id="f-q11-logo-l">11. ¿El video debe mostrar un logo, una marca o un texto? <span class="req" aria-hidden="true">*</span></p><p class="hint">Se genera dentro del video, como parte de la escena. Si es un logo, envíemelo por WhatsApp; puede contar como elemento adicional, según su complejidad (vea las tarifas).</p><div class="checks" role="radiogroup" aria-labelledby="f-q11-logo-l" aria-describedby="f-q11-logo-err" data-pdf="q11_logo"><label class="chk"><input type="radio" id="f-q11-logo-si" name="q11_logo" value="si"><span>Sí</span></label><label class="chk"><input type="radio" id="f-q11-logo-no" name="q11_logo" value="no"><span>No</span></label></div><p class="err" id="f-q11-logo-err" data-err="q11_logo" hidden></p><div class="det"><div class="field off"><label for="f-q11-logo-detalle">En caso de que sí, indique cuál y cómo debe aparecer (por ejemplo: al final, con una transición).</label><textarea id="f-q11-logo-detalle" name="q11_logo_detalle" data-pdf="q11_logo_detalle" maxlength="1000" aria-describedby="f-q11-logo-detalle-err f-q11-logo-detalle-cnt" data-dep="si:q11_logo" disabled rows="2"></textarea><span class="cnt" id="f-q11-logo-detalle-cnt" data-cnt="q11_logo_detalle">Quedan 1.000 caracteres</span><p class="err" id="f-q11-logo-detalle-err" data-err="q11_logo_detalle" hidden></p></div></div></div>
+<div class="q" data-item="q12_sonido"><p class="qlabel" id="f-q12-sonido-l">12. ¿Quiere que el video incluya el sonido que se genera junto con la imagen? <span class="req" aria-hidden="true">*</span></p><p class="hint">Es el sonido de la escena: ambiente, efectos y, si alguien habla, su voz. Se genera junto con la imagen a partir de lo que defino en la planificación, por lo que puede variar un poco de lo que usted imagina. Si necesita un sonido exacto, puede pedirlo aparte: marque «Música, narración o efectos de sonido» en el tipo de encargo.</p><div class="checks" role="radiogroup" aria-labelledby="f-q12-sonido-l" aria-describedby="f-q12-sonido-err" data-pdf="q12_sonido"><label class="chk"><input type="radio" id="f-q12-sonido-si" name="q12_sonido" value="si"><span>Sí</span></label><label class="chk"><input type="radio" id="f-q12-sonido-no" name="q12_sonido" value="no"><span>No</span></label></div><p class="err" id="f-q12-sonido-err" data-err="q12_sonido" hidden></p><div class="det"><div class="field off"><label for="f-q12-sonido-detalle">En caso de que sí, describa los sonidos que espera y, si alguien habla, escriba lo que dice.</label><span class="hint" id="f-q12-sonido-detalle-h">Como referencia, en 10 segundos caben unas 25 palabras habladas.</span><textarea id="f-q12-sonido-detalle" name="q12_sonido_detalle" data-pdf="q12_sonido_detalle" maxlength="1000" aria-describedby="f-q12-sonido-detalle-h f-q12-sonido-detalle-err f-q12-sonido-detalle-cnt" data-dep="si:q12_sonido" disabled rows="2"></textarea><span class="cnt" id="f-q12-sonido-detalle-cnt" data-cnt="q12_sonido_detalle">Quedan 1.000 caracteres</span><p class="err" id="f-q12-sonido-detalle-err" data-err="q12_sonido_detalle" hidden></p></div></div></div>
+</fieldset>
+
+<fieldset id="sec-personaje" class="cond" data-tipo="tipo_personaje">
 <legend>Solo si pidió un personaje</legend>
-<div class="q"><div class="field"><label for="f19">13. ¿Para qué proyecto o negocio es el personaje, a quién va dirigido y qué personalidad debe tener?</label><textarea id="f19" name="q13_proyecto_personalidad" data-pdf="q13_proyecto_personalidad" rows="3" maxlength="3000"></textarea></div></div>
-<div class="q"><div class="field"><label for="f20">14. ¿Humano, animal, criatura, robot u objeto? ¿Qué estilo: anime, caricatura, realista, chibi?</label><textarea id="f20" name="q14_tipo_estilo" data-pdf="q14_tipo_estilo" rows="3" maxlength="3000"></textarea></div></div>
-<div class="q"><div class="field"><label for="f21">15. Si tiene una paleta de colores definida o una idea de combinación de colores, compártamela.</label><input id="f21" name="q15_colores" data-pdf="q15_colores" type="text" maxlength="500"></div></div>
-<div class="q"><div class="field"><label for="f22">16. ¿En qué tipo de contenido aparecerá el personaje?</label><span class="hint" id="f22h">Por ejemplo: videos, imágenes, stickers, foto de perfil. Me sirve para planificar las vistas y los detalles de la ficha técnica.</span><textarea id="f22" name="q16_contenido" data-pdf="q16_contenido" rows="2" maxlength="3000" aria-describedby="f22h"></textarea></div></div>
-<div class="q"><div class="field"><label for="f23">17. ¿El personaje habla? Si habla, ¿cómo suena: edad aproximada, tono, acento?</label><input id="f23" name="q17_voz" data-pdf="q17_voz" type="text" maxlength="500"></div></div>
+<div class="q"><div class="field"><label for="f-q13-proyecto-personalidad">13. ¿Para qué proyecto o negocio es el personaje, a quién va dirigido y qué personalidad debe tener? <span class="req" aria-hidden="true">*</span></label><textarea id="f-q13-proyecto-personalidad" name="q13_proyecto_personalidad" data-pdf="q13_proyecto_personalidad" maxlength="1000" aria-describedby="f-q13-proyecto-personalidad-err f-q13-proyecto-personalidad-cnt" rows="3"></textarea><span class="cnt" id="f-q13-proyecto-personalidad-cnt" data-cnt="q13_proyecto_personalidad">Quedan 1.000 caracteres</span><p class="err" id="f-q13-proyecto-personalidad-err" data-err="q13_proyecto_personalidad" hidden></p></div></div>
+<div class="q"><div class="field"><label for="f-q14-tipo-estilo">14. ¿Humano, animal, criatura, robot u objeto? ¿Qué estilo: anime, caricatura, realista, chibi? <span class="req" aria-hidden="true">*</span></label><textarea id="f-q14-tipo-estilo" name="q14_tipo_estilo" data-pdf="q14_tipo_estilo" maxlength="1000" aria-describedby="f-q14-tipo-estilo-err f-q14-tipo-estilo-cnt" rows="3"></textarea><span class="cnt" id="f-q14-tipo-estilo-cnt" data-cnt="q14_tipo_estilo">Quedan 1.000 caracteres</span><p class="err" id="f-q14-tipo-estilo-err" data-err="q14_tipo_estilo" hidden></p></div></div>
+<div class="q"><div class="field"><label for="f-q15-colores">15. Si tiene una paleta de colores definida o una idea de combinación de colores, compártamela (opcional).</label><input id="f-q15-colores" name="q15_colores" data-pdf="q15_colores" maxlength="300" aria-describedby="f-q15-colores-err f-q15-colores-cnt" type="text"><span class="cnt" id="f-q15-colores-cnt" data-cnt="q15_colores">Quedan 300 caracteres</span><p class="err" id="f-q15-colores-err" data-err="q15_colores" hidden></p></div></div>
+<div class="q"><div class="field"><label for="f-q16-contenido">16. ¿En qué tipo de contenido aparecerá el personaje? <span class="req" aria-hidden="true">*</span></label><span class="hint" id="f-q16-contenido-h">Por ejemplo: videos, imágenes, stickers, foto de perfil. Me sirve para planificar las vistas y los detalles de la ficha técnica.</span><textarea id="f-q16-contenido" name="q16_contenido" data-pdf="q16_contenido" maxlength="1000" aria-describedby="f-q16-contenido-h f-q16-contenido-err f-q16-contenido-cnt" rows="2"></textarea><span class="cnt" id="f-q16-contenido-cnt" data-cnt="q16_contenido">Quedan 1.000 caracteres</span><p class="err" id="f-q16-contenido-err" data-err="q16_contenido" hidden></p></div></div>
+<div class="q" data-item="q17_habla"><p class="qlabel" id="f-q17-habla-l">17. ¿El personaje habla? <span class="req" aria-hidden="true">*</span></p><p class="hint">La voz queda descrita en la ficha del personaje y se usa en cada video para que suene lo más parecida posible. Como se genera en cada video, puede variar de uno a otro.</p><div class="checks" role="radiogroup" aria-labelledby="f-q17-habla-l" aria-describedby="f-q17-habla-err" data-pdf="q17_habla"><label class="chk"><input type="radio" id="f-q17-habla-si" name="q17_habla" value="si"><span>Sí</span></label><label class="chk"><input type="radio" id="f-q17-habla-no" name="q17_habla" value="no"><span>No</span></label></div><p class="err" id="f-q17-habla-err" data-err="q17_habla" hidden></p><div class="det"><div class="field off"><label for="f-q17-habla-detalle">En caso de que sí, describa cómo suena: edad aproximada, tono, acento.</label><input id="f-q17-habla-detalle" name="q17_habla_detalle" data-pdf="q17_habla_detalle" maxlength="300" aria-describedby="f-q17-habla-detalle-err f-q17-habla-detalle-cnt" data-dep="si:q17_habla" disabled type="text"><span class="cnt" id="f-q17-habla-detalle-cnt" data-cnt="q17_habla_detalle">Quedan 300 caracteres</span><p class="err" id="f-q17-habla-detalle-err" data-err="q17_habla_detalle" hidden></p></div></div></div>
 </fieldset>
 
-<fieldset class="cond" data-tipo="tipo_imagen">
+<fieldset id="sec-imagen" class="cond" data-tipo="tipo_imagen">
 <legend>Solo si pidió una imagen o arte</legend>
-<div class="q"><p class="qlabel">18. Formato (relación de aspecto)</p><div class="checks" role="group" aria-label="18. Formato (relación de aspecto)"><label class="chk"><input type="checkbox" name="q18_1_1" data-pdf="q18_1_1"><span>Cuadrada 1:1</span></label><label class="chk"><input type="checkbox" name="q18_4_5" data-pdf="q18_4_5"><span>Vertical 4:5</span></label><label class="chk"><input type="checkbox" name="q18_9_16" data-pdf="q18_9_16"><span>Vertical 9:16</span></label><label class="chk"><input type="checkbox" name="q18_16_9" data-pdf="q18_16_9"><span>Horizontal 16:9</span></label></div></div>
-<div class="q"><div class="field"><label for="f24">Otra proporción</label><span class="hint" id="f24h">Si la herramienta no genera esa proporción, se lo indicaré antes de confirmar el encargo.</span><input id="f24" name="q18_otra" data-pdf="q18_otra" type="text" maxlength="500" aria-describedby="f24h"></div></div>
-<div class="q"><div class="field"><label for="f25">19. ¿Cuántas imágenes desea y sobre qué debe ser cada una?</label><span class="hint" id="f25h">Por ejemplo: una imagen de cada producto; una sola imagen con varios productos juntos; tres variaciones de la misma escena con distinto fondo.</span><textarea id="f25" name="q19_cantidad" data-pdf="q19_cantidad" rows="3" maxlength="3000" aria-describedby="f25h"></textarea></div></div>
-<div class="q"><div class="field"><label for="f26">20. ¿La imagen o las imágenes llevan texto?</label><span class="hint" id="f26h">Si es así, describa lo que desea ver escrito y su posición dentro de la imagen.</span><textarea id="f26" name="q20_texto" data-pdf="q20_texto" rows="3" maxlength="3000" aria-describedby="f26h"></textarea></div></div>
+<div class="q" data-item="q18_formato"><p class="qlabel" id="f-q18-formato-l">18. Formato (relación de aspecto) <span class="req" aria-hidden="true">*</span></p><p class="hint">Puede marcar varios si pide varias imágenes.</p><div class="checks" role="group" aria-labelledby="f-q18-formato-l" aria-describedby="f-q18-formato-err" data-excl="q18_otra"><label class="chk"><input type="checkbox" id="f-q18-1-1" name="q18_1_1" data-pdf="q18_1_1"><span>Cuadrada 1:1</span></label><label class="chk"><input type="checkbox" id="f-q18-4-5" name="q18_4_5" data-pdf="q18_4_5"><span>Vertical 4:5</span></label><label class="chk"><input type="checkbox" id="f-q18-9-16" name="q18_9_16" data-pdf="q18_9_16"><span>Vertical 9:16</span></label><label class="chk"><input type="checkbox" id="f-q18-16-9" name="q18_16_9" data-pdf="q18_16_9"><span>Horizontal 16:9</span></label><label class="chk"><input type="checkbox" id="f-q18-otra" name="q18_otra" data-pdf="q18_otra"><span>Otra proporción</span></label></div><p class="err" id="f-q18-formato-err" data-err="q18_formato" hidden></p><div class="det"><div class="field off"><label for="f-q18-otra-detalle">¿Cuál?</label><span class="hint" id="f-q18-otra-detalle-h">Si esa proporción no es posible, se lo indicaré antes de confirmar el encargo.</span><input id="f-q18-otra-detalle" name="q18_otra_detalle" data-pdf="q18_otra_detalle" maxlength="40" aria-describedby="f-q18-otra-detalle-h f-q18-otra-detalle-err" data-dep="op:q18_otra" disabled type="text"><p class="err" id="f-q18-otra-detalle-err" data-err="q18_otra_detalle" hidden></p></div></div></div>
+<div class="q"><div class="field"><label for="f-q19-cantidad">19. ¿Cuántas imágenes desea y sobre qué debe ser cada una? <span class="req" aria-hidden="true">*</span></label><span class="hint" id="f-q19-cantidad-h">Por ejemplo: una imagen de cada producto; una sola imagen con varios productos juntos; tres variaciones de la misma escena con distinto fondo.</span><textarea id="f-q19-cantidad" name="q19_cantidad" data-pdf="q19_cantidad" maxlength="1000" aria-describedby="f-q19-cantidad-h f-q19-cantidad-err f-q19-cantidad-cnt" rows="3"></textarea><span class="cnt" id="f-q19-cantidad-cnt" data-cnt="q19_cantidad">Quedan 1.000 caracteres</span><p class="err" id="f-q19-cantidad-err" data-err="q19_cantidad" hidden></p></div></div>
+<div class="q" data-item="q20_texto_logo"><p class="qlabel" id="f-q20-texto-logo-l">20. ¿La imagen o las imágenes llevan texto o un logo? <span class="req" aria-hidden="true">*</span></p><p class="hint">Si es un logo, envíemelo por WhatsApp.</p><div class="checks" role="radiogroup" aria-labelledby="f-q20-texto-logo-l" aria-describedby="f-q20-texto-logo-err" data-pdf="q20_texto_logo"><label class="chk"><input type="radio" id="f-q20-texto-logo-si" name="q20_texto_logo" value="si"><span>Sí</span></label><label class="chk"><input type="radio" id="f-q20-texto-logo-no" name="q20_texto_logo" value="no"><span>No</span></label></div><p class="err" id="f-q20-texto-logo-err" data-err="q20_texto_logo" hidden></p><div class="det"><div class="field off"><label for="f-q20-texto-logo-detalle">En caso de que sí, escriba el texto exacto o describa el logo, y dónde debe ir.</label><textarea id="f-q20-texto-logo-detalle" name="q20_texto_logo_detalle" data-pdf="q20_texto_logo_detalle" maxlength="1000" aria-describedby="f-q20-texto-logo-detalle-err f-q20-texto-logo-detalle-cnt" data-dep="si:q20_texto_logo" disabled rows="2"></textarea><span class="cnt" id="f-q20-texto-logo-detalle-cnt" data-cnt="q20_texto_logo_detalle">Quedan 1.000 caracteres</span><p class="err" id="f-q20-texto-logo-detalle-err" data-err="q20_texto_logo_detalle" hidden></p></div></div></div>
 </fieldset>
 
-<fieldset>
+<fieldset id="sec-audio" class="cond" data-tipo="tipo_audio">
+<legend>Solo si pidió música, narración o efectos</legend>
+<div class="q" data-item="q21_audio"><p class="qlabel" id="f-q21-audio-l">21. ¿Qué necesita? <span class="req" aria-hidden="true">*</span></p><p class="hint">Se genera aparte, con costo adicional, y se entrega en archivos separados para que usted lo agregue a su video (vea las tarifas).</p><div class="checks" role="group" aria-labelledby="f-q21-audio-l" aria-describedby="f-q21-audio-err"><label class="chk"><input type="checkbox" id="f-q21-musica" name="q21_musica" data-pdf="q21_musica"><span>Música</span></label><label class="chk"><input type="checkbox" id="f-q21-narracion" name="q21_narracion" data-pdf="q21_narracion"><span>Narración (voz en off)</span></label><label class="chk"><input type="checkbox" id="f-q21-efectos" name="q21_efectos" data-pdf="q21_efectos"><span>Efectos de sonido y ambiente</span></label></div><p class="err" id="f-q21-audio-err" data-err="q21_audio" hidden></p><div class="det"><div class="field off"><label for="f-q21-musica-detalle">Música: describa el estilo, el ritmo, los instrumentos o la letra</label><textarea id="f-q21-musica-detalle" name="q21_musica_detalle" data-pdf="q21_musica_detalle" maxlength="1000" aria-describedby="f-q21-musica-detalle-err f-q21-musica-detalle-cnt" data-dep="op:q21_musica" disabled rows="3"></textarea><span class="cnt" id="f-q21-musica-detalle-cnt" data-cnt="q21_musica_detalle">Quedan 1.000 caracteres</span><p class="err" id="f-q21-musica-detalle-err" data-err="q21_musica_detalle" hidden></p></div></div><div class="det"><div class="field off"><label for="f-q21-narracion-detalle">Narración: escriba el texto y cómo debe sonar la voz</label><span class="hint" id="f-q21-narracion-detalle-h">Se cobra por cada 300 caracteres de texto o fracción (unos 20 segundos).</span><textarea id="f-q21-narracion-detalle" name="q21_narracion_detalle" data-pdf="q21_narracion_detalle" maxlength="1000" aria-describedby="f-q21-narracion-detalle-h f-q21-narracion-detalle-err f-q21-narracion-detalle-cnt" data-dep="op:q21_narracion" disabled rows="3"></textarea><span class="cnt" id="f-q21-narracion-detalle-cnt" data-cnt="q21_narracion_detalle">Quedan 1.000 caracteres</span><p class="err" id="f-q21-narracion-detalle-err" data-err="q21_narracion_detalle" hidden></p></div></div><div class="det"><div class="field off"><label for="f-q21-efectos-detalle">Efectos: descríbalos, con el ambiente, e indique si son para el video de este encargo, para un video suyo (envíemelo por WhatsApp) o sueltos</label><textarea id="f-q21-efectos-detalle" name="q21_efectos_detalle" data-pdf="q21_efectos_detalle" maxlength="1000" aria-describedby="f-q21-efectos-detalle-err f-q21-efectos-detalle-cnt" data-dep="op:q21_efectos" disabled rows="3"></textarea><span class="cnt" id="f-q21-efectos-detalle-cnt" data-cnt="q21_efectos_detalle">Quedan 1.000 caracteres</span><p class="err" id="f-q21-efectos-detalle-err" data-err="q21_efectos_detalle" hidden></p></div></div></div>
+</fieldset>
+
+<fieldset id="sec-comentarios">
 <legend>Comentarios adicionales</legend>
-<div class="q"><div class="field"><label for="f27">¿Algo más que deba saber?</label><textarea id="f27" name="comentarios" data-pdf="comentarios" rows="4" maxlength="3000"></textarea></div></div>
+<div class="q"><div class="field"><label for="f-comentarios">¿Algo más que deba saber? (opcional)</label><textarea id="f-comentarios" name="comentarios" data-pdf="comentarios" maxlength="2000" aria-describedby="f-comentarios-err f-comentarios-cnt" rows="4"></textarea><span class="cnt" id="f-comentarios-cnt" data-cnt="comentarios">Quedan 2.000 caracteres</span><p class="err" id="f-comentarios-err" data-err="comentarios" hidden></p></div></div>
 </fieldset>
 
+        <div class="resumen" id="resumen" role="alert" hidden><p></p><ul></ul></div>
         <div class="submit-row">
           <button class="btn" type="submit"><span>Descargar mi solicitud (PDF)</span></button>
           <p class="status" id="form-status" role="status" aria-live="polite"></p>
         </div>
         <div class="envio" id="envio" hidden>
-          <p>Ahora envíeme la solicitud por WhatsApp. Adjunte en el chat el archivo descargado y las imágenes de referencia.</p>
+          <p id="envio-txt">Ahora envíeme la solicitud por WhatsApp. Adjunte en el chat el archivo descargado y las imágenes de referencia.</p>
           <a class="btn btn-ghost" href="https://wa.me/50687464715?text=Hola.%20Le%20env%C3%ADo%20mi%20solicitud%20de%20encargo%20en%20PDF%20y%20las%20im%C3%A1genes%20de%20referencia." target="_blank" rel="noopener" aria-label="Enviar la solicitud por WhatsApp (se abre en otra pestaña)"><span><img class="ico" src="whatsapp.svg" alt="" width="20" height="20" loading="lazy">Enviar por WhatsApp</span></a>
         </div>
         <p class="note">La solicitud se descargará en su dispositivo para que me la envíe por WhatsApp.</p>
@@ -504,19 +410,7 @@ body.lb-open{overflow:hidden}
   <div class="wrap back-bottom"><a class="back" href="../">← Volver al portafolio</a></div>
 </main>
 
-<footer>© 2026 ZeilorK ReyvenT. Los trabajos para clientes se publican con su permiso; los productos, logos y fotos de terceros pertenecen a sus dueños.</footer>
-
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Imagen ampliada" hidden>
-  <button class="lb-btn lb-close" type="button" aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-  <button class="lb-btn lb-prev" type="button" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
-  <a class="lb-original" id="lb-original" href="#" target="_blank" rel="noopener">Abrir imagen completa <span aria-hidden="true">↗</span><span class="sr"> (abre otra pestaña)</span></a>
-  <figure>
-    <img id="lb-img" alt="">
-    <figcaption aria-live="polite"><span id="lb-cap"></span><span id="lb-count"></span></figcaption>
-    <p class="media-status" id="lb-status" role="status" hidden></p>
-  </figure>
-  <button class="lb-btn lb-next" type="button" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
-</div>
+<footer>© 2026 ZeilorK ReyvenT.</footer>
 
 <script>
 document.documentElement.classList.add('js');
@@ -607,95 +501,166 @@ document.documentElement.classList.add('js');
   }
   streaks(document.getElementById('streaks-page'), document.documentElement, { speed: .45, density: .35, meteors: false, alpha: .55, always: true });
 
-  /* Video de la sección de trabajos: el botón grande arranca el video y luego quedan los controles del navegador */
-  document.querySelectorAll('.vwrap').forEach(function(w){
-    var v = w.querySelector('video'), b = w.querySelector('.vplay');
-    v.controls = false;
-    b.addEventListener('click', function(){
-      if (v.error) v.load();
-      v.controls = true; w.classList.add('playing'); v.focus();
-      var p = v.play(); if (p && p.catch) p.catch(function(){ w.classList.remove('playing'); v.controls = false; });
-    });
-    v.addEventListener('ended', function(){ var had = document.activeElement === v; w.classList.remove('playing'); v.controls = false; v.currentTime = 0; if (had) b.focus(); });
-  });
-
-  /* Visor de imágenes ampliadas (el mismo comportamiento que en el portafolio) */
-  var GAL = {};
-  document.querySelectorAll('.thumb[data-gallery]').forEach(function(link){
-    var g = link.dataset.gallery, items = GAL[g] || (GAL[g] = []);
-    link.dataset.index = items.length;
-    items.push({ href: link.getAttribute('href'), cap: link.closest('figure').querySelector('.cap b').textContent, alt: link.querySelector('img').alt });
-  });
-  var lb = document.getElementById('lb'), img = document.getElementById('lb-img'), cap = document.getElementById('lb-cap'), cnt = document.getElementById('lb-count'),
-      original = document.getElementById('lb-original'), lbStatus = document.getElementById('lb-status'),
-      btnClose = lb.querySelector('.lb-close'), btnPrev = lb.querySelector('.lb-prev'), btnNext = lb.querySelector('.lb-next'),
-      cur = { g: null, i: 0 }, opener = null;
-  var background = [document.getElementById('topbar'), document.querySelector('main'), document.querySelector('footer'), document.querySelector('.skip')];
-  img.addEventListener('error', function(){ lbStatus.textContent = 'No se pudo cargar la imagen. Pruebe con el enlace a la imagen completa.'; lbStatus.hidden = false; });
-  function setItem(g, i){
-    var it = GAL[g][i]; cur.g = g; cur.i = i; lbStatus.hidden = true;
-    original.href = it.href; img.src = it.href; img.alt = it.alt; cap.textContent = it.cap; cnt.textContent = (i + 1) + ' de ' + GAL[g].length;
-    var single = GAL[g].length < 2; btnPrev.hidden = single; btnNext.hidden = single;
-  }
-  function openLb(g, i, btn){
-    opener = btn; setItem(g, i); lb.hidden = false; background.forEach(function(el){ el.inert = true; }); document.body.classList.add('lb-open');
-    requestAnimationFrame(function(){ lb.classList.add('open'); btnClose.focus({ preventScroll: true }); });
-  }
-  function closeLb(){
-    lb.classList.remove('open');
-    setTimeout(function(){ lb.hidden = true; background.forEach(function(el){ el.inert = false; }); document.body.classList.remove('lb-open'); if (opener) opener.focus({ preventScroll: true }); }, reduced ? 0 : 200);
-  }
-  function step(d){ var n = GAL[cur.g].length; setItem(cur.g, (cur.i + d + n) % n); }
-  document.querySelectorAll('.thumb[data-gallery]').forEach(function(b){
-    b.addEventListener('click', function(ev){ if (ev.ctrlKey || ev.metaKey || ev.shiftKey || ev.altKey) return; ev.preventDefault(); openLb(b.dataset.gallery, +b.dataset.index, b); });
-  });
-  btnClose.addEventListener('click', closeLb); btnPrev.addEventListener('click', function(){ step(-1); }); btnNext.addEventListener('click', function(){ step(1); });
-  lb.addEventListener('click', function(ev){ if (ev.target === lb) closeLb(); });
-  document.addEventListener('keydown', function(ev){
-    if (lb.hidden) return;
-    if (ev.key === 'Escape'){ ev.preventDefault(); closeLb(); }
-    else if (ev.key === 'ArrowRight'){ ev.preventDefault(); step(1); }
-    else if (ev.key === 'ArrowLeft'){ ev.preventDefault(); step(-1); }
-    else if (ev.key === 'Tab'){
-      var f = Array.prototype.filter.call(lb.querySelectorAll('a[href], button'), function(x){ return !x.hidden; });
-      var first = f[0], last = f[f.length - 1];
-      if (ev.shiftKey && document.activeElement === first){ ev.preventDefault(); last.focus(); }
-      else if (!ev.shiftKey && document.activeElement === last){ ev.preventDefault(); first.focus(); }
-    }
-  });
-  var tx = null, ty = null;
-  lb.addEventListener('touchstart', function(ev){ tx = ev.touches[0].clientX; ty = ev.touches[0].clientY; }, { passive: true });
-  lb.addEventListener('touchend', function(ev){
-    if (tx === null) return; var dx = ev.changedTouches[0].clientX - tx, dy = ev.changedTouches[0].clientY - ty; tx = ty = null;
-    if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy) * 1.4) step(dx < 0 ? 1 : -1);
-  }, { passive: true });
-
-  /* Formulario */
+  /* ---------------------------------------------------------------- Formulario */
   var form = document.getElementById('form-encargo'), status = document.getElementById('form-status'), envio = document.getElementById('envio');
-  var boton = form.querySelector('button[type="submit"]');
-  var tipos = form.querySelectorAll('input[name^="tipo_"][type="checkbox"]'), conds = form.querySelectorAll('fieldset.cond');
+  var boton = form.querySelector('button[type="submit"]'), resumen = document.getElementById('resumen');
+  var ESQ = [{"id":"contacto","titulo":"Datos de contacto","items":[{"t":"texto","e":"Nombre","req":true,"n":"contacto_nombre"},{"t":"texto","e":"Negocio o marca (si aplica)","n":"contacto_negocio"},{"t":"texto","e":"Número de WhatsApp","req":true,"n":"contacto_whatsapp","tipo":"tel"},{"t":"texto","e":"Correo electrónico (si aplica)","n":"contacto_correo","tipo":"email"}]},{"id":"tipo","titulo":"Tipo de encargo","items":[{"t":"casillas","e":"Tipo de encargo","req":true,"id":"tipo","ops":[["tipo_video","Video"],["tipo_personaje","Personaje (diseño y ficha técnica)"],["tipo_imagen","Imagen o arte"],["tipo_audio","Música, narración o efectos de sonido"],["tipo_otro","Otro"]],"det":{"tipo_otro":{"n":"tipo_otro_detalle","e":"Describa qué necesita"}}}]},{"id":"idea","titulo":"Su idea","items":[{"t":"area","e":"1. ¿Qué producto o idea quiere mostrar?","req":true,"n":"q01_producto_idea"},{"t":"casillas","e":"2. Imágenes de referencia","req_si":["tipo_video","tipo_personaje","tipo_imagen"],"id":"q02_imagenes","ops":[["q02_oficiales","Imágenes oficiales del fabricante o de la tienda"],["q02_propias","Imágenes tomadas por usted: de frente, de lado y de atrás"],["q02_detalles","Imágenes de detalles: rostro, accesorios, piezas"],["q02_sin_imagenes","No tengo imágenes: parto de una idea"]],"excl":"q02_sin_imagenes"},{"t":"area","e":"3. ¿Qué detalles desea que se aprecien más?","req_si":["tipo_video","tipo_personaje","tipo_imagen"],"n":"q03_detalles"},{"t":"area","e":"4. ¿Qué NO quiere que aparezca?","req_si":["tipo_video","tipo_personaje","tipo_imagen"],"n":"q04_no_quiere"},{"t":"area","e":"5. Para adaptar mejor el resultado, cuénteme brevemente su objetivo, el público al que va dirigido o el propósito del encargo (opcional).","n":"q05_objetivo"}]},{"id":"video","titulo":"Video","items":[{"t":"opcion","e":"6. Formato (relación de aspecto)","req":true,"n":"q06_formato","ops":[["16_9","Horizontal 16:9"],["9_16","Vertical 9:16"],["1_1","Cuadrado 1:1"],["4_3","Horizontal 4:3"],["3_4","Vertical 3:4"],["21_9","Panorámico 21:9"]]},{"t":"lista","e":"7. Duración","req":true,"n":"q07_duracion","ops":[["4","4 segundos"],["5","5 segundos"],["6","6 segundos"],["7","7 segundos"],["8","8 segundos"],["9","9 segundos"],["10","10 segundos"],["11","11 segundos"],["12","12 segundos"],["13","13 segundos"],["14","14 segundos"],["15","15 segundos"],["16","16 segundos"],["17","17 segundos"],["18","18 segundos"],["19","19 segundos"],["20","20 segundos"],["21","21 segundos"],["22","22 segundos"],["23","23 segundos"],["24","24 segundos"],["25","25 segundos"],["26","26 segundos"],["27","27 segundos"],["28","28 segundos"],["29","29 segundos"],["30","30 segundos"]]},{"t":"opcion","e":"8. Calidad","req":true,"n":"q08_calidad","ops":[["720p","720p"],["1080p","1080p (alta definición)"]]},{"t":"area","e":"9. ¿Cuál es el escenario que desea para el video?","req":true,"n":"q09_escenario"},{"t":"area","e":"10. Si en el video aparece una figura, un objeto o un personaje, ¿debe quedarse quieto todo el tiempo o solo en una parte?","req":true,"n":"q10_movimiento_camara"},{"t":"sino","e":"11. ¿El video debe mostrar un logo, una marca o un texto?","req":true,"base":"q11_logo","etq":"En caso de que sí, indique cuál y cómo debe aparecer (por ejemplo: al final, con una transición)."},{"t":"sino","e":"12. ¿Quiere que el video incluya el sonido que se genera junto con la imagen?","req":true,"base":"q12_sonido","etq":"En caso de que sí, describa los sonidos que espera y, si alguien habla, escriba lo que dice."}],"cond":"tipo_video"},{"id":"personaje","titulo":"Personaje","items":[{"t":"area","e":"13. ¿Para qué proyecto o negocio es el personaje, a quién va dirigido y qué personalidad debe tener?","req":true,"n":"q13_proyecto_personalidad"},{"t":"area","e":"14. ¿Humano, animal, criatura, robot u objeto? ¿Qué estilo: anime, caricatura, realista, chibi?","req":true,"n":"q14_tipo_estilo"},{"t":"texto","e":"15. Si tiene una paleta de colores definida o una idea de combinación de colores, compártamela (opcional).","n":"q15_colores"},{"t":"area","e":"16. ¿En qué tipo de contenido aparecerá el personaje?","req":true,"n":"q16_contenido"},{"t":"sino","e":"17. ¿El personaje habla?","req":true,"base":"q17_habla","etq":"En caso de que sí, describa cómo suena: edad aproximada, tono, acento."}],"cond":"tipo_personaje"},{"id":"imagen","titulo":"Imagen o arte","items":[{"t":"casillas","e":"18. Formato (relación de aspecto)","req":true,"id":"q18_formato","ops":[["q18_1_1","Cuadrada 1:1"],["q18_4_5","Vertical 4:5"],["q18_9_16","Vertical 9:16"],["q18_16_9","Horizontal 16:9"],["q18_otra","Otra proporción"]],"excl":"q18_otra","det":{"q18_otra":{"n":"q18_otra_detalle","e":"¿Cuál?"}}},{"t":"area","e":"19. ¿Cuántas imágenes desea y sobre qué debe ser cada una?","req":true,"n":"q19_cantidad"},{"t":"sino","e":"20. ¿La imagen o las imágenes llevan texto o un logo?","req":true,"base":"q20_texto_logo","etq":"En caso de que sí, escriba el texto exacto o describa el logo, y dónde debe ir."}],"cond":"tipo_imagen"},{"id":"audio","titulo":"Música, narración y efectos de sonido","items":[{"t":"casillas","e":"21. ¿Qué necesita?","req":true,"id":"q21_audio","ops":[["q21_musica","Música"],["q21_narracion","Narración (voz en off)"],["q21_efectos","Efectos de sonido y ambiente"]],"det":{"q21_musica":{"n":"q21_musica_detalle","e":"Música: describa el estilo, el ritmo, los instrumentos o la letra"},"q21_narracion":{"n":"q21_narracion_detalle","e":"Narración: escriba el texto y cómo debe sonar la voz"},"q21_efectos":{"n":"q21_efectos_detalle","e":"Efectos: descríbalos, con el ambiente, e indique si son para el video de este encargo, para un video suyo (envíemelo por WhatsApp) o sueltos"}}}],"cond":"tipo_audio"},{"id":"comentarios","titulo":"Comentarios adicionales","items":[{"t":"area","e":"¿Algo más que deba saber? (opcional)","n":"comentarios"}]}], LOGOS = {"lockup":{"w":1380.0,"h":225.0,"ink":[35.81,34.69,1362.94,193.69]},"wa":{"w":540.0,"h":540.0,"ink":[0.0,0.0,540.0,540.0]},"compacto":{"w":682.5,"h":187.5,"ink":[30.0,24.19,651.0,161.44]}}, CFG = {"sitio":"zeilork-reyvent.github.io/encargos/","waNum":"+506 8746-4715","nombreSol":"Solicitud de Encargo","waLink":"https://wa.me/50687464715","waImg":"Hola. Le envío mi solicitud de encargo en PDF y las imágenes de referencia.","waSolo":"Hola. Le envío mi solicitud de encargo en PDF.","envioImg":"Ahora envíeme la solicitud por WhatsApp. Adjunte en el chat el archivo descargado y las imágenes de referencia.","envioSolo":"Ahora envíeme la solicitud por WhatsApp. Adjunte en el chat el archivo descargado."};
+  var SITIO = CFG.sitio, WA_NUM = CFG.waNum;
+  var VISUALES = ['tipo_video', 'tipo_personaje', 'tipo_imagen'], REFERENCIAS = ['q02_oficiales', 'q02_propias', 'q02_detalles'];
+  var intentado = false;
+
+  function campo(n){ return form.elements.namedItem(n); }
+  function marcado(n){ var c = campo(n); return !!(c && c.checked && !c.disabled); }
+  function radio(n){ var r = form.querySelector('input[type="radio"][name="' + n + '"]:checked'); return r ? r.value : ''; }
+  function primerRadio(n){ return form.querySelector('input[type="radio"][name="' + n + '"]'); }
+  function texto(n){ var c = campo(n); return c && !c.disabled ? String(c.value || '').trim() : ''; }
+  function visible(sec){ return !sec.cond || marcado(sec.cond); }
+  function requerido(it){ return !!it.req || !!(it.req_si && it.req_si.some(marcado)); }
+  function miles(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
+  function aviso(clase, txt){ status.className = 'status' + (clase ? ' ' + clase : ''); status.textContent = txt; }
+
+  /* Secciones por tipo, opciones que se excluyen, detalles que dependen de una opción y asteriscos condicionales */
   function sync(){
-    Array.prototype.forEach.call(conds, function(fs){ var t = form.querySelector('input[name="' + fs.getAttribute('data-tipo') + '"]'); fs.hidden = !(t && t.checked); });
+    form.querySelectorAll('fieldset.cond').forEach(function(fs){ fs.hidden = !marcado(fs.getAttribute('data-tipo')); });
+    form.querySelectorAll('[data-excl]').forEach(function(g){
+      var ex = g.querySelector('input[name="' + g.getAttribute('data-excl') + '"]');
+      var otros = Array.prototype.filter.call(g.querySelectorAll('input[type="checkbox"]'), function(x){ return x !== ex; });
+      ex.disabled = otros.some(function(x){ return x.checked; });
+      otros.forEach(function(x){ x.disabled = ex.checked; });
+    });
+    form.querySelectorAll('[data-dep]').forEach(function(c){
+      var dep = c.getAttribute('data-dep'), on = dep.indexOf('op:') === 0 ? marcado(dep.slice(3)) : radio(dep.slice(3)) === 'si';
+      c.disabled = !on;
+      var f = c.closest('.field'); if (f) f.classList.toggle('off', !on);
+    });
+    form.querySelectorAll('[data-req-si]').forEach(function(s){ s.hidden = !s.getAttribute('data-req-si').split(',').some(marcado); });
   }
-  Array.prototype.forEach.call(tipos, function(t){ t.addEventListener('change', sync); });
+
+  /* Contador de caracteres disponibles: baja al escribir y sube al borrar */
+  function contar(c){
+    var s = form.querySelector('[data-cnt="' + c.name + '"]'); if (!s) return;
+    var max = +c.getAttribute('maxlength'), quedan = Math.max(0, max - c.value.length);
+    s.textContent = quedan === 0 ? 'Llegó al máximo de ' + miles(max) + ' caracteres.' : (quedan === 1 ? 'Queda 1 carácter' : 'Quedan ' + miles(quedan) + ' caracteres');
+    s.classList.toggle('tope', quedan <= Math.max(20, Math.round(max * .05)));
+  }
+  form.querySelectorAll('[data-cnt]').forEach(function(s){ var c = campo(s.getAttribute('data-cnt')); if (c) contar(c); });
+
+  /* WhatsApp: solo números, el + al inicio, guiones y espacios; lo demás no se escribe (ni al pegar) */
+  var tel = campo('contacto_whatsapp');
+  tel.addEventListener('input', function(){
+    var v = tel.value, pos = tel.selectionStart, limpio = '', np = 0;
+    for (var i = 0; i < v.length; i++){
+      var ch = v.charAt(i);
+      if (ch === '‐' || ch === '‑' || ch === '‒' || ch === '–' || ch === '—' || ch === '−') ch = '-';
+      if (/[0-9 -]/.test(ch) || (ch === '+' && limpio === '')){ limpio += ch; if (i < pos) np++; }
+    }
+    if (limpio !== v){ tel.value = limpio; try { tel.setSelectionRange(np, np); } catch (e) {} }
+  });
+  function telError(v){
+    var d = v.replace(/\D/g, ''), mas = v.charAt(0) === '+';
+    if (!mas) return (d.length === 8 || (d.length === 11 && d.indexOf('506') === 0)) ? '' :
+      'Un número de Costa Rica tiene 8 dígitos. Si es de otro país, escríbalo con + y el código del país.';
+    if (d.indexOf('506') === 0) return d.length === 11 ? '' : 'Después de +506 van 8 dígitos.';
+    return d.length >= 7 && d.length <= 15 ? '' : 'Con el código del país, el número debe tener entre 7 y 15 dígitos.';
+  }
+  var CORREO = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  /* Validación propia: mensajes en rojo junto a cada campo y un resumen junto al botón, que no se borran al desplazarse */
+  function etq(s){ s = s.replace(/ \((si aplica|opcional)\)\.?$/, ''); return s.length > 72 ? s.slice(0, 70).replace(/\s+\S*$/, '') + '…' : s; }
+  function errores(){
+    var lista = [];
+    function add(key, msg, foco, label){ lista.push({ key: key, msg: msg, foco: foco, label: etq(label) }); }
+    ESQ.forEach(function(sec){
+      if (!visible(sec)) return;
+      sec.items.forEach(function(it){
+        var t = it.t;
+        if (t === 'texto' || t === 'area'){
+          var v = texto(it.n), c = campo(it.n);
+          if (!v){ if (requerido(it)) add(it.n, it.tipo === 'tel' ? 'Escriba su número de WhatsApp.' : 'Complete este campo.', c, it.e); }
+          else if (it.tipo === 'tel'){ var m = telError(v); if (m) add(it.n, m, c, it.e); }
+          else if (it.tipo === 'email' && !CORREO.test(v)) add(it.n, 'Revise el correo: debe tener la forma nombre@ejemplo.com.', c, it.e);
+        } else if (t === 'casillas'){
+          var marcadas = it.ops.filter(function(o){ return marcado(o[0]); });
+          if (!marcadas.length && requerido(it)) add(it.id, it.id === 'tipo' ? 'Marque al menos un tipo de encargo.' : 'Marque al menos una opción.', campo(it.ops[0][0]), it.e);
+          marcadas.forEach(function(o){ var d = it.det && it.det[o[0]]; if (d && !texto(d.n)) add(d.n, 'Complete este campo, porque marcó «' + o[1] + '».', campo(d.n), d.e); });
+        } else if (t === 'opcion'){
+          if (!radio(it.n) && requerido(it)) add(it.n, 'Elija una opción.', primerRadio(it.n), it.e);
+        } else if (t === 'lista'){
+          if (!campo(it.n).value && requerido(it)) add(it.n, 'Elija una opción de la lista.', campo(it.n), it.e);
+        } else if (t === 'sino'){
+          var r = radio(it.base);
+          if (!r){ if (requerido(it)) add(it.base, 'Marque «Sí» o «No».', primerRadio(it.base), it.e); }
+          else if (r === 'si' && !texto(it.base + '_detalle')) add(it.base + '_detalle', 'Complete este campo, porque marcó «Sí».', campo(it.base + '_detalle'), it.etq);
+        }
+      });
+    });
+    return lista;
+  }
+  function ir(foco){
+    var caja = foco.closest('.field') || foco.closest('.q') || foco;
+    foco.focus({ preventScroll: true });
+    caja.scrollIntoView({ block: 'center', behavior: reduced ? 'auto' : 'smooth' });
+  }
+  function pintar(lista){
+    form.querySelectorAll('[data-err]').forEach(function(p){ p.hidden = true; p.textContent = ''; });
+    form.querySelectorAll('[aria-invalid]').forEach(function(x){ x.removeAttribute('aria-invalid'); });
+    lista.forEach(function(er){
+      var p = form.querySelector('[data-err="' + er.key + '"]');
+      if (p){ p.textContent = er.msg; p.hidden = false; }
+      var c = campo(er.key);
+      if (c && c.setAttribute && c.length === undefined) c.setAttribute('aria-invalid', 'true');
+      var g = p && p.previousElementSibling;
+      if (g && g.matches('[role="group"],[role="radiogroup"]')) g.setAttribute('aria-invalid', 'true');
+    });
+    var ul = resumen.querySelector('ul'); ul.textContent = '';
+    if (!lista.length){ resumen.hidden = true; return; }
+    resumen.querySelector('p').textContent = lista.length === 1 ? 'Revise este dato antes de descargar la solicitud:' :
+      'Revise estos ' + lista.length + ' datos antes de descargar la solicitud:';
+    lista.forEach(function(er){
+      var li = document.createElement('li'), a = document.createElement('a');
+      a.href = '#' + er.foco.id; a.textContent = er.label;
+      a.addEventListener('click', function(ev){ ev.preventDefault(); ir(er.foco); });
+      li.appendChild(a); ul.appendChild(li);
+    });
+    resumen.hidden = false;
+  }
+
+  form.addEventListener('change', function(){ sync(); if (intentado) pintar(errores()); });
+  form.addEventListener('input', function(ev){
+    if (ev.target.hasAttribute && ev.target.hasAttribute('maxlength')) contar(ev.target);
+    if (intentado) pintar(errores());
+  });
   sync();
-  var fecha = form.querySelector('input[name="contacto_fecha"]');
-  if (fecha && !fecha.value){ var d = new Date(), p2 = function(n){ return (n < 10 ? '0' : '') + n; }; fecha.value = d.getFullYear() + '-' + p2(d.getMonth() + 1) + '-' + p2(d.getDate()); }
-  function aviso(clase, texto){ status.className = 'status' + (clase ? ' ' + clase : ''); status.textContent = texto; }
 
-  var ESQ = [{"titulo":"Sus datos de contacto","items":[{"t":"texto","e":"Nombre","n":"contacto_nombre"},{"t":"texto","e":"Negocio o marca (si aplica)","n":"contacto_negocio"},{"t":"texto","e":"Número de WhatsApp","n":"contacto_whatsapp"},{"t":"texto","e":"Correo electrónico","n":"contacto_correo"},{"t":"texto","e":"Fecha","n":"contacto_fecha","fecha":true}]},{"titulo":"Tipo de encargo","items":[{"t":"casillas","e":"Tipo de encargo","ops":[["tipo_video","Video"],["tipo_personaje","Personaje (diseño y ficha técnica)"],["tipo_imagen","Imagen o arte"]]},{"t":"texto","e":"Otra idea (descríbala)","n":"tipo_otra_idea"}]},{"titulo":"El encargo","items":[{"t":"area","e":"1. ¿Qué producto o idea quiere mostrar?","n":"q01_producto_idea"},{"t":"casillas","e":"2. Imágenes de referencia","ops":[["q02_oficiales","Imágenes oficiales del fabricante o de la tienda"],["q02_propias","Imágenes tomadas por usted: de frente, de lado y de atrás"],["q02_detalles","Imágenes de detalles: rostro, accesorios, piezas"],["q02_sin_imagenes","No tengo imágenes: parto de una idea"]]},{"t":"area","e":"3. ¿Qué detalles desea que se aprecien más?","n":"q03_detalles"},{"t":"casillas","e":"4. Formato (relación de aspecto)","ops":[["q04_16_9","Horizontal 16:9"],["q04_9_16","Vertical 9:16"],["q04_1_1","Cuadrado 1:1"],["q04_4_3","Horizontal 4:3"],["q04_3_4","Vertical 3:4"],["q04_21_9","Panorámico 21:9"]]},{"t":"duracion","e":"5. Duración y calidad","n":"q05_duracion","ops":[["q05_720","Calidad 720p"],["q05_1080","Calidad 1080p (alta definición)"]]},{"t":"area","e":"6. ¿Cuál es el escenario que desea para el video?","n":"q06_escenario"},{"t":"area","e":"7. Si en el video aparece una figura, un objeto o un personaje, ¿debe quedarse quieto todo el tiempo o solo en una parte?","n":"q07_movimiento_camara"},{"t":"sino","e":"8. ¿Debe llevar texto o un logo?","base":"q08_texto_logo"},{"t":"grupo","e":"9. Música, voces y efectos de sonido","subs":[["Música","q09_musica"],["Voces","q09_voces"],["Efectos de sonido","q09_efectos"]]},{"t":"area","e":"10. ¿Qué NO quiere que aparezca?","n":"q10_no_quiere"},{"t":"texto","e":"11. ¿Para cuándo lo necesita?","n":"q11_fecha"},{"t":"area","e":"12. Para adaptar mejor el resultado, cuénteme brevemente su objetivo, el público al que va dirigido o el propósito del video (opcional).","n":"q12_objetivo"}]},{"titulo":"Personaje","items":[{"t":"area","e":"13. ¿Para qué proyecto o negocio es el personaje, a quién va dirigido y qué personalidad debe tener?","n":"q13_proyecto_personalidad"},{"t":"area","e":"14. ¿Humano, animal, criatura, robot u objeto? ¿Qué estilo: anime, caricatura, realista, chibi?","n":"q14_tipo_estilo"},{"t":"texto","e":"15. Si tiene una paleta de colores definida o una idea de combinación de colores, compártamela.","n":"q15_colores"},{"t":"area","e":"16. ¿En qué tipo de contenido aparecerá el personaje?","n":"q16_contenido"},{"t":"texto","e":"17. ¿El personaje habla? Si habla, ¿cómo suena: edad aproximada, tono, acento?","n":"q17_voz"}],"cond":"tipo_personaje"},{"titulo":"Imagen o arte","items":[{"t":"casillas","e":"18. Formato (relación de aspecto)","ops":[["q18_1_1","Cuadrada 1:1"],["q18_4_5","Vertical 4:5"],["q18_9_16","Vertical 9:16"],["q18_16_9","Horizontal 16:9"]]},{"t":"texto","e":"Otra proporción","n":"q18_otra"},{"t":"area","e":"19. ¿Cuántas imágenes desea y sobre qué debe ser cada una?","n":"q19_cantidad"},{"t":"area","e":"20. ¿La imagen o las imágenes llevan texto?","n":"q20_texto"}],"cond":"tipo_imagen"},{"titulo":"Comentarios adicionales","items":[{"t":"area","e":"¿Algo más que deba saber?","n":"comentarios"}]}];
-  var LOGOS = {"lockup":{"w":1380.0,"h":225.0,"ink":[35.81,34.69,1362.94,193.69]},"wa":{"w":540.0,"h":540.0,"ink":[0.0,0.0,540.0,540.0]},"compacto":{"w":682.5,"h":187.5,"ink":[30.0,24.19,651.0,161.44]}};
-  var SITIO = "zeilork-reyvent.github.io/encargos/", WA_NUM = "+506 8746-4715", NOMBRE_SOL = "Solicitud de Encargo";
-
+  /* ---------------------------------------------------------------- Solicitud en PDF */
+  function etiquetaDe(ops, v){ for (var k = 0; k < ops.length; k++) if (ops[k][0] === v) return ops[k][1]; return v; }
+  function respuesta(it){
+    var t = it.t;
+    if (t === 'texto' || t === 'area') return texto(it.n);
+    if (t === 'casillas'){
+      var conDetalle = false;
+      var partes = it.ops.filter(function(o){ return marcado(o[0]); }).map(function(o){
+        var d = it.det && it.det[o[0]]; if (d) conDetalle = true;
+        var v = d ? texto(d.n) : ''; return v ? o[1] + ': ' + v : o[1];
+      });
+      return partes.join(conDetalle ? '\n' : ', ');
+    }
+    if (t === 'opcion'){ var r = radio(it.n); return r ? etiquetaDe(it.ops, r) : ''; }
+    if (t === 'lista'){ var s = campo(it.n).value; return s ? etiquetaDe(it.ops, s) : ''; }
+    if (t === 'sino'){
+      var v = radio(it.base); if (!v) return ''; if (v === 'no') return 'No';
+      var det = texto(it.base + '_detalle'); return det ? 'Sí. ' + det : 'Sí';
+    }
+    return '';
+  }
   function recoger(){
     var datos = {};
-    form.querySelectorAll('[data-pdf]').forEach(function(el){
-      var fs = el.closest('fieldset.cond'); if (fs && fs.hidden) return;
-      var n = el.getAttribute('data-pdf');
-      if (el.type === 'checkbox'){ if (el.checked) datos[n] = true; return; }
-      var v = String(el.value || '').trim(); if (!v) return;
-      if (el.type === 'date'){ var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(v); if (m) v = m[3] + '/' + m[2] + '/' + m[1]; }
-      datos[n] = v;
+    Array.prototype.forEach.call(form.elements, function(c){
+      if (!c.name || c.disabled || c.type === 'submit') return;
+      var fs = c.closest('fieldset.cond'); if (fs && fs.hidden) return;
+      if (c.type === 'checkbox'){ if (c.checked) datos[c.name] = true; return; }
+      if (c.type === 'radio'){ if (c.checked) datos[c.name] = c.value; return; }
+      var v = String(c.value || '').trim(); if (v) datos[c.name] = v;
     });
     return datos;
   }
@@ -726,21 +691,10 @@ document.documentElement.classList.add('js');
     });
     return lineas;
   }
-  function respuesta(it, datos){
-    var t = it.t;
-    if (t === 'texto' || t === 'area') return datos[it.n] || '';
-    if (t === 'casillas') return it.ops.filter(function(o){ return datos[o[0]]; }).map(function(o){ return o[1]; }).join(', ');
-    if (t === 'sino'){ var si = datos[it.base + '_si'], no = datos[it.base + '_no'], det = datos[it.base] || '';
-      var r = si ? 'Sí' : (no ? 'No' : ''); return det ? (r ? r + '. ' + det : det) : r; }
-    if (t === 'grupo') return it.subs.map(function(s){ var r = respuesta({ t: 'sino', base: s[1] }, datos); return r ? s[0] + ': ' + r : ''; }).filter(Boolean).join('\n');
-    if (t === 'duracion'){ var partes = []; if (datos[it.n]) partes.push(datos[it.n] + ' segundos');
-      it.ops.forEach(function(o){ if (datos[o[0]]) partes.push(o[1]); }); return partes.join(' · '); }
-    return '';
-  }
   function cargarPdfLib(){
     return window.PDFLib ? Promise.resolve() : new Promise(function(res, rej){ var s = document.createElement('script'); s.src = 'pdf-lib.min.js'; s.onload = res; s.onerror = rej; document.head.appendChild(s); });
   }
-  async function construir(datos){
+  async function construir(){
     var PL = window.PDFLib, doc = await PL.PDFDocument.create();
     var rec = await fetch('recursos-solicitud.pdf').then(function(r){ if (!r.ok) throw new Error('recursos'); return r.arrayBuffer(); });
     var emb = await doc.embedPdf(rec, [0, 1, 2]), lockup = emb[0], wa = emb[1], compacto = emb[2];
@@ -793,37 +747,37 @@ document.documentElement.classList.add('js');
       page.drawRectangle({ x: M, y: y - 15, width: 4, height: 16, color: RED });
       page.drawText(limpiar(titulo), { x: M + 11, y: y - 13, size: 13.5, font: bold, color: NAVY }); y -= 24;
     }
-    function pregunta(etq, resp){
-      var le = envolver(limpiar(etq), bold, 10, ANCHO), lr = envolver(limpiar(resp), font, 10, ANCHO);
+    function pregunta(etqP, resp, colorResp){
+      var le = envolver(limpiar(etqP), bold, 10, ANCHO), lr = envolver(limpiar(resp), font, 10, ANCHO);
       necesitar(LEAD * Math.min(le.length + 1, 4));
-      lineas(le, bold, 10, INK); lineas(lr, font, 10, INK); y -= 8;
+      lineas(le, bold, 10, INK); lineas(lr, font, 10, colorResp || INK); y -= 8;
     }
-    function parValor(etq, val){
-      var le = limpiar(etq) + ': ', lw = bold.widthOfTextAtSize(le, 10), lv = envolver(limpiar(val), font, 10, ANCHO - lw);
+    function parValor(etqP, val){
+      var le = limpiar(etqP) + ': ', lw = bold.widthOfTextAtSize(le, 10), lv = envolver(limpiar(val), font, 10, ANCHO - lw);
       necesitar(LEAD); page.drawText(le, { x: M, y: y - 10, size: 10, font: bold, color: INK });
       if (lv[0]) page.drawText(lv[0], { x: M + lw, y: y - 10, size: 10, font: font, color: INK }); y -= LEAD;
       lineas(lv.slice(1), font, 10, INK, M + lw);
     }
     nuevaPagina();
     var hoy = new Date(), p2 = function(n){ return (n < 10 ? '0' : '') + n; };
-    var fechaTxt = datos.contacto_fecha || (p2(hoy.getDate()) + '/' + p2(hoy.getMonth() + 1) + '/' + hoy.getFullYear());
+    var fechaTxt = p2(hoy.getDate()) + '/' + p2(hoy.getMonth() + 1) + '/' + hoy.getFullYear();
     ESQ.forEach(function(sec){
-      if (sec.cond && !datos[sec.cond]) return;
-      var pares = [];
-      sec.items.forEach(function(it){ var r = respuesta(it, datos); if (r) pares.push([it.e, r]); });
-      if (sec.titulo === 'Sus datos de contacto'){
-        seccion('Datos de contacto');
-        pares.forEach(function(p){ if (p[0] !== 'Fecha') parValor(p[0], p[1]); });
+      seccion(sec.titulo);
+      if (sec.id === 'contacto'){
+        sec.items.forEach(function(it){ parValor(it.e.replace(/ \(si aplica\)$/, ''), texto(it.n) || 'N/A'); });
         parValor('Fecha de la solicitud', fechaTxt); y -= 6; return;
       }
-      if (!pares.length) return;
-      seccion(sec.titulo);
-      pares.forEach(function(p){ pregunta(p[0], p[1]); });
+      if (!visible(sec)){ lineas(['No se pidió.'], font, 10, MUTED); y -= 8; return; }
+      sec.items.forEach(function(it){
+        var r = respuesta(it);
+        if (it.e === sec.titulo){ lineas(envolver(limpiar(r || 'N/A'), font, 10, ANCHO), font, 10, INK); y -= 8; }
+        else pregunta(it.e, r || 'N/A', r ? INK : MUTED);
+      });
     });
-    var nombre = datos.contacto_nombre || '';
+    var nombre = texto('contacto_nombre');
     doc.setTitle(limpiar('Solicitud de encargo — ' + nombre)); doc.setAuthor(limpiar(nombre)); doc.setSubject('Solicitud de encargo: videos e imágenes con IA');
     doc.setCreator('Página de encargos de ZeilorK ReyvenT'); doc.setProducer('pdf-lib'); doc.setCreationDate(hoy); doc.setModificationDate(hoy);
-    var json = JSON.stringify({ version: 'v5', generado: hoy.toISOString(), respuestas: datos });
+    var json = JSON.stringify({ version: 'v6', generado: hoy.toISOString(), respuestas: recoger() });
     await doc.attach(new TextEncoder().encode(json), 'respuestas.json', { mimeType: 'application/json', description: 'Respuestas del formulario', creationDate: hoy, modificationDate: hoy });
     return doc.save();
   }
@@ -834,21 +788,22 @@ document.documentElement.classList.add('js');
   }
   form.addEventListener('submit', async function(ev){
     ev.preventDefault();
-    if (!form.reportValidity()) return;
-    var marcados = Array.prototype.some.call(tipos, function(t){ return t.checked; });
-    if (!marcados && !form.querySelector('[name="tipo_otra_idea"]').value.trim()){
-      aviso('err', 'Marque al menos un tipo de encargo o describa su idea.'); tipos[0].focus(); return;
-    }
+    intentado = true; sync();
+    var lista = errores(); pintar(lista);
+    if (lista.length){ aviso('', ''); envio.hidden = true; ir(lista[0].foco); return; }
     boton.disabled = true; envio.hidden = true; aviso('', 'Preparando su solicitud…');
     try {
       await cargarPdfLib();
-      var datos = recoger();
-      var nombre = (datos.contacto_nombre || '').replace(/[\\/:*?"<>|]+/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 60);
-      var archivo = NOMBRE_SOL + (nombre ? ' - ' + nombre : '') + '.pdf';
-      var bytes = await construir(datos);
+      var nombre = texto('contacto_nombre').replace(/[\\/:*?"<>|]+/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 60);
+      var archivo = CFG.nombreSol + (nombre ? ' - ' + nombre : '') + '.pdf';
+      var bytes = await construir();
       descargar(bytes, archivo);
       aviso('ok', 'Se descargó «' + archivo + '».');
-      envio.hidden = false; envio.querySelector('a').focus({ preventScroll: true }); envio.scrollIntoView({ block: 'nearest', behavior: reduced ? 'auto' : 'smooth' });
+      var conImagenes = VISUALES.some(marcado) && REFERENCIAS.some(marcado);
+      document.getElementById('envio-txt').textContent = conImagenes ? CFG.envioImg : CFG.envioSolo;
+      var wa = envio.querySelector('a');
+      wa.href = CFG.waLink + '?text=' + encodeURIComponent(conImagenes ? CFG.waImg : CFG.waSolo);
+      envio.hidden = false; wa.focus({ preventScroll: true }); envio.scrollIntoView({ block: 'nearest', behavior: reduced ? 'auto' : 'smooth' });
     } catch (err) {
       console.error(err);
       aviso('err', 'No se pudo preparar la solicitud. Descargue el formulario en blanco, llénelo y envíemelo por WhatsApp.');
@@ -856,6 +811,7 @@ document.documentElement.classList.add('js');
     boton.disabled = false;
   });
 })();
+
 </script>
 </body>
 </html>
