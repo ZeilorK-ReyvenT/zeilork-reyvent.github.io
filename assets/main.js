@@ -123,17 +123,24 @@ document.documentElement.classList.add('js');
   /* Native section index: links work even without JavaScript. */
   var sectionMenu = document.getElementById('section-menu'), menuSummary = sectionMenu.querySelector('summary');
   sectionMenu.querySelectorAll('a').forEach(function(link){
-    link.addEventListener('click', function(){
+    link.addEventListener('click', function(e){
       sectionMenu.open = false;
-      var target = document.querySelector(link.getAttribute('href'));
-      if (target){ target.setAttribute('tabindex', '-1'); target.focus({preventScroll:true}); }
+      var href = link.getAttribute('href');
+      if (href.charAt(0) !== '#') return;                 /* «Encargos» abre la otra página */
+      var target = document.querySelector(href);
+      if (!target) return;
+      e.preventDefault();                                 /* el desplazamiento se hace aquí, igual en todos los navegadores */
+      var margen = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 76;
+      window.scrollTo({ top: Math.max(0, target.getBoundingClientRect().top + window.pageYOffset - margen), behavior: reduced ? 'auto' : 'smooth' });
+      if (history.pushState) history.pushState(null, '', href);
+      target.setAttribute('tabindex', '-1'); target.focus({ preventScroll: true });
     });
   });
   sectionMenu.addEventListener('keydown', function(e){
     if (e.key === 'Escape'){ sectionMenu.open = false; menuSummary.focus(); }
   });
-  document.addEventListener('click', function(e){ if (!sectionMenu.contains(e.target)) sectionMenu.open = false; });
-  sectionMenu.addEventListener('focusout', function(e){ if (!sectionMenu.contains(e.relatedTarget)) sectionMenu.open = false; });
+  document.addEventListener('pointerdown', function(e){ if (sectionMenu.open && !sectionMenu.contains(e.target)) sectionMenu.open = false; });
+  sectionMenu.addEventListener('focusout', function(e){ if (e.relatedTarget && !sectionMenu.contains(e.relatedTarget)) sectionMenu.open = false; });
   window.matchMedia('(min-width: 1001px)').addEventListener('change', function(e){ if (e.matches) sectionMenu.open = false; });
 
   /* Reveals */
@@ -205,7 +212,7 @@ document.documentElement.classList.add('js');
   mpPlay.addEventListener('click', function(){ if (!cur) return; audio.paused ? play(cur) : pause(); });
   mpRep.addEventListener('click', function(){
     repeatMode = (repeatMode + 1) % 3; mpRep.dataset.mode = repeatMode;
-    mpRep.title = REP_LABELS[repeatMode]; mpRep.setAttribute('aria-label', 'Repetición: ' + REP_ARIA[repeatMode] + '. Toca para cambiar el modo');
+    mpRep.title = REP_LABELS[repeatMode]; mpRep.setAttribute('aria-label', 'Repetición: ' + REP_ARIA[repeatMode] + '. Toque para cambiar el modo');
     showToast(REP_LABELS[repeatMode]);
   });
   audio.addEventListener('ended', function(){
